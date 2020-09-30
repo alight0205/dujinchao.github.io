@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="新增属性placeholder（文本框提示信息，无兼容性问题）1&lt;input type&#x3D; &quot;text&quot; placeholder&#x3D;&quot;请输入用户名&quot;&gt;&lt;&#x2F;input&gt;  input 新 Type ps:基本没卵用，兼容性很不好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5详解">
+<meta property="og:url" content="http://example.com/2020/10/01/HTML5%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Mr.Duの博客">
+<meta property="og:description" content="新增属性placeholder（文本框提示信息，无兼容性问题）1&lt;input type&#x3D; &quot;text&quot; placeholder&#x3D;&quot;请输入用户名&quot;&gt;&lt;&#x2F;input&gt;  input 新 Type ps:基本没卵用，兼容性很不好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2.png">
+<meta property="article:published_time" content="2020-09-30T16:47:12.000Z">
+<meta property="article:modified_time" content="2020-09-30T17:05:15.008Z">
+<meta property="article:author" content="黑砸是只猫">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2.png">
+
+
+<link rel="canonical" href="http://example.com/2020/10/01/HTML5%E8%AF%A6%E8%A7%A3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTML5详解 | Mr.Duの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+ <a target="_blank" rel="noopener" href="https://github.com/cat-heiza" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mr.Duの博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半山腰总是最拥挤的，你得去山顶看看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholder%EF%BC%88%E6%96%87%E6%9C%AC%E6%A1%86%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF%EF%BC%8C%E6%97%A0%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">placeholder（文本框提示信息，无兼容性问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-%E6%96%B0-Type"><span class="nav-number">1.2.</span> <span class="nav-text">input 新 Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#contentEditable-%E6%96%87%E6%9C%AC%E5%8F%AF%E7%BC%96%E8%BE%91-%EF%BC%88%E6%97%A0%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">contentEditable 文本可编辑 （无兼容问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#draggable-%E6%8B%96%E6%8B%BD%EF%BC%88Chrome%E3%80%81Safari-%E6%94%AF%E6%8C%81%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">draggable 拖拽（Chrome、Safari 支持）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%96%E6%8B%BD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%8C%E6%8B%96%E6%8B%BD%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">拖拽的生命周期，拖拽的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%96%E6%8B%BD%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">拖拽触发事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%96%E6%8B%BD%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.7.</span> <span class="nav-text">拖拽区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E6%8B%96%E6%8B%BD%E6%97%B6%E7%9A%84%E5%85%89%E6%A0%87%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%8F%AA%E6%9C%89-chrome-%E6%94%AF%E6%8C%81%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">改变拖拽时的光标（基本只有 chrome 支持）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hidden"><span class="nav-number">1.9.</span> <span class="nav-text">Hidden</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-menu"><span class="nav-number">1.10.</span> <span class="nav-text">Context-menu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date-Val-%E3%80%8B-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="nav-number">1.11.</span> <span class="nav-text">Date-Val -》 自定义属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE"><span class="nav-number">2.</span> <span class="nav-text">新增标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE%EF%BC%88%E4%B8%80%E7%BE%A4%E8%AF%AD%E4%B9%89%E5%8C%96%E7%9A%84-div%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">语义化标签（一群语义化的 div）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canvas%EF%BC%88%E7%94%BB%E5%B8%83%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">canvas（画布）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E5%BD%A2"><span class="nav-number">2.3.</span> <span class="nav-text">矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%86%E5%BD%A2"><span class="nav-number">2.4.</span> <span class="nav-text">圆形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2"><span class="nav-number">2.5.</span> <span class="nav-text">圆角矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.6.</span> <span class="nav-text">贝塞尔曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%98%E6%8D%A2"><span class="nav-number">2.7.</span> <span class="nav-text">坐标系变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%A1%AB%E5%85%85"><span class="nav-number">2.8.</span> <span class="nav-text">背景填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B4%E5%BD%B1"><span class="nav-number">2.9.</span> <span class="nav-text">阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E5%AD%97"><span class="nav-number">2.10.</span> <span class="nav-text">文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%AB%AF%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.11.</span> <span class="nav-text">线端样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svg%EF%BC%88%E7%94%BB%E5%B8%83%EF%BC%89"><span class="nav-number">2.12.</span> <span class="nav-text">svg（画布）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8C-canvas-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.13.</span> <span class="nav-text">和 canvas 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.14.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path-%E6%A0%87%E7%AD%BE-%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7-d-%E9%87%8C%E9%9D%A2%E5%8F%AF%E4%BC%A0%E5%A4%9A%E5%A4%9A%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%80%BC"><span class="nav-number">2.15.</span> <span class="nav-text">path 标签:只有一个属性 d,里面可传多多种类型值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%90%E5%8F%98-defs-%E6%A0%87%E7%AD%BE"><span class="nav-number">2.16.</span> <span class="nav-text">渐变 defs 标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-%E6%A0%87%E7%AD%BE-%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%EF%BC%88%E6%BB%A4%E9%95%9C%EF%BC%89"><span class="nav-number">2.17.</span> <span class="nav-text">filter 标签 高斯模糊（滤镜）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Audio%EF%BC%88%E5%A3%B0%E9%9F%B3%E6%92%AD%E6%94%BE%EF%BC%89"><span class="nav-number">2.18.</span> <span class="nav-text">Audio（声音播放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Video%EF%BC%88%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%EF%BC%89"><span class="nav-number">2.19.</span> <span class="nav-text">Video（视频播放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">2.20.</span> <span class="nav-text">自定义工具栏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF-geoLocation"><span class="nav-number">3.</span> <span class="nav-text">获取地理信息 geoLocation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%86%99%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">4 行代码写个服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%8A%9B%E6%84%9F%E5%BA%94"><span class="nav-number">5.</span> <span class="nav-text">重力感应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E6%91%87%E6%99%83"><span class="nav-number">6.</span> <span class="nav-text">手机摇晃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB%E4%BC%98%E5%8C%96-requestAnimationFrame"><span class="nav-number">7.</span> <span class="nav-text">动画优化 requestAnimationFrame</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8-localStorage"><span class="nav-number">8.</span> <span class="nav-text">浏览器存储 localStorage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#history"><span class="nav-number">9.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#worker"><span class="nav-number">10.</span> <span class="nav-text">worker</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="黑砸是只猫"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">黑砸是只猫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cat-heiza" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cat-heiza" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1778911090@qq.com" title="E-Mail → mailto:1778911090@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/01/HTML5%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="黑砸是只猫">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Duの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML5详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-01 00:47:12 / 修改时间：01:05:15" itemprop="dateCreated datePublished" datetime="2020-10-01T00:47:12+08:00">2020-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>16k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="新增属性"><a href="#新增属性" class="headerlink" title="新增属性"></a>新增属性</h1><h2 id="placeholder（文本框提示信息，无兼容性问题）"><a href="#placeholder（文本框提示信息，无兼容性问题）" class="headerlink" title="placeholder（文本框提示信息，无兼容性问题）"></a>placeholder（文本框提示信息，无兼容性问题）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D; &quot;text&quot; placeholder&#x3D;&quot;请输入用户名&quot;&gt;&lt;&#x2F;input&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="input-新-Type"><a href="#input-新-Type" class="headerlink" title="input 新 Type"></a>input 新 Type</h2><blockquote>
+<p>ps:基本没卵用，兼容性很不好</p>
+</blockquote>
+<a id="more"></a>
+
+<p>时间相关（不常用） 缺点：1.丑。2.兼容性很不好(基本只有 Chrome 支持)</p>
+<ul>
+<li>date 日期选择</li>
+<li>time 时间</li>
+<li>week 第几年第几周</li>
+<li>datetime-local 年月日时间组合<br></li>
+</ul>
+<p>还有一些属性<br></p>
+<ul>
+<li>number 只能填数字的文本框（Chrome 支持）</li>
+<li>email 邮箱格式（Chrome、火狐支持）</li>
+<li>color 颜色选择器（Chrome 支持）</li>
+<li>range 一个可滑动的条，使用的时候填上 min=”1” max=”100” ,这样就能获取到 value 值（Chrome、safari 支持）</li>
+<li>search 文本框能提示以前填过值，还能点 x 删除已输入的内容（Chrome 支持）</li>
+<li>url 必须是网址（Chrome、火狐支持）</li>
+</ul>
+<h2 id="contentEditable-文本可编辑-（无兼容问题）"><a href="#contentEditable-文本可编辑-（无兼容问题）" class="headerlink" title="contentEditable 文本可编辑 （无兼容问题）"></a>contentEditable 文本可编辑 （无兼容问题）</h2><ul>
+<li>默认是 false</li>
+<li>为 true 时，点击后文本会变成一个超长的文本框</li>
+<li>属性可继承，父级设置了子元素可以编辑</li>
+<li>一般用于 table</li>
+<li>不要嵌套来使用，会出现一些问题。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div contentEditable&#x3D;&quot;true&quot;&gt;hahaha&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="draggable-拖拽（Chrome、Safari-支持）"><a href="#draggable-拖拽（Chrome、Safari-支持）" class="headerlink" title="draggable 拖拽（Chrome、Safari 支持）"></a>draggable 拖拽（Chrome、Safari 支持）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;width: 100px;height: 100px;background-color: red;&quot; draggable&#x3D;&quot;true&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>a 标签、img 标签默认可拖拽</li>
+</ul>
+<h2 id="拖拽的生命周期，拖拽的组成"><a href="#拖拽的生命周期，拖拽的组成" class="headerlink" title="拖拽的生命周期，拖拽的组成"></a>拖拽的生命周期，拖拽的组成</h2><p>1.周期：拖拽开始 -》 拖拽进行中 -》 拖拽结束 2.组成：被拖拽物体，目标区域</p>
+<h2 id="拖拽触发事件"><a href="#拖拽触发事件" class="headerlink" title="拖拽触发事件"></a>拖拽触发事件</h2><ul>
+<li>dragstart 开始拖拽时触发事件</li>
+<li>drag 在移动时触发</li>
+<li>dragend 拖拽结束时触发事件</li>
+<li>作用：可以时刻关注着拖拽的位置</li>
+<li>可以配合 js 来实现拖拽松手后，位置改变</li>
+<li>所有标签元素，当拖拽周期结束时，默认事件是回到原处</li>
+</ul>
+<h2 id="拖拽区域"><a href="#拖拽区域" class="headerlink" title="拖拽区域"></a>拖拽区域</h2><p>事件</p>
+<ul>
+<li>draginner 拖拽元素进入自己区域触发（注意触发点是鼠标，不是拖拽元素边界）</li>
+<li>dragover 拖拽元素在自己区域内移动就不停触发</li>
+<li>dragleave 拖拽元素离开自己区域时触发事件</li>
+<li>drop 放下（拖拽元素在自己区域内松手），触发需要取消 dragover 默认事件 e.preventDefault()</li>
+</ul>
+<h2 id="改变拖拽时的光标（基本只有-chrome-支持）"><a href="#改变拖拽时的光标（基本只有-chrome-支持）" class="headerlink" title="改变拖拽时的光标（基本只有 chrome 支持）"></a>改变拖拽时的光标（基本只有 chrome 支持）</h2><ul>
+<li>e.dataTransfer.effectAllowed =”link” 推拽的时候改变鼠标样式。只能在 dragstart 事件中设置</li>
+<li>e.dataTransfer.dropEffect =”link” 推拽的时候改变鼠标样式。只能在 drop 事件中设置</li>
+<li>link、copy、move、copyMove、linkMove、all</li>
+</ul>
+<h2 id="Hidden"><a href="#Hidden" class="headerlink" title="Hidden"></a>Hidden</h2><h2 id="Context-menu"><a href="#Context-menu" class="headerlink" title="Context-menu"></a>Context-menu</h2><h2 id="Date-Val-》-自定义属性"><a href="#Date-Val-》-自定义属性" class="headerlink" title="Date-Val -》 自定义属性"></a>Date-Val -》 自定义属性</h2><h1 id="新增标签"><a href="#新增标签" class="headerlink" title="新增标签"></a>新增标签</h1><h2 id="语义化标签（一群语义化的-div）"><a href="#语义化标签（一群语义化的-div）" class="headerlink" title="语义化标签（一群语义化的 div）"></a>语义化标签（一群语义化的 div）</h2><ul>
+<li>header</li>
+<li>footer</li>
+<li>nav （导航）</li>
+<li>section（段落）</li>
+<li>article（文章，可以直接被引用拿走的，完整的。比如整篇文章之类）</li>
+<li>aside（侧边栏）</li>
+</ul>
+<h2 id="canvas（画布）"><a href="#canvas（画布）" class="headerlink" title="canvas（画布）"></a>canvas（画布）</h2><ul>
+<li>css 设置大小不是画布的大小</li>
+<li>在行间样式上设置宽高才是画布的大小</li>
+<li>画布方法：</li>
+<li>getContext(“2d”);获取内容区，相当于他的画笔</li>
+<li>moveTo() 一笔的起点</li>
+<li>lineTo() 画到哪</li>
+<li>stroke() 执行</li>
+<li>lineWidth=1px; 线条宽度，写在哪都相当于写在最前面</li>
+<li>fill(); 填充黑色</li>
+<li>beginPath(); 重新开始一条线<br></li>
+<li>closePath(); 闭合到开始的点,只针对一笔画的图形。</li>
+<li>clearRect(0,0,500,500); 橡皮擦，a,b 起始位置 c,d 宽高</li>
+<li>开发小规范：在画线前尽量写上 beginPath()，循环的时候不会出错。<br>图形：</li>
+</ul>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><ul>
+<li>rect(100,100,150,100) 画矩形，起始位置 a,b 长宽 c,d</li>
+<li>strokeRect(100,100,150,100) 直接生成矩形，省略 stroke()这一步</li>
+<li>fillRect(100,100,150,100) 直接生成填充的 矩形</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id&#x3D;&quot;can&quot; width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot;&gt;&lt;&#x2F;canvas&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var canvas &#x3D; document.getElementById(&#39;can&#39;);</span><br><span class="line">        var ctx &#x3D; canvas.getContext(&quot;2d&quot;); &#x2F;&#x2F;获取内容区，相当于他的画笔</span><br><span class="line">        ctx.moveTo(100, 100); &#x2F;&#x2F; 起点</span><br><span class="line">        ctx.lineTo(200, 100); &#x2F;&#x2F;画到哪</span><br><span class="line">        ctx.stroke();</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h2><ul>
+<li>arc(100, 100, 50, 0, Math.PI / 2, 0); 画圆<ol>
+<li>起始位置(a,b)，半径（c），起始弧度（d），结束弧度（e），方向（f）</li>
+<li>弧度表示：0 = 0 度， Math.PI = 180 度</li>
+<li>方向表示：0 - 顺时针，1 - 逆时针</li>
+</ol>
+</li>
+</ul>
+<h2 id="圆角矩形"><a href="#圆角矩形" class="headerlink" title="圆角矩形"></a>圆角矩形</h2><ul>
+<li>arcTo(a,b,c,d,e) -&gt; B(a,b),C(c,d),圆角大小(e)</li>
+<li>Math.PI == 180 度</li>
+<li>C 点的 x 坐标主要是提供方向用<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2.png" alt="圆角矩形"></li>
+</ul>
+<h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><ul>
+<li>quadraticCurveTo(200,200,300,100);二次贝塞尔曲线 - 先到(200,200)点，再到(300,100)点</li>
+<li>bezierCurveTo(200,200,300,100,400,200);三次贝塞尔曲线 - 传三个点</li>
+<li>波浪效果看 demo</li>
+</ul>
+<h2 id="坐标系变换"><a href="#坐标系变换" class="headerlink" title="坐标系变换"></a>坐标系变换</h2><ul>
+<li>rotate(Math.PI); 坐标系旋转，是根据画布原点进行旋转</li>
+<li>translate(x,y);坐标系位置平移</li>
+<li>scale(2,2);坐标系缩放。横纵坐标长度乘 2，坐标轴乘 2，不只是画的线乘 2</li>
+<li>save(); 保存当前状态的坐标系状态 （平移数据，缩放数据，旋转数据）</li>
+<li>restore(); 回复坐标系状态 -》 一般用于坐标旋转后，归正继续操作其他图形</li>
+</ul>
+<h2 id="背景填充"><a href="#背景填充" class="headerlink" title="背景填充"></a>背景填充</h2><ul>
+<li>fillStyle=”red”; 颜色填充</li>
+<li>createPattern(img, ‘no-repeat’);纹理填充。（纹理的坐标是从(0,0)开始的）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">填充图片练习</span><br><span class="line"> var img &#x3D; new Image();</span><br><span class="line">        img.src &#x3D; &#39;.&#x2F;img.jpg&#39;;</span><br><span class="line">        img.onload &#x3D; function() &#123;</span><br><span class="line">            ctx.beginPath();</span><br><span class="line">            ctx.save();&#x2F;&#x2F;保存当前坐标系</span><br><span class="line">            ctx.translate(100, 100)&#x2F;&#x2F;偏移坐标用以防止图片</span><br><span class="line">            var bg &#x3D; ctx.createPattern(img, &#39;no-repeat&#39;);</span><br><span class="line">            ctx.fillStyle &#x3D; bg;</span><br><span class="line">            ctx.fillRect(0, 0, 150, 50);</span><br><span class="line">            ctx.restore();&#x2F;&#x2F;恢复坐标系</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>createLinearGradient(0, 0, 200, 200);线性渐变。a,b 坐标。c,d 宽高。<ul>
+<li>addColorStop(0, “white”);</li>
+<li>addColorStop(1, “black”);</li>
+<li>注意：数字只能是从零到一之间的。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">填充渐变色-线性渐变</span><br><span class="line">        var bg &#x3D; ctx.createLinearGradient(0, 0, 200, 200);</span><br><span class="line">        bg.addColorStop(0, &quot;white&quot;);</span><br><span class="line">        bg.addColorStop(1, &quot;black&quot;);</span><br><span class="line">        ctx.fillStyle &#x3D; bg;</span><br><span class="line">        ctx.fillRect(0, 0, 200, 200);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>createRadialGradient(x1,y1,r1,x2,y2,r2) 辐射渐变,起始圆和结束圆的坐标和半径<ul>
+<li>若起始圆的半径为零，两个圆组合像圆锥形。</li>
+<li>若起始圆的半径不为零，则形状像圆柱形</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>起始圆和结束圆坐标完全重合的情况，像一个正面的圆锥形或圆柱形</li>
+<li>起始圆在结束圆的里面且圆心不重合，像一个变形的圆锥形或圆柱形</li>
+<li>结束圆在起始圆的里面且圆心不重合，反向的圆锥形或圆柱形</li>
+<li>起始圆与结束圆相离且两个圆大小不相等，会形成一个尖</li>
+<li>起始圆与结束圆相离且两个圆大小相等，会形成一个平行带</li>
+</ol>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ul>
+<li>shadowColor = “red” 阴影颜色</li>
+<li>shadowBlur = 10; 阴影宽度</li>
+<li>shadowOffsetX/Y 阴影纵横偏移量</li>
+</ul>
+<h2 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h2><ul>
+<li>font=”30px 宋体”;</li>
+<li>strokeText(“文本”,100,100); 文字描边（空心）</li>
+<li>fillText(“文本”,100,100); 文字填充（实心）</li>
+</ul>
+<h2 id="线端样式"><a href="#线端样式" class="headerlink" title="线端样式"></a>线端样式</h2><ul>
+<li>lineCap = ”butt” 线端样式为原来样式<ul>
+<li>butt 原来样子</li>
+<li>square 两端加一个方块</li>
+<li>round 两端加加半圆</li>
+</ul>
+</li>
+<li>lineJoin 两个线交撞部分样式<ul>
+<li>miter（默认，比较锋锐的尖）<ul>
+<li>miterLimit = 5; 给这个尖设置最大长度，放置尖过长</li>
+</ul>
+</li>
+<li>round 半圆</li>
+<li>bevel 砍掉</li>
+</ul>
+</li>
+</ul>
+<h2 id="svg（画布）"><a href="#svg（画布）" class="headerlink" title="svg（画布）"></a>svg（画布）</h2><h2 id="和-canvas-的区别"><a href="#和-canvas-的区别" class="headerlink" title="和 canvas 的区别"></a>和 canvas 的区别</h2><ul>
+<li>首先两个都是画图工具。</li>
+<li>有各自适用的范围<ul>
+<li>svg：矢量图，放大不会失真，适合大面积的贴图，通常动画较少或者较简单，用标签和 css 来画。</li>
+<li>canvas：通常适合用于小面积的绘图，适合动画。用 js 来画。</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><ul>
+<li>标签属性<ul>
+<li>svg：<ul>
+<li>width/height/style</li>
+<li>viewBox = “0,0,250,150” (坐标,更改比例后的宽高) 比例尺<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot; style&#x3D;&quot;border:1px solid&quot; viewBox&#x3D;&quot;0,0,250,150&quot;&gt;</span><br><span class="line">    &lt;rect height&#x3D;&quot;100px&quot; width&#x3D;&quot;100px&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; &gt;&lt;&#x2F;rect&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>line：x1,x2,y1,y2 （线段起点坐标，终点坐标）</li>
+<li>rect：height\width\x\y\rx\ry (矩形长宽，坐标，弧度)</li>
+<li>circle：r\cx\cy（圆半径，坐标）</li>
+<li>ellipse：rx\ry\cx\cy（半径宽高，坐标）</li>
+<li>polyline：折线<ul>
+<li>points=”0 0,50 0,50 50”;三个点相连,默认填充内容</li>
+</ul>
+</li>
+<li>polygon：多边形，用法同上（和折线区别：多边形会将首尾相连）</li>
+<li>text：x\y(坐标) 文本</li>
+</ul>
+</li>
+<li>css 属性<ul>
+<li>stroke:red; 线条（颜色红色）</li>
+<li>stroke-opacity:.5;线条透明度</li>
+<li>stroke-width:2px;线的宽度</li>
+<li>stroke-linecap:butt;线端样式</li>
+<li>stroke-linejoin:round;线段相交</li>
+<li>stroke-dasharray:10px 10px…;线条虚线(a 填充区宽度，b 间隔宽度,再往后填参数则按照所填的宽度继续数)</li>
+<li>stroke-dashaoffset:10px 线条偏移，虚线的小方块向左偏移（线条偏移，线条位置不动）</li>
+<li>fill:transparent;填充（不填充图形）</li>
+<li>fill-opacity:.5;填充透明度</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">画线</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    line &#123;</span><br><span class="line">        stroke: red;</span><br><span class="line">        stroke-width: 2px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;svg width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot; style&#x3D;&quot;border:1px solid&quot;&gt;</span><br><span class="line">    &lt;line x1&#x3D;&quot;100&quot; y1&#x3D;&quot;100&quot; x2&#x3D;&quot;200&quot; y2&#x3D;&quot;100&quot;&gt;&lt;&#x2F;line&gt;</span><br><span class="line">    &lt;line x1&#x3D;&quot;200&quot; y1&#x3D;&quot;100&quot; x2&#x3D;&quot;200&quot; y2&#x3D;&quot;200&quot;&gt;&lt;&#x2F;line&gt;</span><br><span class="line">    &lt;rect height&#x3D;&quot;100px&quot; width&#x3D;&quot;100px&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; rx&#x3D;&quot;10&quot; ry&#x3D;&quot;10&quot;&gt;&lt;&#x2F;rect&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="path-标签-只有一个属性-d-里面可传多多种类型值"><a href="#path-标签-只有一个属性-d-里面可传多多种类型值" class="headerlink" title="path 标签:只有一个属性 d,里面可传多多种类型值"></a>path 标签:只有一个属性 d,里面可传多多种类型值</h2><ul>
+<li>默认填充，参数之间空格隔开即可。</li>
+<li>M -&gt; moveTo 大写字母都是绝对位置</li>
+<li>L -&gt; lineTo</li>
+<li>l -&gt; lineTo 小写字母都是相对位置</li>
+<li>H -&gt; 横着走到指定值</li>
+<li>V -&gt; 竖着走到指定值</li>
+<li>h -&gt; 横向移动多少距离</li>
+<li>v -&gt; 竖着移动多少距离</li>
+<li>Z -&gt; 闭合区间(不区分大小写)</li>
+<li>A hr vr deg a b x y-&gt; 圆弧 （横向半径 纵向半径 旋转角度 选择大弧还是小弧 旋转方向[0 顺 1 逆] 终点坐标[x,y])</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">使用</span><br><span class="line">   &lt;svg width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot; style&#x3D;&quot;border:1px solid&quot;&gt;</span><br><span class="line">        &lt;path d&#x3D;&quot;M 100 100 L 200 100 L 200 200 l -100 0 V 120  H 300&quot;&gt;&lt;&#x2F;path&gt;</span><br><span class="line">    &lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="渐变-defs-标签"><a href="#渐变-defs-标签" class="headerlink" title="渐变 defs 标签"></a>渐变 defs 标签</h2><ul>
+<li>linearGradient 标签 线性渐变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot; style&#x3D;&quot;border:1px solid&quot;&gt;</span><br><span class="line">  &lt;defs&gt;</span><br><span class="line">      &lt;linearGradient id&#x3D;&quot;bg1&quot; x1&#x3D;&quot;0&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;0&quot; y2&#x3D;&quot;100%&quot;&gt;</span><br><span class="line">          &lt;stop offset&#x3D;&quot;0%&quot; style&#x3D;&quot;stop-color: white;&quot; &gt;&lt;&#x2F;stop&gt;</span><br><span class="line">          &lt;stop offset&#x3D;&quot;100%&quot; style&#x3D;&quot;stop-color: black;&quot; &gt;&lt;&#x2F;stop&gt;</span><br><span class="line">      &lt;&#x2F;linearGradient&gt;</span><br><span class="line">  &lt;&#x2F;defs&gt;</span><br><span class="line">  &lt;rect x&#x3D;&quot;100&quot; y&#x3D;&quot;100&quot; height&#x3D;&quot;100&quot; width&#x3D;&quot;200&quot; style&#x3D;&quot;fill:url(#bg1)&quot;&gt;&lt;&#x2F;rect&gt;</span><br><span class="line">  &lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="filter-标签-高斯模糊（滤镜）"><a href="#filter-标签-高斯模糊（滤镜）" class="headerlink" title="filter 标签 高斯模糊（滤镜）"></a>filter 标签 高斯模糊（滤镜）</h2><ul>
+<li>feGaussianBlur 标签<ul>
+<li>in=”SourceGraphic”</li>
+<li>stdDeviation=”10”;模糊度</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg width&#x3D;&quot;500px&quot; height&#x3D;&quot;300px&quot; style&#x3D;&quot;border:1px solid&quot;&gt;</span><br><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;linearGradient id&#x3D;&quot;bg1&quot; x1&#x3D;&quot;0&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;0&quot; y2&#x3D;&quot;100%&quot;&gt;</span><br><span class="line">        &lt;stop offset&#x3D;&quot;0%&quot; style&#x3D;&quot;stop-color: white;&quot; &gt;&lt;&#x2F;stop&gt;</span><br><span class="line">        &lt;stop offset&#x3D;&quot;100%&quot; style&#x3D;&quot;stop-color: black;&quot; &gt;&lt;&#x2F;stop&gt;</span><br><span class="line">    &lt;&#x2F;linearGradient&gt;</span><br><span class="line">&lt;&#x2F;defs&gt;</span><br><span class="line">&lt;filter id&#x3D;&quot;gs&quot;&gt;</span><br><span class="line">    &lt;feGaussianBlur  in&#x3D;&quot;SourceGraphic&quot; stdDeviation&#x3D;&quot;10&quot;&gt;&lt;&#x2F;feGaussianBlur&gt;</span><br><span class="line">&lt;&#x2F;filter&gt;</span><br><span class="line">&lt;rect x&#x3D;&quot;100&quot; y&#x3D;&quot;100&quot; height&#x3D;&quot;100&quot; width&#x3D;&quot;200&quot; style&#x3D;&quot;fill:url(#bg1); filter:url(#gs)&quot; &gt;&lt;&#x2F;rect&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Audio（声音播放）"><a href="#Audio（声音播放）" class="headerlink" title="Audio（声音播放）"></a>Audio（声音播放）</h2><ul>
+<li>所有功能同下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src&#x3D;&quot;kanong.mp3&quot; controls&gt;&lt;&#x2F;audio&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Video（视频播放）"><a href="#Video（视频播放）" class="headerlink" title="Video（视频播放）"></a>Video（视频播放）</h2><ul>
+<li>controls 默认工具栏（通常不用）</li>
+<li>controls(显示组件控件)</li>
+<li>autoplay(自动播放)</li>
+<li>muted(静音播放)</li>
+<li>loop(循环播放)</li>
+</ul>
+<h2 id="自定义工具栏"><a href="#自定义工具栏" class="headerlink" title="自定义工具栏"></a>自定义工具栏</h2><ul>
+<li>video.play(); 播放</li>
+<li>video.pause(); 暂停</li>
+<li>video.paused; 判断是否为暂停状态</li>
+<li>video.duration; 视频总时长(秒)</li>
+<li>video.currentTime;当前秒数</li>
+<li>video.playbackRate = 1;速率</li>
+<li>video.currentTime 当前播放的时间</li>
+<li>video.volume 当前音量(最大为 1，默认为 1)</li>
+<li>document.documentElement.requestFullscreen(); 文档全屏</li>
+<li></li>
+</ul>
+<h1 id="获取地理信息-geoLocation"><a href="#获取地理信息-geoLocation" class="headerlink" title="获取地理信息 geoLocation"></a>获取地理信息 geoLocation</h1><p><strong>定位（GPS）：</strong> 台式机几乎都没有 GPS，笔记本绝大多数都没有 GPS，智能手机几乎都有 GPS</p>
+<p><strong>网络定位：</strong> 电脑可以通过网络进行粗略的地理定位</p>
+<p><strong>定位的使用：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.navigator.geolocation.getCurrentPosition(</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">position</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;成功的回调函数&quot;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(position);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;失败的回调函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>特殊情况：</strong> 只有在 https、file 协议下才能使用，http 协议下是不能使用的</p>
+<p><strong>属性值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy：准确度</span><br><span class="line">longitude：经度</span><br><span class="line">latitude: 纬度</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-行代码写个服务器"><a href="#4-行代码写个服务器" class="headerlink" title="4 行代码写个服务器"></a>4 行代码写个服务器</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//server.js:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> express(); <span class="comment">//构建一个webapp对象</span></span><br><span class="line"></span><br><span class="line">app.use(express.static(<span class="string">&quot;./page&quot;</span>)); <span class="comment">//设置一个静态文件路径</span></span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">10148</span>); <span class="comment">//监听端口号，尽量大于8000，或者等于80，（默认访问80端口）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//express 默认访问index.html</span></span><br><span class="line"><span class="comment">//启动： node server.js</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="重力感应"><a href="#重力感应" class="headerlink" title="重力感应"></a>重力感应</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;main&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 陀螺仪，只有带有陀螺仪的设备才支持体感</span><br><span class="line">    &#x2F;&#x2F; 苹果设备的页面只有再https协议的情况下才能使用这些接口</span><br><span class="line">    &#x2F;&#x2F; 11.1.x以及以前，是可以使用的。</span><br><span class="line">    &#x2F;&#x2F;属性：</span><br><span class="line">    &#x2F;&#x2F;alpha：指北（指南针）[0,360)，当为0的时候指北。180指南</span><br><span class="line">    &#x2F;&#x2F;beta：平放时beta值为0，立起来时（短边接触桌面）beta值为90，反着立（-90）</span><br><span class="line">    &#x2F;&#x2F;gamma：平方时gamma值为0，如果讲手机立起来（长边接触桌面）gamma为90，反着立（-90）</span><br><span class="line">    window.addEventListener(&quot;devicemotion&quot;, function(event) &#123;</span><br><span class="line">        console.log(event);</span><br><span class="line">        document.getElementById(&quot;main&quot;).innerHTML &#x3D; &quot;alpha:&quot; + event.alpha + &quot;&lt;br&gt;&quot; + &quot;beta:&quot; + event.beta + &quot;&lt;br&gt;&quot; + &quot;gamma&quot; + event.gamma + &quot;&lt;br&gt;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">    &#x2F;&#x2F;手机访问电脑</span><br><span class="line">    &#x2F;&#x2F;1. 手机要和电脑再同一个局域网下</span><br><span class="line">    &#x2F;&#x2F;2. 获取电脑的ip地址</span><br><span class="line">    &#x2F;&#x2F;3. 在手机上输入相应的ip和端口进行访问</span><br><span class="line">    &#x2F;&#x2F;获取ip地址</span><br><span class="line">    &#x2F;&#x2F;mac1:命令框：ifconfig | grep &quot;inet&quot; 配置，找到含有inet的信息</span><br><span class="line">    &#x2F;&#x2F;mac2:设置-》网络</span><br><span class="line">    &#x2F;&#x2F;window:cmd:ipconfig 用网线看以太网适配器，用无线局域网适配器（防火墙需 关闭）</span><br><span class="line">    &#x2F;&#x2F;4. 输入ip地址即可</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="手机摇晃"><a href="#手机摇晃" class="headerlink" title="手机摇晃"></a>手机摇晃</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;main&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.addEventListener(&quot;devicemotion&quot;, function(e) &#123;</span><br><span class="line">        &#x2F;&#x2F; acceleration 三个方向的加速度</span><br><span class="line">        document.getElementById(&quot;main&quot;).innerHTML &#x3D; &quot;x:&quot; + e.acceleration.x + &quot;&lt;br&gt;y:&quot; + e.acceleration.y + &quot;&lt;br&gt;z:&quot; + e.acceleration.e;</span><br><span class="line">        if (Math.abs(e.acceleration.x) &gt; 9 || Math.abs(e.acceleration.y) &gt; 9 || Math.abs(e.acceleration.z) &gt; 9) &#123;</span><br><span class="line">            console.log(&quot;在晃&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="动画优化-requestAnimationFrame"><a href="#动画优化-requestAnimationFrame" class="headerlink" title="动画优化 requestAnimationFrame"></a>动画优化 requestAnimationFrame</h1><p>屏幕刷新的频率：60 次/秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;main&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;requestAnimationFrame是每秒60帧</span><br><span class="line">    &#x2F;&#x2F;1帧（少于1&#x2F;60秒），2帧，3帧</span><br><span class="line">    &#x2F;&#x2F;requestAnimationFrame有个特殊的队列，可以准时执行每一帧</span><br><span class="line">    &#x2F;&#x2F;setInterval上一帧不执行完是不会执行下一帧的，所以不如requestAnimationFrame流畅（一般来说看不大出来）</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;requestAnimationFrame 兼容性极差</span><br><span class="line">    var timer &#x3D; null;</span><br><span class="line"></span><br><span class="line">    function move() &#123;</span><br><span class="line">        var square &#x3D; document.getElementById(&quot;main&quot;);</span><br><span class="line">        if (square.offsetLeft &gt; 700) &#123;</span><br><span class="line">            cancelAnimationFrame(timer); &#x2F;&#x2F;取消这个动画，类似clearTimerout</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        square.style.left &#x3D; square.offsetLeft + 20 + &quot;px&quot;;</span><br><span class="line">        timer &#x3D; requestAnimationFrame(move);</span><br><span class="line">    &#125;</span><br><span class="line">    move();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;强行使用加上如下代码</span><br><span class="line">    window.requestAnimationFrame &#x3D; (function() &#123;</span><br><span class="line">        return window.requestAnimationFrame ||</span><br><span class="line">            function(id) &#123;</span><br><span class="line">                window.setTimeout(id, 1000 &#x2F; 60);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;)()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    window.cancelAnimationFrame &#x3D; (function() &#123;</span><br><span class="line">        return window.cancelAnimationFrame ||</span><br><span class="line">            window.webkitCancelAnimationFrame ||</span><br><span class="line">            window.mozCancelAnimationFrame ||</span><br><span class="line">            function(id) &#123;</span><br><span class="line">                window.clearTimeout(id);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="浏览器存储-localStorage"><a href="#浏览器存储-localStorage" class="headerlink" title="浏览器存储 localStorage"></a>浏览器存储 localStorage</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;cookie:每次请求的时候都有可能传送许多无用的信息到后端</span><br><span class="line">    &#x2F;&#x2F;localStorage 只能存储字符串，可以通过JSON转换实现其他类型</span><br><span class="line">    &#x2F;&#x2F;sessionStorage 和localStorage作用相同</span><br><span class="line">    &#x2F;&#x2F;长期存放在浏览器，写入localStorage(无论窗口是否关闭)</span><br><span class="line">    &#x2F;&#x2F;会话临时需要存储的变量，每次窗口关闭的时候，sessionStorage都会自动清空</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;localStorage 和 cookie</span><br><span class="line">    &#x2F;&#x2F;1. localStorage在发送请求的时候不会把数据发出去，cookie会把所有的数据带出去</span><br><span class="line">    &#x2F;&#x2F;2. cookie存储的内容比较少 4k，localStorage可以存放较多的内容，5m左右</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;相同协议，相同域名，相同端口称为一个域</span><br><span class="line">    localStorage.name &#x3D; &quot;du&quot;;</span><br><span class="line">    localStorage.setItem(&quot;name&quot;, &quot;du&quot;) &#x2F;&#x2F;另一种写法</span><br><span class="line">    localStorage.getItem(&quot;name&quot;)</span><br><span class="line">    localStorage.removeItem(&quot;name&quot;)</span><br><span class="line">    localStorage.arr &#x3D; JSON.stringify([1, 2, 3]);</span><br><span class="line">    console.log(JSON.parse(localStorage.arr))</span><br><span class="line">    localStorage.obj &#x3D; JSON.stringify(&#123;</span><br><span class="line">        name: &quot;du&quot;,</span><br><span class="line">        age: 18</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(JSON.parse(localStorage.obj))</span><br><span class="line">    sessionStorage.name &#x3D; &quot;du&quot;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="history"><a href="#history" class="headerlink" title="history"></a>history</h1><p>核心：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(&#123;inpVal: value&#125;, null, &quot;#&quot; + value);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;url改变时触发</span><br><span class="line">window.addEventListener(&quot;popstate&quot;, function(e) &#123;e.state.inpVal&#125;</span><br><span class="line">&#x2F;&#x2F;锚点（#）改变触发</span><br><span class="line">window.addEventListener(&quot;hashchange&quot;, function(e) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;锚点改变两个都触发，先触发url监听</span><br></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;a -&gt; b -&gt; c</span><br><span class="line">        &#x2F;&#x2F; 为了网页的性能，单页面操作</span><br><span class="line">        var data &#x3D; [&#123;</span><br><span class="line">            name: &quot;html&quot;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: &quot;css&quot;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: &quot;js&quot;</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        function search() &#123;</span><br><span class="line">            var value &#x3D; document.getElementById(&quot;search&quot;).value;</span><br><span class="line">            var result &#x3D; data.filter(function(obj) &#123;</span><br><span class="line">                if (obj.name.indexOf(value) &gt; -1) &#123;</span><br><span class="line">                    return obj;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            render(result);</span><br><span class="line">            &#x2F;&#x2F; 把每个查询状态插入到历史记录里 history是一个堆栈形式，通过pushState插入(传入的状态,title(没有浏览器支持，设置null即可),url)</span><br><span class="line">            history.pushState(&#123;</span><br><span class="line">                inpVal: value</span><br><span class="line">            &#125;, null, &quot;#&quot; + value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function render(renderData) &#123;</span><br><span class="line">            var content &#x3D; &quot;&quot;;</span><br><span class="line">            for (let i &#x3D; 0; i &lt; renderData.length; i++) &#123;</span><br><span class="line">                content +&#x3D; &quot;&lt;div&gt;&quot; + renderData[i].name + &quot;&lt;&#x2F;div&gt;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            document.getElementById(&quot;main&quot;).innerHTML &#x3D; content;</span><br><span class="line">        &#125;</span><br><span class="line">        window.addEventListener(&quot;popstate&quot;, function(e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 监听浏览器url改变，可以找到当前页history传入的数据，比较常用</span><br><span class="line">            document.getElementById(&quot;search&quot;).value &#x3D; e.state &amp;&amp; e.state.inpVal ? e.state.inpVal : &quot;&quot;;</span><br><span class="line">            &#x2F;&#x2F; 重新渲染页面数据</span><br><span class="line">            var value &#x3D; document.getElementById(&quot;search&quot;).value;</span><br><span class="line">            var result &#x3D; data.filter(function(obj) &#123;</span><br><span class="line">                if (obj.name.indexOf(value) &gt; -1) &#123;</span><br><span class="line">                    return obj;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            render(result);</span><br><span class="line">        &#125;)</span><br><span class="line">        window.addEventListener(&quot;hashchange&quot;, function(e) &#123;</span><br><span class="line">            &#x2F;&#x2F;hash值改变，或者说锚点改变才会触发</span><br><span class="line">            console.log(e)</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;search&quot;&gt;</span><br><span class="line">    &lt;button onclick&#x3D;&quot;search()&quot;&gt;搜索&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;main&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        render(data)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="worker"><a href="#worker" class="headerlink" title="worker"></a>worker</h1><p>兼容性不太好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">主页面：</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; js都是单线程的</span><br><span class="line">    &#x2F;&#x2F;worker 是多线程的，是真的多线程，不是伪多线程</span><br><span class="line">    &#x2F;&#x2F;不能操作dom，没有window对象，不能读取本地文件。可以发ajax（ajax本身就是异步的），可以计算。</span><br><span class="line">    &#x2F;&#x2F;在worker中继续创建worder?理论上是可行的，但是实际上没有浏览器支持</span><br><span class="line">    console.log(&#39;----------&#39;)</span><br><span class="line">    var a &#x3D; 100000000;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 当前页面即为主线程,worder.js为辅助线程</span><br><span class="line">    var worker &#x3D; new Worker(&quot;.&#x2F;worder.js&quot;);</span><br><span class="line">    &#x2F;&#x2F; postMessage为发送，onmessage为接收</span><br><span class="line">    worker.postMessage(&#123;</span><br><span class="line">        num: a</span><br><span class="line">    &#125;);</span><br><span class="line">    worker.onmessage &#x3D; function(e) &#123;</span><br><span class="line">        console.log(e.data)</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F; 停止运行</span><br><span class="line">    worker.terminate();</span><br><span class="line"></span><br><span class="line">    console.log(&#39;---------&#39;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">worker.js文件:</span><br><span class="line">&#x2F;&#x2F;可以引入其他文件js（不能操作dom等）</span><br><span class="line">importScripts(&quot;.&#x2F;xxx.js&quot;);</span><br><span class="line">&#x2F;&#x2F;把计算的过程放入异步中</span><br><span class="line">this.onmessage &#x3D; function(e) &#123;</span><br><span class="line">    var result &#x3D; 0;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; e.data.num; i++) &#123;</span><br><span class="line">        result +&#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">    this.postMessage(result);</span><br><span class="line">    this.close(); &#x2F;&#x2F;自己停止</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/01/JavaScript%EF%BC%88%E5%9B%9B%EF%BC%89ES6/" rel="prev" title="JavaScript（四）ES6">
+                  <i class="fa fa-chevron-left"></i> JavaScript（四）ES6
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑砸是只猫</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">178k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+</body>
+</html>
