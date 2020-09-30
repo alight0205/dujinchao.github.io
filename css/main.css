@@ -2832,6 +2832,7 @@ mark.search-keyword {
   }
 }
 body {
+  background: #eee;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
