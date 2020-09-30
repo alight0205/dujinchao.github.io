@@ -1686,9 +1686,6 @@ pre code {
 .back-to-top {
   font-size: 12px;
 }
-.back-to-top span {
-  display: none;
-}
 .back-to-top {
   bottom: -100px;
   box-sizing: border-box;
@@ -1701,7 +1698,6 @@ pre code {
   position: fixed;
   z-index: 1300;
   right: 30px;
-  width: 24px;
 }
 @media (max-width: 991px) {
   .back-to-top {
@@ -2853,6 +2849,11 @@ body {
 }
 .main-inner .post-footer {
   display: none;
+}
+.pagination {
+  padding: 10px 0;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
 }
 .sidebar-inner {
   background: rgba(255,255,255,0.9);
