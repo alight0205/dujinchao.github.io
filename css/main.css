@@ -2848,6 +2848,12 @@ body {
   padding: 30px;
   border-radius: 10px;
 }
+.main-inner .post-header {
+  margin: 0;
+}
+.main-inner .post-footer {
+  display: none;
+}
 .sidebar-inner {
   background: rgba(255,255,255,0.9);
   border-radius: 10px;

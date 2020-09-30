@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="CSS3css 属性查找网站参考手册：reference manual website: http:&#x2F;&#x2F;css.doyoe.com权威网站（实时）：Authoritative inquiry website : http:&#x2F;&#x2F;www.caniuse.com 处理兼容性的插件antoprefixer写完代码后可以把有兼容性问题的代码自动补齐。（是一种后处理器）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3详解">
+<meta property="og:url" content="http://example.com/2020/09/30/CSS3%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Mr.Duの博客">
+<meta property="og:description" content="CSS3css 属性查找网站参考手册：reference manual website: http:&#x2F;&#x2F;css.doyoe.com权威网站（实时）：Authoritative inquiry website : http:&#x2F;&#x2F;www.caniuse.com 处理兼容性的插件antoprefixer写完代码后可以把有兼容性问题的代码自动补齐。（是一种后处理器）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/css3-1.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/css3-2.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/flex1.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/flex2.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%99%AF%E6%B7%B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E7%82%B9%E8%B7%9D.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%A0%85%E6%A0%BC%E5%9E%8B.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E4%B8%BB%E8%A6%81%E6%96%AD%E7%82%B9.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%AA%92%E4%BD%93%E5%8A%9F%E8%83%BD.png">
+<meta property="article:published_time" content="2020-09-30T12:23:54.000Z">
+<meta property="article:modified_time" content="2020-09-30T13:42:18.868Z">
+<meta property="article:author" content="黑砸是只猫">
+<meta property="article:tag" content="前端 css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/css3-1.png">
+
+
+<link rel="canonical" href="http://example.com/2020/09/30/CSS3%E8%AF%A6%E8%A7%A3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CSS3详解 | Mr.Duの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+ <a target="_blank" rel="noopener" href="https://github.com/cat-heiza" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mr.Duの博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半山腰总是最拥挤的，你得去山顶看看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS3"><span class="nav-number">1.</span> <span class="nav-text">CSS3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#css-%E5%B1%9E%E6%80%A7%E6%9F%A5%E6%89%BE%E7%BD%91%E7%AB%99"><span class="nav-number">1.1.</span> <span class="nav-text">css 属性查找网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%85%BC%E5%AE%B9%E6%80%A7%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">处理兼容性的插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E5%90%8E%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">预处理器和后处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pre-processor%EF%BC%88%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">pre-processor（预处理器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-processor-%EF%BC%88%E5%90%8E%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">post-processor （后处理器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#postCss"><span class="nav-number">1.3.3.</span> <span class="nav-text">postCss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-Selector"><span class="nav-number">1.4.</span> <span class="nav-text">CSS3 Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relationship-Selectors"><span class="nav-number">1.4.1.</span> <span class="nav-text">Relationship Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#E-gt-F%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%AD%90%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">E &gt; F：直接子元素选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-F%EF%BC%9A%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%85%84%E5%BC%9F%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">E + F：下一个满足条件的兄弟元素节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-F%EF%BC%9A%E4%B8%8B%E4%B8%80%E7%BE%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%85%84%E5%BC%9F%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">E ~ F：下一群满足条件的兄弟元素节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Attribute-Selectors"><span class="nav-number">1.4.2.</span> <span class="nav-text">Attribute Selectors
+</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#E-data-%E2%80%9Da%E2%80%9D"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">E[data~&#x3D;”a”]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-data-%E2%80%99a%E2%80%99"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">E[data|&#x3D;’a’]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-data-%E2%80%99a%E2%80%99-1"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">E[data^&#x3D;’a’]
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-data-%E2%80%99a%E2%80%99-2"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">E[data$&#x3D;’a’]
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-data-%E2%80%99a%E2%80%99-3"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">E[data*&#x3D;’a’]
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pseudo-Element-Selectors"><span class="nav-number">1.4.3.</span> <span class="nav-text">Pseudo-Element Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#E-placeholder"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">E::placeholder
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-selection%EF%BC%9A%E5%85%83%E7%B4%A0%E9%80%89%E4%B8%AD%E5%90%8E%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">E::selection：元素选中后的样式
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pseudo-Classes-Selectors"><span class="nav-number">1.4.4.</span> <span class="nav-text">Pseudo-Classes Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#E-not-s"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">E:not(s)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-root-%E6%A0%B9%E8%8A%82%E7%82%B9-html%E3%80%81xml"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">E:root:根节点(html、xml)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-target%EF%BC%9A%E5%85%83%E7%B4%A0%E8%BA%AB%E4%B8%8A%E7%9A%84%E9%94%9A%E7%82%B9%E8%A2%AB%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5%E9%80%89%E4%B8%AD%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%AD%A4%E6%A0%B7%E5%BC%8F%E3%80%82"><span class="nav-number">1.4.4.3.</span> <span class="nav-text">E:target：元素身上的锚点被锚点链接选中时，使用此样式。
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-%EF%AC%81rst-child-E-last-child-E-only-child-E-nth-child-n-E-nthlast-child-n"><span class="nav-number">1.4.4.4.</span> <span class="nav-text">E:ﬁrst-child E:last-child E:only-child E:nth-child(n) E:nthlast-child(n)
+</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F-%EF%BC%9A%E8%BF%99%E4%BA%94%E7%A7%8D%E5%86%99%E6%B3%95%E9%83%BD%E8%80%83%E8%99%91%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0%E5%AF%B9%E4%BB%96%E4%BB%AC%E7%9A%84%E5%BD%B1%E5%93%8D%E3%80%82%E6%AF%94%E5%A6%82%E5%89%8D%E9%9D%A2%E6%8F%92%E5%85%A5%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E3%80%82%E6%89%80%E4%BB%A5%E5%B9%B6%E4%B8%8D%E6%98%AF%E5%BE%88%E5%B8%B8%E7%94%A8%E3%80%82"><span class="nav-number">1.4.4.4.1.</span> <span class="nav-text">**&#x3D;&#x3D;注意&#x3D;&#x3D;**：这五种写法都考虑其他元素对他们的影响。比如前面插入一个元素。所以并不是很常用。
+</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-%EF%AC%81rst-of-type-E-last-of-type-E-only-of-pyte-E-nth-of-type-n-E-nth-of-lastpyte-n-%E5%B8%B8%E7%94%A8"><span class="nav-number">1.4.4.5.</span> <span class="nav-text">E:ﬁrst-of-type E:last-of-type E:only-of-pyte E:nth-of-type(n) E:nth-of-lastpyte(n) [常用]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-empty-E-checked-E-enabled-E-disabled"><span class="nav-number">1.4.4.6.</span> <span class="nav-text">E:empty E:checked E:enabled E:disabled</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-read-only-E-read-write"><span class="nav-number">1.4.4.7.</span> <span class="nav-text">E:read-only E:read-write</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#border-amp-background"><span class="nav-number">1.5.</span> <span class="nav-text">border&amp;background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#border"><span class="nav-number">1.5.1.</span> <span class="nav-text">border</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#border-radius"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">border-radius</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#box-shadow-%E9%98%B4%E5%BD%B1"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">box-shadow 阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#border-image-%E8%BE%B9%E6%A1%86%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">border-image 边框背景图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#border-image-source-%E8%BE%B9%E6%A1%86%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">1.5.1.3.1.</span> <span class="nav-text">&#x3D;&#x3D;border-image-source 边框背景图片资源&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#brder-image-slice%EF%BC%9A%E5%88%87%E5%89%B2"><span class="nav-number">1.5.1.3.2.</span> <span class="nav-text">&#x3D;&#x3D;brder-image-slice：切割&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#border-image-width-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-number">1.5.1.3.3.</span> <span class="nav-text">border-image-width 背景图片显示的宽度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#borderimage-outset-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%BE%80%E5%A4%96%E5%BB%B6%E4%BC%B8%EF%BC%8C%E5%B0%B1%E6%98%AF%E6%8A%8A%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E6%8C%A4%E5%87%BA-border-%E5%8C%BA%E5%9F%9F%EF%BC%88%E4%B8%8D%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">1.5.1.3.4.</span> <span class="nav-text">borderimage-outset 背景图片往外延伸，就是把背景图片挤出 border 区域（不常用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#border-image-repeat"><span class="nav-number">1.5.1.3.5.</span> <span class="nav-text">&#x3D;&#x3D;border-image-repeat&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E5%86%99%E6%B3%95"><span class="nav-number">1.5.1.3.6.</span> <span class="nav-text">整体写法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#background"><span class="nav-number">1.5.2.</span> <span class="nav-text">background</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#background-image-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">background-image 背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#background-origin-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%9D%90%E6%A0%87%E6%91%86%E6%94%BE%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">background-origin 背景图片坐标摆放位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#background-clip-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E6%88%AA%E6%96%AD%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">background-clip 背景图片截断位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#background-repeat"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">background-repeat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#background-attachment-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E7%9A%84%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">background-attachment 背景图片的定位方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%9B%BA%E5%AE%9A%E6%98%BE%E7%A4%BA"><span class="nav-number">1.5.2.6.</span> <span class="nav-text">背景图片固定显示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-%E6%BB%A4%E9%95%9C"><span class="nav-number">1.5.3.</span> <span class="nav-text">filter 滤镜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E5%8F%98%E8%89%B2"><span class="nav-number">1.5.4.</span> <span class="nav-text">渐变色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linear-gradient-%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">linear-gradient()线性渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#radial-gradient-%E9%95%9C%E5%83%8F%E6%B8%90%E5%8F%98"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">radial-gradient()镜像渐变</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#color"><span class="nav-number">1.5.5.</span> <span class="nav-text">color</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text"><span class="nav-number">1.6.</span> <span class="nav-text">text</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E4%B9%A0%EF%BC%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">复习：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-shadow-%E9%98%B4%E5%BD%B1"><span class="nav-number">1.6.2.</span> <span class="nav-text">text-shadow 阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">基本用法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%AE%E9%9B%95%E6%95%88%E6%9E%9C"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">浮雕效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%95%82%E5%88%BB%E6%95%88%E6%9E%9C"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">镂刻效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%93%E8%99%B9%E7%81%AF%E6%95%88%E6%9E%9C-%E7%81%AB%E7%84%B0%E6%95%88%E6%9E%9C-%E7%BA%A2%E8%93%9D%E9%94%99%E4%B9%B1%E6%95%88%E6%9E%9C-%E6%96%87%E5%AD%97%E8%83%8C%E6%99%AF%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87"><span class="nav-number">1.6.2.4.</span> <span class="nav-text">霓虹灯效果&#x2F;火焰效果&#x2F;红蓝错乱效果&#x2F;文字背景显示图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-text-stroke-%E6%8F%8F%E8%BE%B9%E6%95%88%E6%9E%9C"><span class="nav-number">1.6.3.</span> <span class="nav-text">-webkit-text-stroke 描边效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E8%B6%A3%E7%8E%A9%E6%B3%95-%E6%96%87%E5%AD%97%E6%9C%89%E7%94%B5%E8%B7%AF%E5%9B%BE%E6%95%88%E6%9E%9C%EF%BC%88%E8%AF%95%E4%BA%86%E5%A5%BD%E5%83%8F%E4%B8%8D%E8%A1%8C%EF%BC%89"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">有趣玩法:文字有电路图效果（试了好像不行）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#white-space-pre-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC"><span class="nav-number">1.6.4.</span> <span class="nav-text">white-space: pre; 格式化文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word-break"><span class="nav-number">1.6.5.</span> <span class="nav-text">word-break:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word-wrap-overflow-wrap"><span class="nav-number">1.6.6.</span> <span class="nav-text">word-wrap&#x2F;overflow-wrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#columns-%E5%A4%9A%E5%88%97"><span class="nav-number">1.6.7.</span> <span class="nav-text">columns 多列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93"><span class="nav-number">1.6.8.</span> <span class="nav-text">引入外部字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOX"><span class="nav-number">1.7.</span> <span class="nav-text">BOX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">1.7.1.</span> <span class="nav-text">overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize-%E8%AE%A9%E7%94%A8%E6%88%B7%E8%B0%83%E8%8A%82%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.7.2.</span> <span class="nav-text">resize 让用户调节大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6-%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E7%9B%92%E5%AD%90"><span class="nav-number">1.7.3.</span> <span class="nav-text">IE6 混杂模式盒子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90"><span class="nav-number">1.7.4.</span> <span class="nav-text">flex 弹性盒子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%80%E4%B8%AA%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%EF%BC%9A"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">设置一个弹性盒子：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="nav-number">1.7.4.2.</span> <span class="nav-text">可用的属性值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%99%E5%88%B0%E7%88%B6%E7%BA%A7%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">1.7.4.2.1.</span> <span class="nav-text">写到父级的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%B0%E5%AD%90%E9%A1%B9%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">1.7.4.2.2.</span> <span class="nav-text">设置到子项的属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%BA%94%E7%94%A8"><span class="nav-number">1.7.4.3.</span> <span class="nav-text">弹性盒子应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transition-%E8%BF%87%E5%BA%A6"><span class="nav-number">1.8.</span> <span class="nav-text">transition 过度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-property-%E8%BF%87%E6%B8%A1%E5%B1%9E%E6%80%A7"><span class="nav-number">1.8.1.</span> <span class="nav-text">transition-property 过渡属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-duration-%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94"><span class="nav-number">1.8.2.</span> <span class="nav-text">transition-duration 时间间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-timing-function-%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">1.8.3.</span> <span class="nav-text">transition-timing-function 运动状态函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF-cubic-beseir-1-1-1-1-%E5%8C%80%E9%80%9F%E8%BF%90%E5%8A%A8"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">贝塞尔曲线 cubic-beseir(1, 1 , 1 , 1); 匀速运动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.8.3.1.1.</span> <span class="nav-text">三次贝塞尔曲线详解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-delay-%E7%AD%89%E5%BE%85-xx-%E7%A7%92%E5%90%8E%E6%89%A7%E8%A1%8C"><span class="nav-number">1.8.4.</span> <span class="nav-text">transition-delay 等待 xx 秒后执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8%EF%BC%9Atransition-all-1s-swing-1s-%E2%80%A6-%E5%8F%AF%E4%BB%A5%E5%A4%9A%E5%80%BC"><span class="nav-number">1.8.5.</span> <span class="nav-text">组合使用：transition:all .1s swing 1s,….可以多值;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transform-%E5%8F%98%E6%8D%A2"><span class="nav-number">1.9.</span> <span class="nav-text">Transform: 变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform"><span class="nav-number">1.9.1.</span> <span class="nav-text">transform:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#translate-%E5%B9%B3%E7%A7%BB"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">translate() 平移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rotate-%E6%97%8B%E8%BD%AC"><span class="nav-number">1.9.1.2.</span> <span class="nav-text">rotate() 旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scale-%E4%BC%B8%E7%BC%A9"><span class="nav-number">1.9.1.3.</span> <span class="nav-text">scale() 伸缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#skew-%E5%80%BE%E6%96%9C"><span class="nav-number">1.9.1.4.</span> <span class="nav-text">skew 倾斜</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#perspective-800px-%E5%9C%A8%E5%85%83%E7%B4%A0%E8%87%AA%E8%BA%AB%E4%B8%8A%E5%8A%A0%E6%99%AF%E6%B7%B1"><span class="nav-number">1.9.1.5.</span> <span class="nav-text">perspective(800px) 在元素自身上加景深</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#backface-visibility-hidden-visible-%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E8%83%8C%E9%9D%A2%E4%B8%8D%E6%98%BE%E7%A4%BA%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BB%A5"><span class="nav-number">1.9.1.6.</span> <span class="nav-text">backface-visibility:hidden&#x2F;visible;设置图片背面不显示，默认可以</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3d-%E6%97%8B%E8%BD%AC-bug%EF%BC%9A%E9%9A%90%E8%97%8F%E8%83%8C%E9%9D%A2%E4%B8%8D%E7%AE%A1%E7%94%A8%EF%BC%8C%E5%90%8E%E9%9D%A2%E5%9B%BE%E7%89%87%E4%BC%9A%E6%8A%95%E5%88%B0%E5%89%8D%E9%9D%A2%EF%BC%8C%E8%AE%BE%E7%BD%AE%E4%B8%AA%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2%E5%B0%B1%E5%A5%BD%E4%BA%86"><span class="nav-number">1.9.1.7.</span> <span class="nav-text">&#x3D;&#x3D;3d 旋转 bug：隐藏背面不管用，后面图片会投到前面，设置个背景颜色就好了&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%8F%98%E6%8D%A2%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9Amatrix-%E7%9F%A9%E9%98%B5"><span class="nav-number">1.9.1.8.</span> <span class="nav-text">&#x3D;&#x3D;图片变换的底层原理：matrix() 矩阵&#x3D;&#x3D;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transform-origin%EF%BC%9A%E8%AE%BE%E7%BD%AE%E5%8F%98%E6%8D%A2%E4%B8%AD%E5%BF%83%E5%8E%9F%E7%82%B9%E4%BD%8D%E7%BD%AE%EF%BC%88%E7%9B%B8%E5%BD%93%E4%BA%8E%E7%9C%BC%E7%9D%9B%E4%BD%8D%E7%BD%AE%EF%BC%89"><span class="nav-number">1.9.2.</span> <span class="nav-text">transform-origin：设置变换中心原点位置（相当于眼睛位置）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transform-style%EF%BC%9A%E5%8F%98%E5%8C%96%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.9.3.</span> <span class="nav-text">transform-style：变化风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#perspective-%E6%99%AF%E6%B7%B1"><span class="nav-number">1.9.4.</span> <span class="nav-text">perspective 景深</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#perspective-origin%EF%BC%9A%E8%AE%BE%E7%BD%AE%E6%97%8B%E8%BD%AC%E5%8E%9F%E7%82%B9%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.9.5.</span> <span class="nav-text">perspective-origin：设置旋转原点位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-%E5%8A%A8%E7%94%BB"><span class="nav-number">1.10.</span> <span class="nav-text">animation 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-name-%E5%8A%A8%E7%94%BB%E5%90%8D%E7%A7%B0"><span class="nav-number">1.10.1.</span> <span class="nav-text">animation-name 动画名称</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%B8%A7%E5%AE%B9%E5%99%A8-keyframes"><span class="nav-number">1.10.1.1.</span> <span class="nav-text">&#x3D;&#x3D;关键帧容器@keyframes&#x3D;&#x3D;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-duration-%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4"><span class="nav-number">1.10.2.</span> <span class="nav-text">animation-duration 持续时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-timing-function-%E8%BF%87%E6%B8%A1%E7%B1%BB%E5%9E%8B%EF%BC%88%E4%BC%A0%E8%BF%90%E5%8A%A8%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">1.10.3.</span> <span class="nav-text">animation-timing-function 过渡类型（传运动函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-delay-%E5%BB%B6%E8%BF%9F%E6%97%B6%E9%97%B4"><span class="nav-number">1.10.4.</span> <span class="nav-text">animation-delay 延迟时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-iteration-count-%E8%BF%90%E5%8A%A8%E6%AC%A1%E6%95%B0"><span class="nav-number">1.10.5.</span> <span class="nav-text">animation-iteration-count 运动次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-direction-%E5%85%B3%E9%94%AE%E5%B8%A7%E7%9A%84%E6%96%B9%E5%90%91"><span class="nav-number">1.10.6.</span> <span class="nav-text">animation-direction 关键帧的方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-play-state-%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81"><span class="nav-number">1.10.7.</span> <span class="nav-text">animation-play-state 运动状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-fill-mode-%E4%BF%9D%E7%95%99%E7%8A%B6%E6%80%81"><span class="nav-number">1.10.8.</span> <span class="nav-text">animation-fill-mode 保留状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#steps-%E8%B7%A8%E6%AD%A5"><span class="nav-number">1.10.9.</span> <span class="nav-text">steps 跨步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%86%99%EF%BC%9A-animation-fun-1s-linner%E3%80%82%E3%80%82%E3%80%82"><span class="nav-number">1.10.10.</span> <span class="nav-text">简写： animation: fun 1s linner。。。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpu-amp-layout%EF%BC%88%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%89"><span class="nav-number">1.11.</span> <span class="nav-text">gpu&amp;layout（性能优化）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86%EF%BC%9Acpu-%E5%92%8C-gpu"><span class="nav-number">1.11.1.</span> <span class="nav-text">科普知识：cpu 和 gpu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6"><span class="nav-number">1.11.2.</span> <span class="nav-text">浏览器渲染机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91-reflow-%E9%87%8D%E6%8E%92"><span class="nav-number">1.11.2.1.</span> <span class="nav-text">什么情况下会触发 reflow(重排)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91-repaint-%E9%87%8D%E7%BB%98"><span class="nav-number">1.11.2.2.</span> <span class="nav-text">什么情况下会触发 repaint(重绘)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3-%E6%80%8E%E4%B9%88%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">1.11.2.3.</span> <span class="nav-text">css3 怎么性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gpu-%E6%93%8D%E4%BD%9C%E6%98%AF%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%B1%82%E9%9D%A2%E6%9D%A5%E6%93%8D%E4%BD%9C%E3%80%82%E5%93%AA%E4%BA%9B%E6%8C%87%E4%BB%A4%E8%83%BD%E8%A7%A6%E5%8F%91-gpu-%E8%BF%99%E4%B8%AA%E5%B1%82%E5%91%A2%EF%BC%9F"><span class="nav-number">1.11.2.3.1.</span> <span class="nav-text">gpu 操作是在另一个层面来操作。哪些指令能触发 gpu 这个层呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%A2%91%E7%8E%87-1s-60-%E6%AC%A1"><span class="nav-number">1.11.2.3.2.</span> <span class="nav-text">一般浏览器刷新页面的频率 1s 60 次</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-amp-px-%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E5%83%8F%E7%B4%A0%E7%9A%84%E5%AE%9E%E9%99%85%E6%84%8F%E4%B9%89"><span class="nav-number">1.12.</span> <span class="nav-text">screen&amp;px 显示器的成像原理和像素的实际意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E6%B7%B7%E8%89%B2%E6%B3%95"><span class="nav-number">1.12.1.</span> <span class="nav-text">空间混色法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#crt-%E6%98%BE%E7%A4%BA%E5%B1%8F"><span class="nav-number">1.12.1.1.</span> <span class="nav-text">crt 显示屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lcd-led-%E6%B6%B2%E6%99%B6%E5%B1%8F"><span class="nav-number">1.12.1.2.</span> <span class="nav-text">lcd&#x2F;led 液晶屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1px-%E6%9C%89%E5%A4%9A%E5%A4%A7"><span class="nav-number">1.12.1.3.</span> <span class="nav-text">1px 有多大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.12.1.4.</span> <span class="nav-text">像素详解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0-%E8%AE%BE%E5%A4%87%E5%87%BA%E5%8E%82%E6%97%B6%EF%BC%8C%E5%83%8F%E7%B4%A0%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.12.1.4.1.</span> <span class="nav-text">物理像素 &#x3D;&#x3D;&#x3D; 设备出厂时，像素的大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dpi-ppi"><span class="nav-number">1.12.1.4.2.</span> <span class="nav-text">dpi(ppi)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css-%E5%83%8F%E7%B4%A0%EF%BC%88%E5%8F%82%E7%85%A7%E5%83%8F%E7%B4%A0%EF%BC%89-%E9%80%BB%E8%BE%91%E5%83%8F%E7%B4%A0"><span class="nav-number">1.12.1.4.3.</span> <span class="nav-text">css 像素（参照像素）&#x3D;&#x3D; 逻辑像素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9C%8B%E5%B1%8F%E5%B9%95%E7%9A%84%E5%A5%BD%E5%9D%8F%E4%B8%8D%E7%9C%8B%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">1.12.1.4.4.</span> <span class="nav-text">看屏幕的好坏不看分辨率</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91"><span class="nav-number">2.</span> <span class="nav-text">响应式网页开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">作用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84-meta"><span class="nav-number">2.3.</span> <span class="nav-text">模拟移动端的 meta</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">2.4.</span> <span class="nav-text">实现必备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%96%AD%E7%82%B9%E8%AF%A6%E8%A7%A3"><span class="nav-number">2.4.1.</span> <span class="nav-text">主要断点详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.4.2.</span> <span class="nav-text">媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#css2-media-type-%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">&#x3D;&#x3D;css2:media type(媒体类型)&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3-media-query-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">css3:media query(媒体查询)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E7%89%B9%E6%80%A7-Media-features"><span class="nav-number">2.4.2.2.1.</span> <span class="nav-text">&#x3D;&#x3D;媒体特性 Media features&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.4.2.2.2.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%BD%BF%E7%94%A8-%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">2.4.2.2.3.</span> <span class="nav-text">&#x3D;&#x3D;媒体查询使用(引入方式)&#x3D;&#x3D;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E5%80%BC"><span class="nav-number">2.5.</span> <span class="nav-text">单位值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E6%98%AF%E6%9C%80%E4%BD%B3%E9%80%89%E6%8B%A9%E5%90%97%EF%BC%9F"><span class="nav-number">2.6.</span> <span class="nav-text">响应式设计是最佳选择吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3d-%E6%96%B9%E5%9D%97%E6%95%88%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">2.7.</span> <span class="nav-text">3d 方块效果总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css3-%E8%BD%AE%E6%92%AD%E5%9B%BE"><span class="nav-number">2.8.</span> <span class="nav-text">css3 轮播图</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="黑砸是只猫"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">黑砸是只猫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cat-heiza" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cat-heiza" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1778911090@qq.com" title="E-Mail → mailto:1778911090@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/30/CSS3%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="黑砸是只猫">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Duの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS3详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-30 20:23:54 / 修改时间：21:42:18" itemprop="dateCreated datePublished" datetime="2020-09-30T20:23:54+08:00">2020-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>24k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>22 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h2 id="css-属性查找网站"><a href="#css-属性查找网站" class="headerlink" title="css 属性查找网站"></a>css 属性查找网站</h2><p>参考手册：reference manual website: <a target="_blank" rel="noopener" href="http://css.doyoe.com/">http://css.doyoe.com</a><br><br>权威网站（实时）：Authoritative inquiry website : <a target="_blank" rel="noopener" href="http://www.caniuse.com/">http://www.caniuse.com</a></p>
+<h2 id="处理兼容性的插件"><a href="#处理兼容性的插件" class="headerlink" title="处理兼容性的插件"></a>处理兼容性的插件</h2><p>antoprefixer<br><br>写完代码后可以把有兼容性问题的代码自动补齐。（是一种后处理器）</p>
+<a id="more"></a>
+
+<h2 id="预处理器和后处理器"><a href="#预处理器和后处理器" class="headerlink" title="预处理器和后处理器"></a>预处理器和后处理器</h2><h3 id="pre-processor（预处理器）"><a href="#pre-processor（预处理器）" class="headerlink" title="pre-processor（预处理器）"></a>pre-processor（预处理器）</h3><p><strong>作用</strong>：用它的编写方式写代码，然后解析成标准的 css 代码执行。<br><br>插件：less/sass cssNext <br><br>cssNext：用来实现一些未来的标准的插件（未完全在各大浏览器实现的）</p>
+<h3 id="post-processor-（后处理器）"><a href="#post-processor-（后处理器）" class="headerlink" title="post-processor （后处理器）"></a>post-processor （后处理器）</h3><p><strong>作用</strong>：先用标准 css 语法去写，它会帮我们补充代码，比如兼容性。<br><br>插件：antoprefixer<br></p>
+<h3 id="postCss"><a href="#postCss" class="headerlink" title="postCss"></a>postCss</h3><p><strong>介绍</strong>：<br><br>是一个工具。用 js 实现的 css 的抽象的语法树 AST(Abstract Syntax Tree)。<br><br>会和很多插件相配合，最典型的就是 cssNext 和 autoprefixer。<br><br><strong>作用</strong>：<br><br>做==前半部分==的事，把 css 解析成一个语法树，可以在语法树上定义自己的功能。剩下的事留给后人来做。<br><br>==后半部分==由各式各样的插件来完成(充分体现了扩展性，200 多个)。</p>
+<h2 id="CSS3-Selector"><a href="#CSS3-Selector" class="headerlink" title="CSS3 Selector"></a>CSS3 Selector</h2><h3 id="Relationship-Selectors"><a href="#Relationship-Selectors" class="headerlink" title="Relationship Selectors"></a>Relationship Selectors</h3><h4 id="E-gt-F：直接子元素选择器"><a href="#E-gt-F：直接子元素选择器" class="headerlink" title="E &gt; F：直接子元素选择器"></a>E &gt; F：直接子元素选择器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &gt; p &#123;</span><br><span class="line">div下一级子元素中的p元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-F：下一个满足条件的兄弟元素节点"><a href="#E-F：下一个满足条件的兄弟元素节点" class="headerlink" title="E + F：下一个满足条件的兄弟元素节点"></a>E + F：下一个满足条件的兄弟元素节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div + p&#123;</span><br><span class="line">    下一个兄弟元素节点，而且必须是p</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-F：下一群满足条件的兄弟元素节点"><a href="#E-F：下一群满足条件的兄弟元素节点" class="headerlink" title="E ~ F：下一群满足条件的兄弟元素节点"></a>E ~ F：下一群满足条件的兄弟元素节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div + p&#123;</span><br><span class="line">下一群是p的兄弟元素节点，</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Attribute-Selectors"><a href="#Attribute-Selectors" class="headerlink" title="Attribute Selectors"></a>Attribute Selectors<br></h3><p><strong>CSS2</strong>：<br></p>
+<h4 id="E-data-”a”"><a href="#E-data-”a”" class="headerlink" title="E[data~=”a”]"></a>E[data~=”a”]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div[data~&#x3D;&quot;a&quot;]&#123;</span><br><span class="line">    元素为div且data属性中有a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-data-’a’"><a href="#E-data-’a’" class="headerlink" title="E[data|=’a’]"></a>E[data|=’a’]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div[data|&#x3D;&#39;a&#39;]&#123;</span><br><span class="line">    选择data属性为a或者a-xxx的元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>CSS3 新增</strong><br></p>
+<h4 id="E-data-’a’-1"><a href="#E-data-’a’-1" class="headerlink" title="E[data^=’a’]"></a>E[data^=’a’]<br></h4><p>data 属性以 a 开头</p>
+<h4 id="E-data-’a’-2"><a href="#E-data-’a’-2" class="headerlink" title="E[data$=’a’]"></a>E[data$=’a’]<br></h4><p>data 属性以 a 结尾</p>
+<h4 id="E-data-’a’-3"><a href="#E-data-’a’-3" class="headerlink" title="E[data*=’a’]"></a>E[data*=’a’]<br></h4><p>data 属性只要存在 a</p>
+<h3 id="Pseudo-Element-Selectors"><a href="#Pseudo-Element-Selectors" class="headerlink" title="Pseudo-Element Selectors"></a>Pseudo-Element Selectors</h3><h4 id="E-placeholder"><a href="#E-placeholder" class="headerlink" title="E::placeholder"></a><strong>E::placeholder</strong><br></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入用户名&quot;&gt;</span><br><span class="line">input::placeholder&#123;</span><br><span class="line">    color:red;&#x2F;&#x2F;目前只能改颜色。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-selection：元素选中后的样式"><a href="#E-selection：元素选中后的样式" class="headerlink" title="E::selection：元素选中后的样式"></a><strong>E::selection</strong>：元素选中后的样式<br></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;我很棒&lt;&#x2F;p&gt;</span><br><span class="line">p:selection&#123;</span><br><span class="line">    color:red;&#x2F;&#x2F;文字颜色</span><br><span class="line">    background-color:white;&#x2F;&#x2F;背景颜色</span><br><span class="line">    text-shadow:1px 5px red;&#x2F;&#x2F;文字阴影。横向1px 纵向5px 颜色红色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pseudo-Classes-Selectors"><a href="#Pseudo-Classes-Selectors" class="headerlink" title="Pseudo-Classes Selectors"></a>Pseudo-Classes Selectors</h3><h4 id="E-not-s"><a href="#E-not-s" class="headerlink" title="E:not(s)"></a><strong>E:not(s)</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div:not(.text&#x2F;[class&#x3D;&quot;text&quot;]&#x2F;..)&#123;</span><br><span class="line">    选中不含not中属性的元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-root-根节点-html、xml"><a href="#E-root-根节点-html、xml" class="headerlink" title="E:root:根节点(html、xml)"></a><strong>E:root</strong>:根节点(html、xml)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line"> 一般都这么来用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-target：元素身上的锚点被锚点链接选中时，使用此样式。"><a href="#E-target：元素身上的锚点被锚点链接选中时，使用此样式。" class="headerlink" title="E:target：元素身上的锚点被锚点链接选中时，使用此样式。"></a><strong>E:target</strong>：元素身上的锚点被锚点链接选中时，使用此样式。<br></h4><p>当选中锚点链接为 box1 的 a 元素时，锚点为 box1 的 div 背景变为红色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#box1&quot;&gt;&lt;&#x2F;a&gt;</span><br><span class="line">&lt;a href&#x3D;&quot;#box2&quot;&gt;&lt;&#x2F;a&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;box2&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">div:target&#123;</span><br><span class="line">    background-color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-ﬁrst-child-E-last-child-E-only-child-E-nth-child-n-E-nthlast-child-n"><a href="#E-ﬁrst-child-E-last-child-E-only-child-E-nth-child-n-E-nthlast-child-n" class="headerlink" title="E:ﬁrst-child E:last-child E:only-child E:nth-child(n) E:nthlast-child(n)"></a><strong>E:ﬁrst-child E:last-child E:only-child E:nth-child(n) E:nthlast-child(n)</strong><br></h4><p>==<strong>必须条件：</strong>==</p>
+<ol>
+<li>元素为 E</li>
+<li>是兄弟元素中的第 n 个</li>
+</ol>
+<ul>
+<li>E:ﬁrst-child 第一个元素</li>
+<li>E:last-child 最后一个元素，两个条件都成立才可以<br><br>注意：<br> 1)若选第一个 p 元素，不同父级元素内的第一个 p 元素都会被选中<br> 2)若使用 p:first-child，<strong>第一个元素为 p</strong> 才能生效。<br></li>
+<li>E:only-child 只有元素为独生子的前提下才能被选中<br></li>
+<li>E:nth-child(n) 可以通过设置 n 的公式来批量选元素（在所有子元素中查数） <br></li>
+<li>E:nth-last-child(n) 倒着数，功能同上<br><br>注意<br><br>1）n 从 0 开始查数，css 从 1 开始数，比如 nth-child(1)就是指第一个元素。<Br><br>2）奇偶数可以直接用 odd 和 even<br></li>
+</ul>
+<h5 id="注意-：这五种写法都考虑其他元素对他们的影响。比如前面插入一个元素。所以并不是很常用。"><a href="#注意-：这五种写法都考虑其他元素对他们的影响。比如前面插入一个元素。所以并不是很常用。" class="headerlink" title="**==注意==**：这五种写法都考虑其他元素对他们的影响。比如前面插入一个元素。所以并不是很常用。"></a>**==注意==**：这五种写法都考虑其他元素对他们的影响。比如前面插入一个元素。所以并不是很常用。<br></h5><h4 id="E-ﬁrst-of-type-E-last-of-type-E-only-of-pyte-E-nth-of-type-n-E-nth-of-lastpyte-n-常用"><a href="#E-ﬁrst-of-type-E-last-of-type-E-only-of-pyte-E-nth-of-type-n-E-nth-of-lastpyte-n-常用" class="headerlink" title="E:ﬁrst-of-type E:last-of-type E:only-of-pyte E:nth-of-type(n) E:nth-of-lastpyte(n) [常用]"></a><strong>E:ﬁrst-of-type E:last-of-type E:only-of-pyte E:nth-of-type(n) E:nth-of-lastpyte(n) [常用]</strong></h4><ul>
+<li>E:first-of-type 所选元素中的第一个元素。</li>
+<li>E:last-of-type 所选元素中的最后一个元素。</li>
+<li>E:only-of-pyte 选中元素中此类元素只有一个。</li>
+<li>E:nth-of-type(n) 可以通过设置 n 的公式来批量选元素（在所选子元素中查数）</li>
+<li>E:nth-of-lastpyte(n)倒着数，功能同上</li>
+</ul>
+<p>这五种写法都无需考虑其他元素对他们的影响。很常用。</p>
+<p>==<strong>注意:</strong>== E:nth-of-type(n)选取必须满足以下两个条件</p>
+<ol>
+<li>是兄弟元素中第 n 个元素(元素之间必须是兄弟关系)</li>
+<li>元素为 E</li>
+</ol>
+<p>==踩坑记录：==</p>
+<p>6 个 li 下面的<code>.img</code>元素，则要获取<code>li:nth-of-type(n) .img</code>，而不是<code>li .img:nth-of-type(n)</code></p>
+<h4 id="E-empty-E-checked-E-enabled-E-disabled"><a href="#E-empty-E-checked-E-enabled-E-disabled" class="headerlink" title="E:empty E:checked E:enabled E:disabled"></a>E:empty E:checked E:enabled E:disabled</h4><ul>
+<li>E:empty 内容为空的元素。</li>
+<li>E:checked 为选中状态的元素（input)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;&quot;&gt;</span><br><span class="line">&lt;span&gt;&lt;&#x2F;span&gt;</span><br><span class="line"></span><br><span class="line">input:checked+span::after &#123;</span><br><span class="line">       content: &quot;有内鬼，终止交易！&quot;;</span><br><span class="line">       background-color: green;</span><br><span class="line">       color: #fff;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>E:enabled 启用状态的元素</li>
+<li>E:disabled 禁用状态的元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用法1：</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; disabled&#x2F;enabled&gt; 禁用&#x2F;启用元素</span><br><span class="line">用法2:</span><br><span class="line">input:disabled&#x2F;enabled&#123;</span><br><span class="line">   给含disabled&#x2F;enabled属性的input添加样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="E-read-only-E-read-write"><a href="#E-read-only-E-read-write" class="headerlink" title="E:read-only E:read-write"></a>E:read-only E:read-write</h4><ul>
+<li>E:read-only 可读状态的元素</li>
+<li>E:read-write 可写状态的元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用法1：</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; readonly&#x2F;readwrite value&#x3D;&quot;hahah&quot;&gt; 文本框可读&#x2F;可写</span><br><span class="line">用法2:</span><br><span class="line">input:readonly&#x2F;readwrite&#123;</span><br><span class="line">   给含readonly&#x2F;readwrite属性的input添加样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="border-amp-background"><a href="#border-amp-background" class="headerlink" title="border&amp;background"></a>border&amp;background</h2><h3 id="border"><a href="#border" class="headerlink" title="border"></a>border</h3><h4 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h4><ul>
+<li>原理：在正方形的四个角放一个半径为 n 的圆形来进行切割。</li>
+<li>一般写法：border-radius:10px -</li>
+<li>升级写法：border-radius:10px 10px 10px 10px</li>
+<li>最高级别：border-top-left-radius:10px 10px</li>
+<li>最高级别简化写法：border-radius:10px 10px 10px 10px / 10px 10px 10px 10px;<br> 前面值和后面值一一对应。</li>
+</ul>
+<h4 id="box-shadow-阴影"><a href="#box-shadow-阴影" class="headerlink" title="box-shadow 阴影"></a>box-shadow 阴影</h4><p>inset：内阴影，默认外阴影<br><br>color：背景颜色<br><br><strong>box-shadow: offsetX offsetY blur spread ** <br><br>**横向偏移量/垂直偏移量/模糊值(边框两边加像素)/扩散(四个方向加像素)</strong><br><br>**==多值应用==**：就是加多层阴影，可以任意层，相同参数的阴影会加重<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    box-shadow:</span><br><span class="line">    inset 5px 0px 10px #F00,</span><br><span class="line">    5px 0px 10px #F00,</span><br><span class="line">    0px 5px 5px #Ff0,</span><br><span class="line">    -5px 0px 5px #0f0,</span><br><span class="line">    0px -5px 5px #00f;</span><br><span class="line">注意：越往前，z-index越高。</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/css3-1.png" alt="avatar"></p>
+<h4 id="border-image-边框背景图片"><a href="#border-image-边框背景图片" class="headerlink" title="border-image 边框背景图片"></a>border-image 边框背景图片</h4><h5 id="border-image-source-边框背景图片资源"><a href="#border-image-source-边框背景图片资源" class="headerlink" title="==border-image-source 边框背景图片资源=="></a>==border-image-source 边框背景图片资源==</h5><p>可填写的值</p>
+<ul>
+<li>url()</li>
+<li>linear-gradient(#000,#fff);</li>
+</ul>
+<h5 id="brder-image-slice：切割"><a href="#brder-image-slice：切割" class="headerlink" title="==brder-image-slice：切割=="></a>==brder-image-slice：切割==</h5><p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/css3-2.png" alt="avatar"></p>
+<ul>
+<li>注意：此属性必填，一般填 border 宽度。</li>
+<li>可分开填 4 个值：10 10 10 10，代表四条分割线的位置</li>
+</ul>
+<ul>
+<li>数字代表像素，但是不让填 px</li>
+<li>还可以填一个值 fill，代表把内容区填充（完全可以用背景代替，一般不用）</li>
+<li>默认值 100%，四个角会填充整个背景图片</li>
+</ul>
+<h5 id="border-image-width-背景图片显示的宽度"><a href="#border-image-width-背景图片显示的宽度" class="headerlink" title="border-image-width 背景图片显示的宽度"></a>border-image-width 背景图片显示的宽度</h5><ul>
+<li>默认值为 1（和 border 宽度一样，一般不改动）</li>
+<li>auto 会拿 border-image-sclice 值，但是会加上 px。</li>
+<li>border-image-width 填的数字是 border 宽度的倍数，n*border 宽度</li>
+<li>自定义一般填 px</li>
+</ul>
+<h5 id="borderimage-outset-背景图片往外延伸，就是把背景图片挤出-border-区域（不常用）"><a href="#borderimage-outset-背景图片往外延伸，就是把背景图片挤出-border-区域（不常用）" class="headerlink" title="borderimage-outset 背景图片往外延伸，就是把背景图片挤出 border 区域（不常用）"></a>borderimage-outset 背景图片往外延伸，就是把背景图片挤出 border 区域（不常用）</h5><h5 id="border-image-repeat"><a href="#border-image-repeat" class="headerlink" title="==border-image-repeat=="></a>==border-image-repeat==</h5><ul>
+<li>stretch 拉伸</li>
+<li>repeat 平铺</li>
+<li>round 特殊平铺：当放不下第二个背景图片的时候，拉伸，当满足第二个背景图片一半宽度时，整体压缩，把第二个放进去。</li>
+<li>space 特殊平铺：当放不下第二个背景图片时，只显示一个，剩余空间空白填充，当能放下第二个背景图片时，再放进去。</li>
+</ul>
+<h5 id="整体写法"><a href="#整体写法" class="headerlink" title="整体写法"></a>整体写法</h5><ul>
+<li>border-image:source slice repeat;这三个一般放一起写。</li>
+<li>border-image-width 和 outset 一般单独写出来</li>
+<li>为什么 slice 不让填 px 而 width 有 px 呢，因为放在一起写的时候可以区分开。</li>
+</ul>
+<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><p>复习：</p>
+<ul>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-position<ul>
+<li>如果只指定一个值，那么第二个值默认为 center 。</li>
+</ul>
+</li>
+<li>background-repeat</li>
+<li>background-size<ul>
+<li>常见宽高</li>
+<li>cover 用一张图片，把容器填满而不改变图片比例</li>
+<li>containe 在不改变图片比例的情况下，让容器包裹一张图片</li>
+</ul>
+</li>
+<li>==<strong>注意</strong>==：设置多个背景图片属性时用逗号分隔<br></li>
+</ul>
+<h4 id="background-image-背景图片"><a href="#background-image-背景图片" class="headerlink" title="background-image 背景图片"></a>background-image 背景图片</h4><ul>
+<li>url(),url()… 可添多个 url()</li>
+<li>可通过设置 position 同时显示多张背景图片</li>
+<li>可以设置渐变色。</li>
+<li>公司常见写法：<ul>
+<li>background-image:url(../),url(../容错图片.jpg);</li>
+<li>如果第一张图片没加载出来，或者出错，就会去加载第二种图片，有一个容错机制。</li>
+<li>一般来说第二张图片会非常小，一两 k，防止第二张加载不出。</li>
+<li>若第二张加载不出，会留下一个白框。</li>
+</ul>
+</li>
+</ul>
+<h4 id="background-origin-背景图片坐标摆放位置"><a href="#background-origin-背景图片坐标摆放位置" class="headerlink" title="background-origin 背景图片坐标摆放位置"></a>background-origin 背景图片坐标摆放位置</h4><ul>
+<li>padding-box:默认，背景图片摆放位置以 padding 区域为参考。</li>
+<li>border-box:背景图片摆放位置以 border 区域为参考。</li>
+<li>content-box:背景图片摆放位置以 content 区域为参考。</li>
+</ul>
+<h4 id="background-clip-背景图片截断位置"><a href="#background-clip-背景图片截断位置" class="headerlink" title="background-clip 背景图片截断位置"></a>background-clip 背景图片截断位置</h4><ul>
+<li>padding-box：padding 区域以外背景图片截断（不显示）</li>
+<li>border-box：border 区域以外背景图片截断（不显示）</li>
+<li>content-box:：content 区域以外背景图片截断（不显示）</li>
+<li>text 文字区域显示背景（文字的颜色变成背景）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">text具体用法</span><br><span class="line">-webkit-background-clip:text;</span><br><span class="line">background-clip:text;</span><br><span class="line">-webkit-text-fill-color:transparent;</span><br><span class="line">text-fill-color:transparent;</span><br></pre></td></tr></table></figure>
+
+<h4 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a>background-repeat</h4><ul>
+<li>repeat</li>
+<li>no-repeat</li>
+<li>repeat-x</li>
+<li>repeat-y</li>
+<li>round 平铺，容下一半宽度时放入，否则拉伸</li>
+<li>space 平铺，容下整个宽度时放入，否则空白填充</li>
+<li>round space ,垂直 round,水平 space</li>
+</ul>
+<h4 id="background-attachment-背景图片的定位方式"><a href="#background-attachment-背景图片的定位方式" class="headerlink" title="background-attachment 背景图片的定位方式"></a>background-attachment 背景图片的定位方式</h4><ul>
+<li>只对有滚动条容器有效果</li>
+<li>scroll 相对于容器 fiexd 定位，容器滚动背景图片不动。</li>
+<li>local 容器滚动背景图片跟着滚动。</li>
+<li>fiexd 相对页面进行 fiexd 定位（没卵用）</li>
+</ul>
+<h4 id="背景图片固定显示"><a href="#背景图片固定显示" class="headerlink" title="背景图片固定显示"></a>背景图片固定显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url(&quot;.&#x2F;assets&#x2F;img&#x2F;bg.png&quot;);</span><br><span class="line">background-repeat: no-repeat;</span><br><span class="line">background-position: right bottom;</span><br><span class="line">background-attachment: fixed;</span><br></pre></td></tr></table></figure>
+
+<h3 id="filter-滤镜"><a href="#filter-滤镜" class="headerlink" title="filter 滤镜"></a>filter 滤镜</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter:blur(10px); &#x2F;&#x2F;高斯模糊</span><br></pre></td></tr></table></figure>
+
+<p>如何设置背景模糊内容清晰？</p>
+<p>可以设置一个和内容同级的元素，将模糊设置到这个元素上</p>
+<p>注意 z-index 的层级</p>
+<p>如果 bg 在兄弟元素的最前面，则不需要加层级，后面的会覆盖在它上面</p>
+<p>如果 bg 在兄弟元素的后面需要将层级设置为-1，将父元素层级设置为 0</p>
+<h3 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h3><h4 id="linear-gradient-线性渐变"><a href="#linear-gradient-线性渐变" class="headerlink" title="linear-gradient()线性渐变"></a>linear-gradient()线性渐变</h4><ul>
+<li>linear-gradient(#fff,#000)（默认从上向下）</li>
+<li>linear-gradient(to right,#fff,#000)（向右）</li>
+<li>linear-gradient(to top right,#fff,#000)（向右上）</li>
+<li>linear-gradient(30deg right,#fff,#000)（自定义角度，30 度）</li>
+<li>linear-gradient(#fff 30px,#000 50px)（颜色起止位置。#fff 从 30px 开始往后去渐变为#000,最多渐变到 50px 变为#000）</li>
+<li>注意，层级再背景之上</li>
+</ul>
+<h4 id="radial-gradient-镜像渐变"><a href="#radial-gradient-镜像渐变" class="headerlink" title="radial-gradient()镜像渐变"></a>radial-gradient()镜像渐变</h4><ul>
+<li>radial-gradient(#fff,#000)（默认向外变色）</li>
+<li>radial-gradient(#fff 20px,#000 40px)（颜色起始位置，从圆心开始 20px 往后开始渐变）</li>
+<li>radial-gradient(circle at 100px 0px ,#fff,#000)设置圆形圆心位置：left:100px top:0px</li>
+<li>radial-gradient(ellipse at 100px 0px,#fff,#000)设置椭圆圆心位置：left:100px top:0px</li>
+<li>radial-gradient(#fff,#000)（默认向外变色）</li>
+<li>注意，层级再背景之上</li>
+</ul>
+<p><strong>ellipse 椭圆的一些其他属性</strong></p>
+<ul>
+<li>ellipse closest-corner at 100px 0px ：放射边界到最近的角就截止</li>
+<li>closest-side at 100px 0px ：放射边界到到最近的边就截止</li>
+<li>farthest-corner at 100px 0px ：放射边界到到最远的角就截止</li>
+<li>farthest-side at 100px 0px ：放射边界到到最远的边就截止<br><br>==<strong>注意</strong>==:</li>
+</ul>
+<ol>
+<li>使用这些属性时可以不写 ellipse</li>
+<li>椭圆就是于可变化宽高的圆形</li>
+</ol>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>前面学过：</p>
+<ul>
+<li>rgb()</li>
+<li>rgba()</li>
+<li>#000<br></li>
+<li><strong>hsla（新加）</strong>:<br><br>H:Hue(色调)。0（或 360）表示红色，120 表示绿色，240 表示蓝色。取值范围 0-360 <br><br>S:stauration(饱和度).取值范围 0.0% - 100.0% <br><br>L:Lightness(亮度)。取值范围 0.0% - 100.0% <br><br>A:Alpha 透明度。取值 0 - 1 之间。<br><br><strong>注意</strong>:hsl 也可以用。</li>
+<li>currentColor 中转颜色。<ul>
+<li>解释：不写 border-color 的时候，默认 currentColor,指向文本的颜色。</li>
+</ul>
+</li>
+</ul>
+<h2 id="text"><a href="#text" class="headerlink" title="text"></a>text</h2><h3 id="复习："><a href="#复习：" class="headerlink" title="复习："></a>复习：</h3><ul>
+<li>font<ul>
+<li>font-size</li>
+<li>font-family</li>
+<li>font-color</li>
+<li>font-weight</li>
+</ul>
+</li>
+<li>text - text-align 文本对齐方式 - text-overflow 文本超出部分处理 - text-indent:2em;(文本缩进) - text-decoration:underline;(下划线)<br>开始：<br></li>
+</ul>
+<h3 id="text-shadow-阴影"><a href="#text-shadow-阴影" class="headerlink" title="text-shadow 阴影"></a>text-shadow 阴影</h3><h4 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h4><p>text-shadow:x 偏移 y 偏移 模糊度 颜色;</p>
+<h4 id="浮雕效果"><a href="#浮雕效果" class="headerlink" title="浮雕效果"></a>浮雕效果</h4><p>text-shadow:1px 1px #000,-1px -1px #fff;</p>
+<h4 id="镂刻效果"><a href="#镂刻效果" class="headerlink" title="镂刻效果"></a>镂刻效果</h4><p>text-shadow:-1px -1px #000;</p>
+<h4 id="霓虹灯效果-火焰效果-红蓝错乱效果-文字背景显示图片"><a href="#霓虹灯效果-火焰效果-红蓝错乱效果-文字背景显示图片" class="headerlink" title="霓虹灯效果/火焰效果/红蓝错乱效果/文字背景显示图片"></a>霓虹灯效果/火焰效果/红蓝错乱效果/文字背景显示图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">text-shadow: 0px 0px 10px #0ff, 0px 0px 20px #0ff;</span><br><span class="line">text-shadow:    0px 0px 10px #f00,</span><br><span class="line">                0px 0px 20px #f00,</span><br><span class="line">                0px -5px 10px #f00,</span><br><span class="line">                0px -10px 20px #f00,</span><br><span class="line">                0px -10px 20px #f00,</span><br><span class="line">                0px -15px 30px #f00;</span><br><span class="line">text-shadow:    0px 0px 10px #f00,</span><br><span class="line">                0px 0px 20px #f00,</span><br><span class="line">                0px -5px 10px #f00,</span><br><span class="line">                0px -10px 20px #f00,</span><br><span class="line">                0px -10px 20px #f00,</span><br><span class="line">                0px -15px 30px #f00;</span><br><span class="line"></span><br><span class="line">text-shadow:    -10px -10px 3px rgba(255,0,255,.2),</span><br><span class="line">                5px 5px 3px  rgba(0,255,255,.2);</span><br><span class="line">                background-image: url(&quot;..&#x2F;img&quot;);</span><br><span class="line">                -webkit-background-clip: text;设置背景显示在text上</span><br><span class="line">                background-clip: text;</span><br><span class="line">                -webkit-text-fill-color: transparent;</span><br><span class="line">                text-fill-color: transparent; 设置文字填充颜色</span><br></pre></td></tr></table></figure>
+
+<h3 id="webkit-text-stroke-描边效果"><a href="#webkit-text-stroke-描边效果" class="headerlink" title="-webkit-text-stroke 描边效果"></a>-webkit-text-stroke 描边效果</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>-webkit-text-stroke:1px red; 1px 的红色边框</p>
+<h4 id="有趣玩法-文字有电路图效果（试了好像不行）"><a href="#有趣玩法-文字有电路图效果（试了好像不行）" class="headerlink" title="有趣玩法:文字有电路图效果（试了好像不行）"></a>有趣玩法:文字有电路图效果（试了好像不行）</h4><p>color:transparent;<br>font-family:simsun;<br>-webkit-text-stroke:1px green;</p>
+<h3 id="white-space-pre-格式化文本"><a href="#white-space-pre-格式化文本" class="headerlink" title="white-space: pre; 格式化文本"></a>white-space: pre; 格式化文本</h3><h3 id="word-break"><a href="#word-break" class="headerlink" title="word-break:"></a>word-break:</h3><ul>
+<li>keep-all;不换行</li>
+<li>break-all;到边界就强制换行</li>
+<li>break-word;尽可能保留单词的完整性</li>
+</ul>
+<h3 id="word-wrap-overflow-wrap"><a href="#word-wrap-overflow-wrap" class="headerlink" title="word-wrap/overflow-wrap"></a>word-wrap/overflow-wrap</h3><ul>
+<li>break-word;尽可能保留单词的完整性</li>
+</ul>
+<h3 id="columns-多列"><a href="#columns-多列" class="headerlink" title="columns 多列"></a>columns 多列</h3><p>columns:300px 4 // 300px 宽，4 列</p>
+<p>column-count:3;3 列 <br><br>column-gap:30px;空隙，30 像素宽，默认 16px <br><br>column-rule:solid;分割线,和 border 一样可以填任意属性值 <br><br>cloumn-width:200px; 一列的宽度，会随父级宽度变化去自动拉伸压缩。常用方法是固定父级宽度。<br>p 标签使用：<br>column-span:all;//贯穿整行。<br></p>
+<h3 id="引入外部字体"><a href="#引入外部字体" class="headerlink" title="引入外部字体"></a>引入外部字体</h3><ul>
+<li>用法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">    font-family: &#39;diyfont&#39;;</span><br><span class="line">    src: url(&#39;diyfont.eot&#39;); &#x2F;* IE9+ *&#x2F;</span><br><span class="line">    src: url(&#39;diyfont.eot?#ieﬁx&#39;) format(&#39;embedded-opentype&#39;), &#x2F;* IE6-IE8 *&#x2F;</span><br><span class="line">    url(&#39;diyfont.woff&#39;) format(&#39;woff&#39;), &#x2F;* chrome、ﬁrefox *&#x2F;</span><br><span class="line">    url(&#39;diyfont.ttf&#39;) format(&#39;truetype&#39;), &#x2F;* chrome、ﬁrefox、opera、Safari, Android, iOS 4.2+*&#x2F;      url(&#39;diyfont.svg#fontname&#39;) format(&#39;svg&#39;); &#x2F;* iOS 4.1- *&#x2F;</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">    font-family:&quot;diyfont&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：</li>
+</ul>
+<ol>
+<li>如果是英文网站，字体包也就需要 1m 左右，可以引入。但是中文有几万个字，如果是全部字体改变的字体包，可能 10m 左右，一般不会用来引入。</li>
+<li>一般引入字体包的情况，是字体包中只有需要的艺术字，而非全部的文字。<br><br>详解：<br><br>下面是一些历史进程，文字格式的问题，大致了解就好<br><br>对应的字体格式类型 字体格式.后<br><br>truetype 微软 苹果 .ttf<br><br>poentype 升级版 .opt<br><br>woff 上面两个压缩版 .woff .eat ..svg<br><br>其实是浏览器执行一种 MIME 协议，然后通过请求系统打开这些文件显示到浏览上显示 format（字体格式提示器）猜测是从电脑系统里面建立一种映射，来打开这些字体格式。</li>
+</ol>
+<h2 id="BOX"><a href="#BOX" class="headerlink" title="BOX"></a>BOX</h2><p><strong>复习</strong><br><br>正常盒子组成：border+padding+content<br><br>计算方式：boxWidth = width + border<em>2 + padding</em>2</p>
+<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><ul>
+<li>overflow-x</li>
+<li>overflow-y<br></li>
+<li>注意： - 只要-x 或者-y 设置了非 visible 的值，另一个属性默认值会设置为 auto - 一般分开设置 x 和 y - 常用 overflow-x:auto; - 为什么用 auto 不用 scroll，因为用 scroll 时，若超出，则两个方向都会显示。<br>还可以填的值：<Br></li>
+<li>visible 不处理，默认</li>
+<li>hidden 隐藏溢出部分，且不出现滚动条</li>
+<li>scroll 隐藏溢出部分，且出现滚动条</li>
+<li>auto 当内容没有溢出时不出现滚动条，溢出了出现滚动条。</li>
+</ul>
+<h3 id="resize-让用户调节大小"><a href="#resize-让用户调节大小" class="headerlink" title="resize 让用户调节大小"></a>resize 让用户调节大小</h3><ul>
+<li>none 不可调节</li>
+<li>both 两个方向</li>
+<li>horizontal 水平</li>
+<li>vertical 垂直方向</li>
+<li>注意 1：必须设置 overflow 属性。</li>
+<li>注意 2：会使页面重排，尽量不要用</li>
+</ul>
+<h3 id="IE6-混杂模式盒子"><a href="#IE6-混杂模式盒子" class="headerlink" title="IE6 混杂模式盒子"></a>IE6 混杂模式盒子</h3><p>启动方式：box-sizing:border-box;<br><br><strong>和原先盒子的区别：计算方式不同</strong><br><br>boxWidth = width;<br><br>contentWidth = width - border<em>2 - padding</em>2<br><br>—和创建 bfc 区域有点类型</p>
+<h3 id="flex-弹性盒子"><a href="#flex-弹性盒子" class="headerlink" title="flex 弹性盒子"></a>flex 弹性盒子</h3><h4 id="设置一个弹性盒子："><a href="#设置一个弹性盒子：" class="headerlink" title="设置一个弹性盒子："></a>设置一个弹性盒子：</h4><p>dispaly:flex / inline-flex;</p>
+<h4 id="可用的属性值"><a href="#可用的属性值" class="headerlink" title="可用的属性值"></a>可用的属性值</h4><h5 id="写到父级的属性"><a href="#写到父级的属性" class="headerlink" title="写到父级的属性"></a>写到父级的属性</h5><ul>
+<li>flex-direction:row;主轴方向<ul>
+<li>row(默认，主轴为水平方向，自左向右)</li>
+<li>row-reverse(主轴为水平方向，自右向左)</li>
+<li>column(主轴为垂直方向，自上向下)</li>
+<li>column-reverse(主轴为垂直方向，自下向上)</li>
+</ul>
+</li>
+<li>flex-wrap:换行<ul>
+<li>no-wrap(默认不换行)</li>
+<li>wrap（换行）</li>
+<li>wrap-reverse (倒着换行，456 / 123)</li>
+</ul>
+</li>
+<li>flex-flow:flex-direction flex-wrap;</li>
+<li>justify-content:对齐<ul>
+<li>flex-start 基于主轴头部对齐</li>
+<li>flex-end 基于主轴尾部对齐</li>
+<li>flex-center 基于主轴居中对齐。</li>
+<li>space-between 两边必须有元素，中间自适应。</li>
+<li>space-around 元素均匀分配空隙，两测的边距为元素间距的一半。</li>
+</ul>
+</li>
+<li>align-items: 交叉轴位置<ul>
+<li>center/flex-start/end; 交叉轴（纵轴）位置居中/靠上/靠下显示</li>
+<li>stretch; （这个是默认值，当内部元素不设置宽高的时候，会把元素拉伸）</li>
+<li>注意：当出现多行时，每行元素会平均分配高度</li>
+</ul>
+</li>
+<li>align-content: 交叉轴位置<ul>
+<li>注意：<ol>
+<li>单行时和 align-items 效果相同</li>
+<li>多行时，每行元素会根据属性，依次排列，不会平均分配高度。</li>
+<li>多行设置 nowrap 时，nowrap 生效，content 失效</li>
+</ol>
+</li>
+<li>flex-start;元素依照交叉轴靠上显示</li>
+<li>flex-end;元素依照交叉轴靠下显示</li>
+<li>flex-center;元素依照交叉轴居中显示</li>
+<li>space-between 两边必须有元素，中间自适应。</li>
+<li>space-around 元素均匀分配空隙，两测的边距为元素间距的一半。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/flex1.png" alt="avatar"></p>
+<p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/flex2.png" alt="avatar"></p>
+<h5 id="设置到子项的属性"><a href="#设置到子项的属性" class="headerlink" title="设置到子项的属性"></a>设置到子项的属性</h5><ul>
+<li>order:number; 数字大的往前排，尽量填负数，默认值为 0，但是填 1 也会排在没写此属性元素的后面。</li>
+<li>align-self:子项相对交叉轴的位置（父 align-content&gt;子 align-self&gt;父&gt;align-items）<ul>
+<li>center;</li>
+<li>flex-start;</li>
+<li>flex-end;</li>
+<li>stretch; （这个是默认值，当内部元素不设置宽高的时候，会把元素拉伸）</li>
+</ul>
+</li>
+</ul>
+<p>==<strong>flex 伸缩属性</strong>==</p>
+<ul>
+<li>flex-grow:1; 盒子把主轴方向上剩余的空间按照设置比例给瓜分掉。默认为 0，不瓜分</li>
+<li>flex-shrink:1;压缩比例 默认为 1</li>
+<li>flex-basis:50px; 可以覆盖 whidth 值。默认 auto，就是计算 width 的宽度。</li>
+<li><strong>flex-shrink 详解</strong>：<ul>
+<li>1.一旦内容宽度超出了容器，flex-grow 就会失效，成为 0 的状态</li>
+<li>2.<strong>公式</strong>：假设 3 个容器宽度为 200px,200px,400px,压缩比例为 1：1：3，<ul>
+<li>(1) 先计算加权值：200px<em>1 + 200px</em>1 + 400px*3 = 1600px</li>
+<li>(2) 三个容器所分的像素： 200px*1/1600(比例)*200px=25px，所以此容器压缩 25px，以此类推。</li>
+<li>(3) 总结：(内容区大小)*shrink + … = 加权值</li>
+</ul>
+</li>
+<li>3.默认 1，可以设置为 0，不参与压缩</li>
+<li>4.<strong>格外注意</strong>：公式计算的容器像素，计算的是 content 的宽度，所以加 border 或 padding 的时候会出现精度不准的问题。</li>
+<li>5.无论什么情况，被内容撑开的容器不参与运算。</li>
+<li>6.标准盒子和弹性盒子都是此公式。</li>
+</ul>
+</li>
+<li>==**flex-basis 和 width 的注意点 **==<ul>
+<li>1.flex-basis 权重高于 width</li>
+<li>2.只写 basis 或者 basis 大于 width 的时候，flex-basis 代表容器最小宽度</li>
+<li>3.当两个属性都有并且 basis 小于 width 的时候，flex-basis 代表容器最小宽度，width 代表容器的最大宽度。</li>
+</ul>
+</li>
+<li><strong>如果想让内容区正常的话，最好加上 word-break:break-word;可以防止英文撑大容器导致出错</strong></li>
+</ul>
+<p>==<strong>flex 简写</strong>==</p>
+<ul>
+<li>默认：flex:0 1 auto;</li>
+<li>flex:1; -》 flex:1 1 0%;</li>
+<li>flex:auto -》flex:1 1 auto;</li>
+<li>flex:none -》 flex:0 0 auto;</li>
+<li>flex: 0 auto 或者 flex:initial -&gt; flex:0 1 auto(即初始值);</li>
+</ul>
+<h4 id="弹性盒子应用"><a href="#弹性盒子应用" class="headerlink" title="弹性盒子应用"></a>弹性盒子应用</h4><p>demo</p>
+<h2 id="transition-过度"><a href="#transition-过度" class="headerlink" title="transition 过度"></a>transition 过度</h2><h3 id="transition-property-过渡属性"><a href="#transition-property-过渡属性" class="headerlink" title="transition-property 过渡属性"></a>transition-property 过渡属性</h3><ul>
+<li>all 所有具备动画过渡的元素</li>
+<li>width,height… 可以规定特定值进行过渡</li>
+</ul>
+<h3 id="transition-duration-时间间隔"><a href="#transition-duration-时间间隔" class="headerlink" title="transition-duration 时间间隔"></a>transition-duration 时间间隔</h3><h3 id="transition-timing-function-运动状态函数"><a href="#transition-timing-function-运动状态函数" class="headerlink" title="transition-timing-function 运动状态函数"></a>transition-timing-function 运动状态函数</h3><h4 id="贝塞尔曲线-cubic-beseir-1-1-1-1-匀速运动"><a href="#贝塞尔曲线-cubic-beseir-1-1-1-1-匀速运动" class="headerlink" title="贝塞尔曲线 cubic-beseir(1, 1 , 1 , 1); 匀速运动"></a>贝塞尔曲线 cubic-beseir(1, 1 , 1 , 1); 匀速运动</h4><ul>
+<li>linear 线性过渡。等同于贝塞尔曲线 （0,0,1,1)</li>
+<li>ease 平滑过渡。等同于贝塞尔曲线 （0.25,0.1,0.25,1)</li>
+<li>ease-in 由慢到快。等同于贝塞尔曲线 （0.42,0,0.58,1)</li>
+<li>ease-out 由快到慢。等同于贝塞尔曲线（0,0,0.58,1)</li>
+<li>ease-in-out:由慢到快再到慢。等同于贝塞尔曲线（0.42,0,0.58,1.0)</li>
+</ul>
+<h5 id="三次贝塞尔曲线详解"><a href="#三次贝塞尔曲线详解" class="headerlink" title="三次贝塞尔曲线详解"></a>三次贝塞尔曲线详解</h5><ul>
+<li>cubic-besier(0,0,1,1)<ul>
+<li>贝塞尔曲线的起点和终点是固定的</li>
+<li>三次贝塞尔曲线有两个控制点，n 次贝塞尔曲线有 n-1 个控制点</li>
+<li>0,0,1,1 代表的是两个控制点的坐标 (x,y)(x,y)</li>
+<li>曲线的斜率代表运动的速度，斜率越大，速度越快。</li>
+<li>可以通过浏览器来调试贝塞尔曲线</li>
+<li>公式：B(t) = P₀(1 - t)³ + 3P₁t(1 - t)² + 3P₂t²(1 - t) + P₃t³ ,t ∈ [0,1]</li>
+<li>注意点 1：x 轴区间为[0,1] ,y 轴可以任意取</li>
+<li>注意点 2：y 轴小于 0 的时候，斜率会出现负值，这时会反方向运动一段距离。y 轴大于 0 的时候，会冲出一段距离，再回到终点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="transition-delay-等待-xx-秒后执行"><a href="#transition-delay-等待-xx-秒后执行" class="headerlink" title="transition-delay 等待 xx 秒后执行"></a>transition-delay 等待 xx 秒后执行</h3><h3 id="组合使用：transition-all-1s-swing-1s-…-可以多值"><a href="#组合使用：transition-all-1s-swing-1s-…-可以多值" class="headerlink" title="组合使用：transition:all .1s swing 1s,….可以多值;"></a>组合使用：transition:all .1s swing 1s,….可以多值;</h3><h2 id="Transform-变换"><a href="#Transform-变换" class="headerlink" title="Transform: 变换"></a>Transform: 变换</h2><h3 id="transform"><a href="#transform" class="headerlink" title="transform:"></a>transform:</h3><h4 id="translate-平移"><a href="#translate-平移" class="headerlink" title="translate() 平移"></a>translate() 平移</h4><ul>
+<li><p>translate(x,y) 元素相对自身位置向 x 轴 y 轴移动一定距离。</p>
+</li>
+<li><p>translateX(-50%) 相对自身位置向左移动自身一半的距离。</p>
+</li>
+<li><p>translateY(-50%) 相对自身位置向上移动自身一半的距离。</p>
+</li>
+<li><p>translateZ(-50%) 相对自身位置向后移动自身一半的距离。</p>
+<ul>
+<li>3d 效果：transfrom : rotatey(..) translatez(..)</li>
+<li>使用 z 轴时需要父级元素加景深</li>
+</ul>
+</li>
+<li><p>translate3d(x,y,z) 上面组合</p>
+</li>
+<li><p><strong>==注意==</strong><br></p>
+<ul>
+<li>可用于居中:left:50%;top:50%;transfrom:translate(-50%,-50%),在不知道元素宽高的情况下，这个就很好用。</li>
+<li>知道自身宽度时直接 left:calc(50% - 50px);</li>
+<li>使用此 translate()后，坐标轴会跟着变化， 所以在 translate 后面加 rotate 属性无效，因为轴已经跟着变了，应该讲 rotate 属性放前面。</li>
+</ul>
+</li>
+</ul>
+<h4 id="rotate-旋转"><a href="#rotate-旋转" class="headerlink" title="rotate() 旋转"></a>rotate() 旋转</h4><ul>
+<li>rotate(45deg) 默认沿 z 轴旋转 45 度（即平面旋转）</li>
+<li>rotatex() 沿 x 轴旋转</li>
+<li>rotatey() 沿 y 轴旋转</li>
+<li>rotatez() 沿 z 轴旋转</li>
+<li>==rotate3d(x,y,z,0deg)==<ul>
+<li>x,y,z 设置的比值，就是这个矢量的方向，也就是轴的朝向。</li>
+<li>比如 rotate3d(1,1,1,90deg);图像的轴指向就是平面指向右下角，垂直斜角指向 45 度，然后在这个轴上旋转 90 度。</li>
+<li>3 个数的大小不重要，重要的是比例。x=1,y=1。轴的方向就是指向右下。x 在点 1 的位置，y 在点 1 的位置，从(0,0)到(1,1)就是轴的位置</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>transfrom:rotatey(90deg) rotatex(45deg);</li>
+<li>transfrom:rotatex(45deg) rotatey(90deg) ;</li>
+<li>旋转的先后顺序不同，效果不同</li>
+</ul>
+</li>
+</ul>
+<h4 id="scale-伸缩"><a href="#scale-伸缩" class="headerlink" title="scale() 伸缩"></a>scale() 伸缩</h4><ul>
+<li>scale(x,y) //大于 0 放大，小于 0 压缩</li>
+<li>scalex(1.5)</li>
+<li>scaley()</li>
+<li>scalez()</li>
+<li>scale3d(x,y,z)</li>
+<li>==注意点 1：伸缩的是此元素的变化坐标轴的刻度，不是元素本身==<ul>
+<li>也就是说，在元素上进行像素值等操作时，无需顾忌是否被伸缩</li>
+</ul>
+</li>
+<li>==注意点 2：可以进行叠加操作，即从改变后的基础上继续操作==</li>
+<li>==<strong>注意点 3</strong>：配合 rotate()使用会出现的情况==<ul>
+<li>scale 伸缩轴会跟着旋转来变动。特点：雁过留声，就是没旋转时伸缩，再进行旋转时伸缩比例还是旋转前的，先旋转再伸缩时，伸缩轴就会跟着旋转轴来一直变化，也就出现了图片比例在一直变化的情况。</li>
+<li>transfrom:rotate(45deg) scale(1,2) //旋转时图片缩放比例为设置比例（正常）</li>
+<li>transfrom:scale(1,2) rotate(45deg) //旋转时图片比例随时在变化，x 轴和 y 轴缩放比例一直保持 1：2</li>
+</ul>
+</li>
+<li>==<strong>注意点 4（踩坑）：</strong>== 缩放背景图片时可能会出现轻微抖动，加上 translatez(0),让 gpu 来控制动画可以解决。</li>
+</ul>
+<h4 id="skew-倾斜"><a href="#skew-倾斜" class="headerlink" title="skew 倾斜"></a>skew 倾斜</h4><ul>
+<li>skew(xdeg,ydeg)</li>
+<li>倾斜的是坐标轴。</li>
+<li><strong>==倾斜的时候，也被拉伸了==</strong></li>
+</ul>
+<h4 id="perspective-800px-在元素自身上加景深"><a href="#perspective-800px-在元素自身上加景深" class="headerlink" title="perspective(800px) 在元素自身上加景深"></a>perspective(800px) 在元素自身上加景深</h4><pre><code>- 写的话最好填在开头位置 transform:perspective(800px) ...，若不填在开头位置，在一些浏览器上可能会不识别
+- 不能调节origin的值</code></pre>
+<h4 id="backface-visibility-hidden-visible-设置图片背面不显示，默认可以"><a href="#backface-visibility-hidden-visible-设置图片背面不显示，默认可以" class="headerlink" title="backface-visibility:hidden/visible;设置图片背面不显示，默认可以"></a>backface-visibility:hidden/visible;设置图片背面不显示，默认可以</h4><h4 id="3d-旋转-bug：隐藏背面不管用，后面图片会投到前面，设置个背景颜色就好了"><a href="#3d-旋转-bug：隐藏背面不管用，后面图片会投到前面，设置个背景颜色就好了" class="headerlink" title="==3d 旋转 bug：隐藏背面不管用，后面图片会投到前面，设置个背景颜色就好了=="></a>==3d 旋转 bug：隐藏背面不管用，后面图片会投到前面，设置个背景颜色就好了==</h4><h4 id="图片变换的底层原理：matrix-矩阵"><a href="#图片变换的底层原理：matrix-矩阵" class="headerlink" title="==图片变换的底层原理：matrix() 矩阵=="></a>==图片变换的底层原理：matrix() 矩阵==</h4><ul>
+<li>矩阵就是 transform 给咱们选中的计算规则</li>
+<li>向矩阵传入参数，通过系统的计算得出需要的结果</li>
+<li>transform 的基础就是把图像上的每一个点进行变换</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">原理公式</span><br><span class="line">| a,c,e |   | x |   | ax + cy + e |</span><br><span class="line">| b,d,f | * | y | &#x3D; | bx + dy + f |</span><br><span class="line">| 0,0,1 |   | 1 |   | 0 + 0 + 1   |  &#x2F;&#x2F;这一排是系统方便计算用的，不用管</span><br><span class="line"></span><br><span class="line">第一个矩阵用来传入参数，有些值可能给固定了</span><br><span class="line">第二个矩阵的x和y就相当于图片的每一个点的原始坐标</span><br><span class="line">第三个矩阵就相当于我们最终想要的位置</span><br><span class="line"></span><br><span class="line">2d平移公式：</span><br><span class="line">| 1,0,e |   | x |   | x + e |</span><br><span class="line">| 0,1,f | * | y | &#x3D; | y + f |</span><br><span class="line">| 0,0,1 |   | 1 |   1           &#x2F;&#x2F;这一排是系统方便计算用的，不用管</span><br><span class="line">参数只能传e和f，所以图像会根据e和f来移动x和y的坐标</span><br><span class="line">把他翻译到功能函数中就这么写：</span><br><span class="line">matrix(1,0,0,1,e,f) &#x3D;&#x3D;&#x3D; translate(x,y);</span><br><span class="line"></span><br><span class="line">其他方法的矩阵原理:</span><br><span class="line">scale()伸缩  矩阵公式</span><br><span class="line">| a,0,0 |   | x |   | ax |</span><br><span class="line">| 0,d,0 | * | y | &#x3D; | dy |</span><br><span class="line">| 0,0,1 |   | 1 |   1           &#x2F;&#x2F;这一排是系统方便计算用的，不用管</span><br><span class="line">matrix(a,0,0,d,0,0) &#x3D;&#x3D;&#x3D; scale(x,y);</span><br><span class="line"></span><br><span class="line">rotate()旋转 矩阵公式</span><br><span class="line">| cos(*),-sin(*),e |   | x |</span><br><span class="line">| sin(*),cos(*) ,f | * | y |</span><br><span class="line">| 0     ,0      ,1 |   | 1 |</span><br><span class="line">matrix(cos(*),sin(*),-sin(*),cos(*),0,0) &#x3D;&#x3D;&#x3D; rotate(*) &#x2F;&#x2F;直接写rotate()更简单</span><br><span class="line"></span><br><span class="line">3d原理公式</span><br><span class="line">| a,c,g |   | x |   | ax + cy + g |</span><br><span class="line">| b,d,h | * | y |   | bx + dy + h |</span><br><span class="line">| e,f,i | * | z | &#x3D; | ex + fy + i |</span><br><span class="line">| 0,0,1 |   | 1 |   | 0 + 0 + 1   |  &#x2F;&#x2F;这一排是系统方便计算用的，不用管</span><br><span class="line"></span><br><span class="line">matrix(1,0,0,0,0,1,0,0,0,0,1,0,x,y,z,1) 缩放</span><br><span class="line">matrix(x,0,0,0,0,y,0,0,0,0,z,0,0,0,0,1) 平移</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>==日常使用方法==</strong><ul>
+<li>矩阵是反着推的</li>
+<li>先通过效果把第三个矩阵写出来，再反推出第一个矩阵，从而得出 matrix()</li>
+<li>注意：matrix()是上下上下数。最后一排无视</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">实践一下：</span><br><span class="line">想让一个图片垂直方向对调。如 a--b 变成 b--a</span><br><span class="line">第一步：根据效果得出第三个矩阵：</span><br><span class="line">| -x |</span><br><span class="line">| y  |</span><br><span class="line">| 1  |</span><br><span class="line">第二步：结合第二个矩阵得出第一个矩阵</span><br><span class="line">| -1,0,0 |   | x |   | -x |</span><br><span class="line">|  0,1,0 | * | y | &#x3D; | y  |</span><br><span class="line">|  0,0,1 |   | 1 |   | 1  |  &#x2F;&#x2F;这一排是系统方便计算用的，不用管</span><br><span class="line">第三步：得出matrix()矩阵参数</span><br><span class="line">matrix(-1,0,0,1,0,0)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="transform-origin：设置变换中心原点位置（相当于眼睛位置）"><a href="#transform-origin：设置变换中心原点位置（相当于眼睛位置）" class="headerlink" title="transform-origin：设置变换中心原点位置（相当于眼睛位置）"></a>transform-origin：设置变换中心原点位置（相当于眼睛位置）</h3><ul>
+<li>设置到元素上，设置元素的变换中心点，不设置的话默认在元素平面的中心点。</li>
+<li>transform-origin:50px 50px 50px; 旋转中心位置,比如这是一个 100px 的立方体，旋转中心就在立方体中心位置。</li>
+</ul>
+<h3 id="transform-style：变化风格"><a href="#transform-style：变化风格" class="headerlink" title="transform-style：变化风格"></a>transform-style：变化风格</h3><ul>
+<li>preserve-3d;会在此区域创建出很多层图层，增强 3d 效果。</li>
+<li>常用方法：一般和景深放一起。加上肯定没错的。</li>
+</ul>
+<h3 id="perspective-景深"><a href="#perspective-景深" class="headerlink" title="perspective 景深"></a>perspective 景深</h3><ul>
+<li>设置到父级上</li>
+<li>当子元素设置 z 轴时有立体效果</li>
+<li>perspective:800px</li>
+<li>景深可以叠加。（父+子）</li>
+<li><strong>==一旦设置了 perspective 或者 transform-style，景深就变成了子元素定位的参照物==</strong></li>
+<li><strong>==看到的都是投影上显示的形状，所以当 translatez 小于 100 时，距离越近看的越小==</strong></li>
+</ul>
+<p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%99%AF%E6%B7%B1.png" alt="avatar"></p>
+<h3 id="perspective-origin：设置旋转原点位置"><a href="#perspective-origin：设置旋转原点位置" class="headerlink" title="perspective-origin：设置旋转原点位置"></a>perspective-origin：设置旋转原点位置</h3><ul>
+<li>设置到父级上</li>
+<li>perspective-origin:center center 默认原点在中间</li>
+<li>perspective-origin:top left;…</li>
+</ul>
+<h2 id="animation-动画"><a href="#animation-动画" class="headerlink" title="animation 动画"></a>animation 动画</h2><h3 id="animation-name-动画名称"><a href="#animation-name-动画名称" class="headerlink" title="animation-name 动画名称"></a>animation-name 动画名称</h3><h4 id="关键帧容器-keyframes"><a href="#关键帧容器-keyframes" class="headerlink" title="==关键帧容器@keyframes=="></a>==关键帧容器@keyframes==</h4><ul>
+<li>定义关键帧</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@keyframes run&#123;</span><br><span class="line">    0%&#123; &#x2F;&#x2F;0%可以写成from&#123;&#125;</span><br><span class="line">        left: 500px;</span><br><span class="line">        top: 500px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">    50%&#123;&#125;</span><br><span class="line">    100%&#123;&#125;&#x2F;&#x2F;100%可以写成to&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<br><br>animation:run 1s , run2 2s; //可以多个关键帧并行 <br><br>@-moz-…实战时做兼容</li>
+</ul>
+<h3 id="animation-duration-持续时间"><a href="#animation-duration-持续时间" class="headerlink" title="animation-duration 持续时间"></a>animation-duration 持续时间</h3><h3 id="animation-timing-function-过渡类型（传运动函数）"><a href="#animation-timing-function-过渡类型（传运动函数）" class="headerlink" title="animation-timing-function 过渡类型（传运动函数）"></a>animation-timing-function 过渡类型（传运动函数）</h3><ul>
+<li>linear 线性过渡。等同于贝塞尔曲线 （0,0,1,1)</li>
+<li>ease 平滑过渡。等同于贝塞尔曲线 （0.25,0.1,0.25,1.0)</li>
+<li>ease-in 由慢到快。等同于贝塞尔曲线 （0.42,0,0.58,1)</li>
+<li>ease-out 由快到慢。等同于贝塞尔曲线（0,0,0.58,1)</li>
+<li>ease-in-out:由慢到快再到慢。等同于贝塞尔曲线（0.42,0,0.58,1)</li>
+<li>cubic-bezier(0,0,1,1) 贝塞尔曲线</li>
+</ul>
+<h3 id="animation-delay-延迟时间"><a href="#animation-delay-延迟时间" class="headerlink" title="animation-delay 延迟时间"></a>animation-delay 延迟时间</h3><h3 id="animation-iteration-count-运动次数"><a href="#animation-iteration-count-运动次数" class="headerlink" title="animation-iteration-count 运动次数"></a>animation-iteration-count 运动次数</h3><ul>
+<li>infinite 无线循环</li>
+<li>number</li>
+</ul>
+<h3 id="animation-direction-关键帧的方向"><a href="#animation-direction-关键帧的方向" class="headerlink" title="animation-direction 关键帧的方向"></a>animation-direction 关键帧的方向</h3><ul>
+<li>normal 默认</li>
+<li>reverse 反转 从 100% -&gt; 0% 运动</li>
+<li>alternate 100% -&gt; 0% 0% -&gt; 100% .. 正反循环运动。前提:运动次数大于 2</li>
+<li>alternate-reverse 0% -&gt; 100% 100% -&gt; 0% ..同上</li>
+</ul>
+<h3 id="animation-play-state-运动状态"><a href="#animation-play-state-运动状态" class="headerlink" title="animation-play-state 运动状态"></a>animation-play-state 运动状态</h3><ul>
+<li>running 默认值</li>
+<li>paused 运动暂停（有兼容性问题，有些浏览器会出现问题，不要用）</li>
+</ul>
+<h3 id="animation-fill-mode-保留状态"><a href="#animation-fill-mode-保留状态" class="headerlink" title="animation-fill-mode 保留状态"></a>animation-fill-mode 保留状态</h3><ul>
+<li>forwards 保留运动结束后的最后一帧（不会变回初始状态）</li>
+<li>backwards 运动开始之前保留第一帧的状态（即使没开始动画，也变为 0%的状态）</li>
+<li>both 上两个的结合：保留开始和结束的状态</li>
+</ul>
+<h3 id="steps-跨步"><a href="#steps-跨步" class="headerlink" title="steps 跨步"></a>steps 跨步</h3><ul>
+<li>作用：从一帧到下一帧本来是渐变过去，使用 steps 变成分步变色。可以理解为从动画变成 ppt</li>
+<li>end 保留当前帧状态，直到这一帧动画结束（注意，若下一帧是最后一帧，当跳转的时候动画也就结束了，所以不会捕捉到最后一帧。如果需要可用 forwards 解决）</li>
+<li>start 保留下一帧状态，直到下一帧动画结束（注意，不会显示第一帧）</li>
+<li>使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: fun 1s linner steps(1, end)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>特殊值：<ul>
+<li>step-end === steps(1, end)</li>
+<li>step-start === start(1, start)</li>
+</ul>
+</li>
+</ul>
+<h3 id="简写：-animation-fun-1s-linner。。。"><a href="#简写：-animation-fun-1s-linner。。。" class="headerlink" title="简写： animation: fun 1s linner。。。"></a>简写： animation: fun 1s linner。。。</h3><h2 id="gpu-amp-layout（性能优化）"><a href="#gpu-amp-layout（性能优化）" class="headerlink" title="gpu&amp;layout（性能优化）"></a>gpu&amp;layout（性能优化）</h2><h3 id="科普知识：cpu-和-gpu"><a href="#科普知识：cpu-和-gpu" class="headerlink" title="科普知识：cpu 和 gpu"></a>科普知识：cpu 和 gpu</h3><ul>
+<li>cpu：中央处理器<ul>
+<li>擅长基于逻辑的数学运算，与或非…</li>
+</ul>
+</li>
+<li>gpu：显卡<ul>
+<li>图片绘制…</li>
+<li>适合高精度的浮点数运算</li>
+<li>专业 gpu 都是点阵式，通过点的变化来完成图像变化</li>
+<li>家用 gpu 是通过矩阵或者多边形叠加的方式来完成图像变化。</li>
+<li>css3 的动画都是用矩阵的原理完成的，也就是点阵式，所以是比较烧性能的。</li>
+<li>所以尽量不要有太多的复杂变化。</li>
+<li>没有 gpu 的时候就会用 cpu 来计算，cpu 的算力远不如 gpu</li>
+</ul>
+</li>
+</ul>
+<h3 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h3><p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6.png" alt="浏览器渲染机制"></p>
+<h4 id="什么情况下会触发-reflow-重排"><a href="#什么情况下会触发-reflow-重排" class="headerlink" title="什么情况下会触发 reflow(重排)"></a>什么情况下会触发 reflow(重排)</h4><ul>
+<li>改变窗口大小</li>
+<li>改变文字大小</li>
+<li>内容的改变，输入文字</li>
+<li>激活伪类，如:hover</li>
+<li>操作 class 属性</li>
+<li>脚本化操作 DOM</li>
+<li>计算 offsetWidth 和 offsetHeight</li>
+<li>设置 style 属性</li>
+<li><strong>==如果要改动一些属性：不要用很多个.style，尽量用定义好的 class，直接更改 class 属性，触发一次怎么也比触发很多次节省性能==</strong></li>
+</ul>
+<h4 id="什么情况下会触发-repaint-重绘"><a href="#什么情况下会触发-repaint-重绘" class="headerlink" title="什么情况下会触发 repaint(重绘)"></a>什么情况下会触发 repaint(重绘)</h4><ul>
+<li>只是改变某个元素的颜色，不影响布局的属性</li>
+<li>repaint 速度快于 relfow</li>
+</ul>
+<h4 id="css3-怎么性能优化"><a href="#css3-怎么性能优化" class="headerlink" title="css3 怎么性能优化"></a>css3 怎么性能优化</h4><ul>
+<li>因为 css3 会很消耗性能，所以最好交给 gpu 来做</li>
+<li>虽然可能会让 gpu 来做，但是最好还是和 gpu 说一声，让 gpu 来帮忙做这件事。</li>
+</ul>
+<h5 id="gpu-操作是在另一个层面来操作。哪些指令能触发-gpu-这个层呢？"><a href="#gpu-操作是在另一个层面来操作。哪些指令能触发-gpu-这个层呢？" class="headerlink" title="gpu 操作是在另一个层面来操作。哪些指令能触发 gpu 这个层呢？"></a>gpu 操作是在另一个层面来操作。哪些指令能触发 gpu 这个层呢？</h5><ul>
+<li>改变 opacity</li>
+<li>transform:translate3d()/translatez();</li>
+<li>比如开发时使用 transform 了，不管你前面填了啥，最好在最后填上个 translatez(0),叫 gpu 来操作，能节省一些效率。</li>
+<li>==gpu 加速，最标准属性：will-change:tranform==<ul>
+<li>启动这个后系统会一直监听，等待执行，也不太好，所以有下面最标准使用方法。</li>
+<li>标准使用方法：<ul>
+<li>比如点击触发某些动画时，可以在点击的元素上加个 hover，当 hover 的时候加上这个属性。</li>
+<li>最好的用法就是在触发动画的前一刻再加这个属性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="一般浏览器刷新页面的频率-1s-60-次"><a href="#一般浏览器刷新页面的频率-1s-60-次" class="headerlink" title="一般浏览器刷新页面的频率 1s 60 次"></a>一般浏览器刷新页面的频率 1s 60 次</h5><ul>
+<li>也就是每 16.7mm 刷新一次页面</li>
+<li>如果编码结构足够节约效率，gpu 可以在一帧里渲染好页面，那么当改动页面元素或者实现动画的时候，将会非常流畅。</li>
+</ul>
+<h2 id="screen-amp-px-显示器的成像原理和像素的实际意义"><a href="#screen-amp-px-显示器的成像原理和像素的实际意义" class="headerlink" title="screen&amp;px 显示器的成像原理和像素的实际意义"></a>screen&amp;px 显示器的成像原理和像素的实际意义</h2><h3 id="空间混色法"><a href="#空间混色法" class="headerlink" title="空间混色法"></a>空间混色法</h3><ul>
+<li>rgb 是三原色</li>
+<li>一个像素由三个像点来构成 r g b ==&gt; 空间混色法</li>
+</ul>
+<h4 id="crt-显示屏"><a href="#crt-显示屏" class="headerlink" title="crt 显示屏"></a>crt 显示屏</h4><p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6.png" alt="crt"></p>
+<ul>
+<li>成像原理：</li>
+</ul>
+<ol>
+<li>屏幕最末端有电子枪，可以打出电子束，电子束打到屏幕上</li>
+<li>屏幕上会有荧光粉（rgb 三种，排列方式有两种，圆点型和栅格型）， 在接受到电子束的时候会变亮</li>
+<li>根据电子束强弱的不同，每个被点亮的荧光粉的颜色强弱不同，最后混合出不同的颜色形成一个像素点</li>
+<li>最后多个像素点成像</li>
+</ol>
+<ul>
+<li>电子束容易散射，可能会相互影响，所以中间加一个荫罩层，用于矫正电子束。</li>
+</ul>
+<h4 id="lcd-led-液晶屏"><a href="#lcd-led-液晶屏" class="headerlink" title="lcd/led 液晶屏"></a>lcd/led 液晶屏</h4><ul>
+<li>成像原理</li>
+</ul>
+<ol>
+<li>通过磁场可以改变液晶屏的每一个点的状态是固态还是液态</li>
+<li>当这个点是液态时，光就能过去，固态的时候光就过不去。</li>
+<li>当这个光透过后可以把光打到滤光片上（有无数个滤光片，排列方式还是 rgb 形式）</li>
+<li>白光打到每个像素中不同的滤光片上会出现不同的颜色，再经过混色成像。</li>
+</ol>
+<h4 id="1px-有多大"><a href="#1px-有多大" class="headerlink" title="1px 有多大"></a>1px 有多大</h4><ul>
+<li>屏幕像素排列结构-品字原点形<br><br>可以说是点距，也就是两个相同点之间的距离（点距大小约等于像素大小，点距完全等于像素大小吗？不一定。可以表示像素大小吗?可以的。）<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E7%82%B9%E8%B7%9D.png" alt="点距"></li>
+<li>屏幕像素排列结构-栅格型<br><br>点距就是两个相同颜色的距离，也就是真实的像素距离。<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%A0%85%E6%A0%BC%E5%9E%8B.png" alt="栅格型"></li>
+</ul>
+<h4 id="像素详解"><a href="#像素详解" class="headerlink" title="像素详解"></a>像素详解</h4><ul>
+<li>像素是相对单位</li>
+</ul>
+<h5 id="物理像素-设备出厂时，像素的大小"><a href="#物理像素-设备出厂时，像素的大小" class="headerlink" title="物理像素 === 设备出厂时，像素的大小"></a>物理像素 === 设备出厂时，像素的大小</h5><h5 id="dpi-ppi"><a href="#dpi-ppi" class="headerlink" title="dpi(ppi)"></a>dpi(ppi)</h5><p>一英寸所能容纳的像素点数。能容纳的像素点数越多，代表像素越小，成像效果越好。<br><br>1 in = 2.54cm<br>96dpi ≈ 2.54 / 100 = 0.25mm 如果屏幕为 96dpi 也就是一像素的宽度约等于 0.25 毫米</p>
+<h5 id="css-像素（参照像素）-逻辑像素"><a href="#css-像素（参照像素）-逻辑像素" class="headerlink" title="css 像素（参照像素）== 逻辑像素"></a>css 像素（参照像素）== 逻辑像素</h5><ul>
+<li>96dip 一臂距离的视角去看，显示出的具体大小</li>
+<li>标杆 1/96 * 英寸</li>
+<li>具体实现：<ul>
+<li>96dpi ≈ 1:1</li>
+<li>200dpi ≈ 2:1</li>
+<li>解释：就比如 96dpi 下是 100px ，换成 200dpi 的时候，屏幕会把 100px 再乘 2</li>
+</ul>
+</li>
+<li>设备像素比 dpr = 物理像素/css 像素[参照像素]（200dpi/96dpi)</li>
+<li>美工给图的时候会按照高像素屏幕的物理像素来给我们图片的尺寸，所以我们要转换为逻辑像素的时候需要除 dpr</li>
+<li>我们也管 css 编程的逻辑像素方式，叫做逻辑屏幕</li>
+</ul>
+<h5 id="看屏幕的好坏不看分辨率"><a href="#看屏幕的好坏不看分辨率" class="headerlink" title="看屏幕的好坏不看分辨率"></a>看屏幕的好坏不看分辨率</h5><ul>
+<li>1920 * 1080 固定宽高下，展示的像素点数。这个得根据屏幕大小来判断，1 寸的 1920.。和 10 寸的 1920.。那肯定不一样</li>
+<li>所以要看 dpi，没有也可以自己算出来。</li>
+</ul>
+<h1 id="响应式网页开发"><a href="#响应式网页开发" class="headerlink" title="响应式网页开发"></a>响应式网页开发</h1><ul>
+<li>用户通过什么来看页面？pc 端（电脑），移动端（手机、平板）–（大小/分辨率不同）</li>
+<li>如何使页面在不同的设备上展示的效果相同？ ——》响应式网页设计</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>真正的响应式设计方法不仅仅是根据可视区域大小而改变网页布局，而是要从整体上颠覆当前网页的设计方法，是针对任意设备的网页内容进行完美布局的一种显示机制。</p>
+<h2 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h2><p>只需要开发一套页面，就能让用户在不同的设备上看到的页面呈现的效果是完美的。</p>
+<h2 id="模拟移动端的-meta"><a href="#模拟移动端的-meta" class="headerlink" title="模拟移动端的 meta"></a>模拟移动端的 meta</h2><p>作用：适配各种不同分辨率的设备。<br><br>将页面大小，根据分辨率不同进行相应的调节，以展示给用的的大小感觉上差不多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">默认 980px 1024px</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>content=”width=device-width 代表视口宽度设置为当前屏幕大小<br><br></li>
+<li>initial-scale=1.0 初始化缩放比。也是针对视口而言的。<br> 作用同上，为 ios 做兼容。因为上面只涉及宽度，ios 横屏的时候宽度还是屏幕的宽度，不能自适应。<br><br></li>
+<li>为什么不只写 initial-scale=1.0?<br><br>在 window phone ie 浏览器上，横屏宽度=竖屏宽度,不能自适应。</li>
+</ul>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>==width:视口宽度==</li>
+<li>==device-width:设备宽度==</li>
+<li>user-scalable=no 是否允许用户缩放</li>
+<li>minimum-scale:最小缩放比</li>
+<li>maximum-scale:最大缩放比</li>
+</ul>
+<h2 id="实现必备知识"><a href="#实现必备知识" class="headerlink" title="实现必备知识"></a>实现必备知识</h2><ul>
+<li>流体网格布：可伸缩的网格，元素大小宽高不固定可伸缩<ul>
+<li>flex</li>
+<li>百分比</li>
+<li>浮动</li>
+</ul>
+</li>
+<li>弹性图片：图片宽高不固定（可设置 min-width:100%)</li>
+<li>==媒体查询==：让页面载体不同的终端上面展示效果相同（用户体验相同），==在不同的设备上，均显示合适的页面==</li>
+<li>主要断点：设备宽度的临界点 -&gt; 根据不同的宽度展示不同的样式</li>
+<li>响应式网页开发主要是在 css 样式上面操作的。为什么不用 js 来控制实现<ul>
+<li>代码偏多</li>
+<li>加载速度变慢</li>
+<li>监听过程当中，可能会对页面有一定影响</li>
+</ul>
+</li>
+</ul>
+<h3 id="主要断点详解"><a href="#主要断点详解" class="headerlink" title="主要断点详解"></a>主要断点详解</h3><p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E4%B8%BB%E8%A6%81%E6%96%AD%E7%82%B9.png" alt="主要断点"></p>
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><p>媒体查询是向不同设备提供不同样式的一种方式，它为每种类型的用户提供了最佳的体验。</p>
+<h4 id="css2-media-type-媒体类型"><a href="#css2-media-type-媒体类型" class="headerlink" title="==css2:media type(媒体类型)=="></a>==css2:media type(媒体类型)==</h4><p>media type(媒体类型)是 css 2 中的一个非常有用的属性，通过 media type 我们可以对不同的设备指定特定的样式，从而实现更丰富的界面。</p>
+<ul>
+<li>==常用属性：screen:用于电脑屏幕、平板电脑、手机等==<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B.png" alt="媒体类型"></li>
+</ul>
+<h4 id="css3-media-query-媒体查询"><a href="#css3-media-query-媒体查询" class="headerlink" title="css3:media query(媒体查询)"></a>css3:media query(媒体查询)</h4><p>media query 是 CSS3 对 media type 的增强，事实上我们可以将 media query 看成是媒体类型(media type)+css 属性(媒体特性 Media features)对设备进行判断。<br></p>
+<h5 id="媒体特性-Media-features"><a href="#媒体特性-Media-features" class="headerlink" title="==媒体特性 Media features=="></a>==<strong>媒体特性 Media features</strong>==</h5><ul>
+<li>==注意：媒体特性使用时加括号-&gt; (max-width:375px)==</li>
+<li>width/max-width/min-width</li>
+<li>height/max-height/min-height<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E5%AA%92%E4%BD%93%E5%8A%9F%E8%83%BD.png" alt="媒体功能"></li>
+</ul>
+<h5 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h5><ul>
+<li>合并多个媒体属性：and</li>
+<li>指定备用功能(相当于 or)：,</li>
+<li>指定否定条件:not</li>
+<li>让早期浏览器隐藏媒体查询：only ps:加上 only 后如果不支持媒体查询会忽略媒体查询部分（如早期浏览器），支持则无影响</li>
+</ul>
+<h5 id="媒体查询使用-引入方式"><a href="#媒体查询使用-引入方式" class="headerlink" title="==媒体查询使用(引入方式)=="></a>==媒体查询使用(引入方式)==</h5><p>ps:希望在屏幕大小小于 375px 的设备上面作用这个样式</p>
+<ul>
+<li>外部引入 <link rel="stylesheet" media="screen and (max-width:375px)"  href="index.css"></li>
+<li>外部引入 @import ‘index.css’ screen and (max-width:375px);</li>
+<li>css 里面引入 @media screen and (max-width:375px){…}</li>
+<li>==注意==<ol>
+<li>媒体类型和媒体特性用 and 连接</li>
+<li>权重为 0，一般放在最后来写</li>
+</ol>
+</li>
+</ul>
+<h2 id="单位值"><a href="#单位值" class="headerlink" title="单位值"></a>单位值</h2><ul>
+<li>rem ：rem 是 CSS3 新增的一个相对单位（root em，根 em）相对的只是 HTML 根元素。</li>
+<li>em：相对本身的 font-size 大小。</li>
+<li>px：像素 px 是相对于显示器屏幕分辨率而言的。</li>
+<li>Vw：相对于视口的宽度。视口被均分为 100 单位的 vw。一般用在移动端开发里面</li>
+<li>Vh：相对于视口的高度。视口被均分为 100 单位的 vh。一般用在移动端开发里面</li>
+<li>Vmax： 相对于视口的宽度或高度中较大的那个。其中最大的那个被均分为 100 单位的 vmax。移动端开发</li>
+<li>Vmin：相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为 100 单位的 vmin。移动端开发</li>
+</ul>
+<h2 id="响应式设计是最佳选择吗？"><a href="#响应式设计是最佳选择吗？" class="headerlink" title="响应式设计是最佳选择吗？"></a>响应式设计是最佳选择吗？</h2><p>不是的，根据实际情况来决定。</p>
+<ul>
+<li><p>内容设计通过响应式设计思路解决，项目的预算，目标用户以及定位决定了其实现方式。</p>
+</li>
+<li><p>开发思路<br>渐进增强 —》 先兼容老版本 再向上兼容 兼容最新设备<br>优雅降级 —》 开发通用版本 再兼容老版本 向下兼容</p>
+</li>
+<li><p>一般做响应式开发时思路：<br><br>先移动端 —》 pc 端 <br><br>先 iphone6 为初始原型 开发 —》 兼容其他的设备 ====》 渐进增强</p>
+</li>
+</ul>
+<h2 id="3d-方块效果总结"><a href="#3d-方块效果总结" class="headerlink" title="3d 方块效果总结"></a>3d 方块效果总结</h2><p><strong>重点：</strong></p>
+<blockquote>
+<p>此处 box 代表一个方块，包含六个面</p>
+</blockquote>
+<ol>
+<li>如果 box 自身会变化角度(rotate)，则需要在自身加上<code>transform-style: preserve-3d;</code></li>
+<li>如果 box 自身会变化角度(rotate)，则父级必须加景深<code>perspective: 1000px;</code><ul>
+<li>如果父级也会变化角度(rotate)，则在父级的父级加景深</li>
+</ul>
+</li>
+</ol>
+<p><strong>构建一个 3d 方块：</strong></p>
+<ol>
+<li>设置.box 样式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>设置 面 的基本样式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">    position: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>分别设置六个 面 的样式</li>
+</ol>
+<blockquote>
+<p>主要思路：设置上下左右面时，都顺时针转，只调整初始位置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 前 *&#x2F;</span><br><span class="line">.box div:nth-child(1) &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    transform: translateZ(150px);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 后 *&#x2F;</span><br><span class="line">.box div:nth-child(2) &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">    transform: translateZ(-150px);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 上 *&#x2F;</span><br><span class="line">.box div:nth-child(3) &#123;</span><br><span class="line">    background-color: green;</span><br><span class="line">    transform: rotateX(90deg) translateZ(150px);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 下 *&#x2F;</span><br><span class="line">.box div:nth-child(4) &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    transform: rotateX(90deg) translateZ(-150px);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 左 *&#x2F;</span><br><span class="line">.box div:nth-child(5) &#123;</span><br><span class="line">    background-color: greenyellow;</span><br><span class="line">    transform: rotateY(90deg) translateZ(-150px);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 右 *&#x2F;</span><br><span class="line">.box div:nth-child(6) &#123;</span><br><span class="line">    background-color: orange;</span><br><span class="line">    transform: rotateY(90deg) translateZ(150px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="css3-轮播图"><a href="#css3-轮播图" class="headerlink" title="css3 轮播图"></a>css3 轮播图</h2><p>html:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;pic&quot;</span>&gt;</span><br><span class="line">    &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;inner&quot;</span>&gt;</span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;dot&quot;</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;active&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>css:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#pic &#123;</span><br><span class="line">    width: <span class="number">100</span>vw;</span><br><span class="line">    height: <span class="number">36</span>vw;</span><br><span class="line">    position: relative;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pic .inner &#123;</span><br><span class="line">    width: <span class="number">300</span>vw;</span><br><span class="line">    display: flex;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pic .inner li &#123;</span><br><span class="line">    width: <span class="number">100</span>vw;</span><br><span class="line">    height: <span class="number">36</span>vw;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pic .inner li img &#123;</span><br><span class="line">    width: <span class="number">100</span>%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pic .dot&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    padding: <span class="number">5</span>px;</span><br><span class="line">    left: <span class="number">50</span>%;</span><br><span class="line">    bottom: <span class="number">10</span>px;</span><br><span class="line">    height: <span class="number">10</span>px;</span><br><span class="line">    line-height: <span class="number">15</span>px;</span><br><span class="line">    transform: translateX(<span class="number">-50</span>%);</span><br><span class="line">    border-radius: <span class="number">10</span>px;</span><br><span class="line">    background-color: rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">.5</span>);</span><br><span class="line">&#125;</span><br><span class="line">#pic .dot span&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: <span class="number">10</span>px;</span><br><span class="line">    height: <span class="number">10</span>px;</span><br><span class="line">    background-color: white;</span><br><span class="line">    border: <span class="number">1</span>px solid black;</span><br><span class="line">    border-radius: <span class="number">50</span>%;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">#pic .dot span.active&#123;</span><br><span class="line">    background-color: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pic = <span class="built_in">document</span>.getElementById(<span class="string">&quot;pic&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> picUl = pic.querySelector(<span class="string">&quot;ul&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> picLi = picUl.children;</span><br><span class="line"><span class="keyword">let</span> dots = pic.querySelector(<span class="string">&quot;.dot&quot;</span>).children;</span><br><span class="line"><span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> headLi = picUl.firstElementChild.cloneNode(<span class="literal">true</span>);</span><br><span class="line">picUl.appendChild(headLi);</span><br><span class="line"></span><br><span class="line">picUl.style.width = picLi.length * <span class="number">100</span> + <span class="string">&quot;vw&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  picUl.style.transition = <span class="string">&quot;left .5s&quot;</span>;</span><br><span class="line">  picUl.style.left = -index * <span class="number">100</span> + <span class="string">&quot;vw&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面失去焦点时不会触发这个事件</span></span><br><span class="line">picUl.addEventListener(<span class="string">&quot;transitionend&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (index == picLi.length - <span class="number">1</span>) &#123;</span><br><span class="line">    picUl.style.transition = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    picUl.style.left = <span class="number">0</span>;</span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">autoPlay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  index++;</span><br><span class="line">  <span class="comment">//这个条件是为了防止页面失去焦点的时候定时还在走，cn也在加，那就会超出范围</span></span><br><span class="line">  <span class="keyword">if</span> (index &gt; picLi.length - <span class="number">1</span>) &#123;</span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  move();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> timer = <span class="built_in">setInterval</span>(autoPlay, <span class="number">1000</span>);</span><br><span class="line"><span class="comment">// 悬停效果</span></span><br><span class="line">picUl.onmouseenter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">&#125;;</span><br><span class="line">picUl.onmouseleave = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  timer = <span class="built_in">setInterval</span>(autoPlay, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给圆点添加事件</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> dots) &#123;</span><br><span class="line">  dots[item].onmouseenter = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="built_in">Array</span>.from(dots).indexOf(e.target);</span><br><span class="line">    index = i;</span><br><span class="line">    move();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 圆点移动</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dotPlay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> dots) &#123;</span><br><span class="line">    dots[item].className = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (index === dots.length) &#123;</span><br><span class="line">    dots[<span class="number">0</span>].className = <span class="string">&quot;active&quot;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    dots[index].className = <span class="string">&quot;active&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF-css/" rel="tag"># 前端 css</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑砸是只猫</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">24k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">22 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+</body>
+</html>
