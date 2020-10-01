@@ -22,25 +22,26 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="什么是 BOM?BOM browser object model 简称浏览器对象模型 主要处理浏览器窗口（window）和框架（iframe），描述了浏览器进行交互的方法和接口，可以对浏览器窗口进行访问和操作，不过通常浏览器特定的 JavaScript 扩展都被看做是 BOM 的一部分。">
+  <meta name="description" content="git 下载https:&#x2F;&#x2F;git-scm.com&#x2F; Git 官网 https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;git-for-windows&#x2F; 淘宝镜像 https:&#x2F;&#x2F;www.yuque.com&#x2F;docs&#x2F;share&#x2F;1bd59630-97ac-478a-b903-8a51f3008113?# 《初识 Git》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript（三）BOM">
-<meta property="og:url" content="http://example.com/2020/10/01/JavaScript%EF%BC%88%E4%B8%89%EF%BC%89BOM/index.html">
+<meta property="og:title" content="git相关操作">
+<meta property="og:url" content="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Mr.Duの博客">
-<meta property="og:description" content="什么是 BOM?BOM browser object model 简称浏览器对象模型 主要处理浏览器窗口（window）和框架（iframe），描述了浏览器进行交互的方法和接口，可以对浏览器窗口进行访问和操作，不过通常浏览器特定的 JavaScript 扩展都被看做是 BOM 的一部分。">
+<meta property="og:description" content="git 下载https:&#x2F;&#x2F;git-scm.com&#x2F; Git 官网 https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;git-for-windows&#x2F; 淘宝镜像 https:&#x2F;&#x2F;www.yuque.com&#x2F;docs&#x2F;share&#x2F;1bd59630-97ac-478a-b903-8a51f3008113?# 《初识 Git》">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%81%E7%A8%8B.png">
-<meta property="article:published_time" content="2020-09-30T16:30:44.000Z">
-<meta property="article:modified_time" content="2020-09-30T17:04:38.459Z">
+<meta property="og:image" content="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/88EA3126B6B944EBA402CC83B0F349BC">
+<meta property="og:image" content="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/D3048759EBF44458933763CB2D001EBD">
+<meta property="og:image" content="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/E5B0B6AF33E84662923E10DC1BBED1F3">
+<meta property="article:published_time" content="2020-10-01T16:30:49.000Z">
+<meta property="article:modified_time" content="2020-10-01T16:32:17.102Z">
 <meta property="article:author" content="黑砸是只猫">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%81%E7%A8%8B.png">
+<meta name="twitter:image" content="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/88EA3126B6B944EBA402CC83B0F349BC">
 
 
-<link rel="canonical" href="http://example.com/2020/10/01/JavaScript%EF%BC%88%E4%B8%89%EF%BC%89BOM/">
+<link rel="canonical" href="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">
 
 
 <script class="page-configurations">
@@ -53,7 +54,7 @@
   };
 </script>
 
-  <title>JavaScript（三）BOM | Mr.Duの博客</title>
+  <title>git相关操作 | Mr.Duの博客</title>
   
 
 
@@ -214,7 +215,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-BOM"><span class="nav-number">1.</span> <span class="nav-text">什么是 BOM?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM-%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-number">1.1.</span> <span class="nav-text">BOM 的核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM-%E5%92%8C-DOM-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.2.</span> <span class="nav-text">BOM 和 DOM 的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM-%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.3.</span> <span class="nav-text">BOM 的组成</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">git 下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">git 环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">git 日常工作流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%8F%8A%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="nav-number">4.</span> <span class="nav-text">git 工作区及文件状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">git 命令操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="nav-number">5.1.</span> <span class="nav-text">初始化仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E7%89%88%E6%9C%AC%E7%9B%B8%E5%85%B3"><span class="nav-number">5.2.</span> <span class="nav-text">管理版本相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3"><span class="nav-number">5.3.</span> <span class="nav-text">协同开发相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">5.4.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh-%E9%85%8D%E7%BD%AE"><span class="nav-number">5.5.</span> <span class="nav-text">ssh 配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github-%E4%B8%8A%E4%B8%8D%E5%8E%BB%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">github 上不去怎么办？</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -291,7 +292,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/01/JavaScript%EF%BC%88%E4%B8%89%EF%BC%89BOM/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/02/git%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -304,7 +305,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript（三）BOM
+          git相关操作
         </h1>
 
         <div class="post-meta-container">
@@ -316,7 +317,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-10-01 00:30:44 / 修改时间：01:04:38" itemprop="dateCreated datePublished" datetime="2020-10-01T00:30:44+08:00">2020-10-01</time>
+      <time title="创建时间：2020-10-02 00:30:49 / 修改时间：00:32:17" itemprop="dateCreated datePublished" datetime="2020-10-02T00:30:49+08:00">2020-10-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -343,14 +344,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -361,79 +362,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="什么是-BOM"><a href="#什么是-BOM" class="headerlink" title="什么是 BOM?"></a>什么是 BOM?</h1><p>BOM browser object model 简称浏览器对象模型</p>
-<p>主要处理浏览器窗口（window）和框架（iframe），描述了浏览器进行交互的方法和接口，可以对浏览器窗口进行访问和操作，不过通常浏览器特定的 JavaScript 扩展都被看做是 BOM 的一部分。</p>
+        <h1 id="git-下载"><a href="#git-下载" class="headerlink" title="git 下载"></a>git 下载</h1><p><a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a> Git 官网</p>
+<p><a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a> 淘宝镜像</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/1bd59630-97ac-478a-b903-8a51f3008113#">https://www.yuque.com/docs/share/1bd59630-97ac-478a-b903-8a51f3008113?#</a> 《初识 Git》</p>
 <a id="more"></a>
 
-<h2 id="BOM-的核心"><a href="#BOM-的核心" class="headerlink" title="BOM 的核心"></a>BOM 的核心</h2><p>window 对象是 BOM 的顶层（核心）对象，玩转 BOM,就是玩转 window 的属性和方法</p>
-<p>window 对象它具有双重角色，既是通过 js 访问浏览器窗口的一个接口，又是一个全局对象。这意味着在网页中定义的任何对象、变量和函数，都是 window 的属性。</p>
-<h2 id="BOM-和-DOM-的关系"><a href="#BOM-和-DOM-的关系" class="headerlink" title="BOM 和 DOM 的关系"></a>BOM 和 DOM 的关系</h2><p>JavaScript 语法的标准化组织是 ECMA<br>DOM 的标准化组织 W3C<br>BOM…(很尴尬)<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/%E6%B5%81%E7%A8%8B.png" alt="流程"></p>
-<h2 id="BOM-的组成"><a href="#BOM-的组成" class="headerlink" title="BOM 的组成"></a>BOM 的组成</h2><ul>
-<li>Window JavaScript 层级中的顶层对象表示浏览器窗口</li>
-<li>Navigator 包含客户端浏览器的信息</li>
-<li>History 包含了浏览器窗口访问过的 URL</li>
-<li>Location 包含了当前 URL 的信息</li>
-<li>Screen 包含客户端显示屏的信息</li>
-</ul>
-<hr>
-<h3 id="window-详解"><a href="#window-详解" class="headerlink" title="window 详解"></a>window 详解</h3><p>重点属性</p>
-<ul>
-<li>innerHeight：返回窗口的文档显示区的高度。</li>
-<li>innerWidth：返回窗口的文档显示区的宽度。</li>
-<li>pageXoffset：设置或返回当前页面相对于窗口显示区左上角的 X 位置（横向偏移量）</li>
-<li>pageYoffset：设置或返回当前页面相对于窗口显示区左上角的 Y 位置（纵向偏移量）</li>
-<li>screenX/Y/Left/Right：声明窗口左上角在屏幕上的坐标。</li>
-<li>top；iframe 中能用的，访问最高的 window。</li>
-<li>self/parent：self 代表自己的 window，parent 代表父级 window。</li>
-<li>open()：打开一个新的浏览器窗口或查找一个已命名的窗口。<ul>
-<li>window.open(URL,name,features,replace)</li>
-<li>window.open(‘<a target="_blank" rel="noopener" href="http://www.baidu.com&/#39;,&#39;baidu&#39;,&#39;width=200,height=200&#39;">http://www.baidu.com&#39;,&#39;baidu&#39;,&#39;width=200,height=200&#39;</a>)</li>
+<h1 id="git-环境配置"><a href="#git-环境配置" class="headerlink" title="git 环境配置"></a>git 环境配置</h1><p>配置用户名<br><code>git config --global user.name</code> 你的名字</p>
+<p>配置邮箱<br><code>git config --global user.email &lt;email&gt;</code> 你的邮箱</p>
+<p>查看配置<br><code>git config --list</code><br><code>git config user.name</code><br><code>git config user.email</code></p>
+<p>手动配置<br>C：users/用户/.gitconfig</p>
+<h1 id="git-日常工作流"><a href="#git-日常工作流" class="headerlink" title="git 日常工作流"></a>git 日常工作流</h1><p><img src="88EA3126B6B944EBA402CC83B0F349BC" alt="git日常工作流"></p>
+<h1 id="git-工作区及文件状态"><a href="#git-工作区及文件状态" class="headerlink" title="git 工作区及文件状态"></a>git 工作区及文件状态</h1><p><img src="D3048759EBF44458933763CB2D001EBD" alt="git工作区及文件状态"><br>暂存区的意义：1.创建索引。2.文件分类</p>
+<h1 id="git-命令操作"><a href="#git-命令操作" class="headerlink" title="git 命令操作"></a>git 命令操作</h1><h2 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h2><p><code>git init</code> 初始化仓库并产生.git 文件夹</p>
+<p>.git 文件夹 非常重要,记录我们的变更内容(objects)，分支(refs)，日志(logs)，脚本（hooks）</p>
+<h2 id="管理版本相关"><a href="#管理版本相关" class="headerlink" title="管理版本相关"></a>管理版本相关</h2><ul>
+<li><code>git status</code> 查看当前文件状态。</li>
+<li><code>git add 文件名称(文件夹)</code>：将文件或者文件夹中的所有文件放到暂存区当中。<ul>
+<li><code>git add index.html</code></li>
+<li><code>git add components/</code></li>
+<li><code>git add file1 file2</code> 会使 file1, file2 文件变绿</li>
+<li><code>git add .</code> 会使他们所有文件都变绿（全家变绿）</li>
 </ul>
 </li>
-<li>scrollBy()：按照指定像素来滚动内容。</li>
-<li>scrollTo()：把内容滚动到指定的坐标。</li>
-<li>moveBy()：可相对窗口的当前坐标把他移动指定的像素。</li>
-<li>moveTo()：把窗口的左上角移动到指定的坐标。</li>
-<li>resizeBy()：按照指定的像素调整窗口的大小。</li>
-<li>resizeTo()：把窗口的大小调整到指定的宽度和高度。</li>
-<li>alert()/prompt()：原生弹窗</li>
-<li>close()：关闭窗口（可能关不了，不重要）</li>
+<li><code>git commit -m &lt;message&gt;</code> 提交此次变更。提交变更会有对应的日志生成</li>
+<li><code>git log</code> 可以查看提交记录，什么人什么时间提交了 commit</li>
+<li><code>git reset --hard HEAD^</code> 回退到上一个版本</li>
+<li><code>git reset --hard HEAD~n</code> 回退到上 n 个版本</li>
+<li><code>git reflog</code> 查看版本回退日志</li>
+<li><code>git reset --hard &lt;commit-id&gt;</code> 回退到指定版本</li>
+<li><code>git diff</code> 比较工作区与暂存区</li>
+<li><code>git diff HEAD</code> 比较工作区与本地版本库中<br>最近一次 commit 的内容</li>
+<li><code>git diff --cached</code> 比较暂存区与本地版本库中最近一次 commit 的内容</li>
+<li><code>git diff &lt;commit-id&gt; &lt;commit-id&gt;</code>比较两个 commit 之间的差异<br><img src="E5B0B6AF33E84662923E10DC1BBED1F3" alt="暂存区指令"></li>
 </ul>
-<h3 id="Navigator（客户端浏览器的信息）"><a href="#Navigator（客户端浏览器的信息）" class="headerlink" title="Navigator（客户端浏览器的信息）"></a>Navigator（客户端浏览器的信息）</h3><p>Navigator 对象包含的属性描述了正在使用的浏览器<br>重点属性</p>
-<ul>
-<li>userAgent：当前浏览器信息。</li>
-<li>platform：返回运行浏览器的操作系统平台。</li>
-<li>onLine：返回系统是否处于脱机状态的布尔值。</li>
+<h2 id="协同开发相关"><a href="#协同开发相关" class="headerlink" title="协同开发相关"></a>协同开发相关</h2><ul>
+<li><code>git branch</code> 用于查看分支， 高亮词条代表当前分支</li>
+<li><code>git branch &lt;branch-name&gt;</code> 创建新分支</li>
+<li><code>git checkout &lt;branch-name&gt;</code> 用于切换分支</li>
+<li><code>git checkout -b &lt;branch-name&gt;</code> 创建并切换新分支</li>
+<li><code>git merge &lt;branch-name&gt;</code> 合并分支</li>
 </ul>
-<hr>
-<h3 id="History-对象"><a href="#History-对象" class="headerlink" title="History 对象"></a>History 对象</h3><p>History 对象包含用户（在浏览器窗口中）访问过的 URL</p>
-<ul>
-<li>length：返回浏览器历史列表中的 URL 数量。</li>
-<li>back()：加载 history 列表中的前一个 URL</li>
-<li>forward()：加载 history 列表中的后一个 URL</li>
-<li>go()：加载 history 列表中的某个具体页面</li>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><ul>
+<li><code>git clone &lt;链接地址&gt;</code> 克隆代码</li>
+<li><code>git push origin &lt;master&gt;</code> 推送分支到远程</li>
+<li><code>git pull</code> 从远程拉取代码</li>
+<li><code>ssh-keygen</code> 远程仓库配置 SSH 配置</li>
 </ul>
-<hr>
-<h3 id="Location-对象-★"><a href="#Location-对象-★" class="headerlink" title="Location 对象 ★"></a>Location 对象 ★</h3><p>Location 对象包含有关当前 URL 的信息。<br>URL=协议+域名+路径+参数</p>
-<ul>
-<li>protocol：返回协议</li>
-<li>host：域名</li>
-<li>pathname：路径</li>
-<li>search：参数</li>
-<li>hash：锚点<ul>
-<li>1.根据锚点的信息来选择对应要展示的内容</li>
-<li>2.切换内容时我们映射到锚点之中</li>
-<li>3.检测锚点修改，修改以后再映射内容</li>
-</ul>
-</li>
-<li>assign()：加载新的文档。assign(‘<a target="_blank" rel="noopener" href="http://www.baidu.com&/#39;">http://www.baidu.com&#39;</a>)</li>
-<li>reload(‘force’)：重新加载当前文档。参数可选，不填或填 false 则取浏览器缓存的文档。</li>
-<li>replace()：用新的文档替换当前文档。</li>
-</ul>
-<h3 id="Screen-对象（基本没用）"><a href="#Screen-对象（基本没用）" class="headerlink" title="Screen 对象（基本没用）"></a>Screen 对象（基本没用）</h3><ul>
-<li>height/weith：屏幕的宽高</li>
-</ul>
-<h3 id="js-使用"><a href="#js-使用" class="headerlink" title="js 使用"></a>js 使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var url&#x3D;new URL(&quot;http:&#x2F;&#x2F;xxx&quot;);</span><br><span class="line">url.protocol,url.host....</span><br></pre></td></tr></table></figure>
+<h2 id="ssh-配置"><a href="#ssh-配置" class="headerlink" title="ssh 配置"></a>ssh 配置</h2><ol>
+<li><code>ssh-keygen</code></li>
+<li>复制 key<code>C:\Users\杜金超\.ssh\id_rsa.pub</code></li>
+<li>添加到 gitHub 的 ssh 中</li>
+</ol>
+<h1 id="github-上不去怎么办？"><a href="#github-上不去怎么办？" class="headerlink" title="github 上不去怎么办？"></a>github 上不去怎么办？</h1><ol>
+<li>搜 DNS 站点工具</li>
+<li>搜 github，复制地址</li>
+<li>地址放在 hosts 文件里面去 <code>C:\Windows\System32\drivers\etc\hosts</code></li>
+<li>在文件最下面写入： <code>地址 github.com</code></li>
+</ol>
 
     </div>
 
@@ -444,21 +429,20 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/git/" rel="tag"># git</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/01/JavaScript%EF%BC%88%E4%BA%8C%EF%BC%89DOM/" rel="prev" title="JavaScript（二）DOM">
-                  <i class="fa fa-chevron-left"></i> JavaScript（二）DOM
+                <a href="/2020/10/01/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E8%AF%A6%E8%A7%A3/" rel="prev" title="包管理器详解">
+                  <i class="fa fa-chevron-left"></i> 包管理器详解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/01/JavaScript%EF%BC%88%E5%9B%9B%EF%BC%89ES6/" rel="next" title="JavaScript（四）ES6">
-                  JavaScript（四）ES6 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/02/selenium-java%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" rel="next" title="selenium+java常用操作">
+                  selenium+java常用操作 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
