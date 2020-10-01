@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="互联网互联网——Internet（音译：因特网、英特网），学名：网际网路 起源1989 年，欧洲粒子物理实验所——协议（格式）WWW (World Wide Web)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络基础知识">
+<meta property="og:url" content="http://example.com/2020/10/01/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Mr.Duの博客">
+<meta property="og:description" content="互联网互联网——Internet（音译：因特网、英特网），学名：网际网路 起源1989 年，欧洲粒子物理实验所——协议（格式）WWW (World Wide Web)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1%20(2).png">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/2%20(2).png">
+<meta property="article:published_time" content="2020-10-01T08:26:50.000Z">
+<meta property="article:modified_time" content="2020-10-01T10:01:57.162Z">
+<meta property="article:author" content="黑砸是只猫">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1%20(2).png">
+
+
+<link rel="canonical" href="http://example.com/2020/10/01/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>网络基础知识 | Mr.Duの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+ <a target="_blank" rel="noopener" href="https://github.com/cat-heiza" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mr.Duの博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半山腰总是最拥挤的，你得去山顶看看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91"><span class="nav-number">1.</span> <span class="nav-text">互联网</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%B7%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">起源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%85%E4%BC%9A%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text">必会基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%94%E5%A4%A7%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text">冯诺依曼式计算机五大组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP-%E5%9C%B0%E5%9D%80"><span class="nav-number">3.2.</span> <span class="nav-text">IP 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E4%B8%8E-DNS-%E8%A7%A3%E6%9E%90"><span class="nav-number">3.3.</span> <span class="nav-text">域名与 DNS 解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%90%91%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E6%A0%8F%E4%B8%AD%E8%BE%93%E2%BC%8A%E4%B8%80%E4%B8%AA-url-%E6%8C%89%E5%9B%9E%E8%BD%A6%E4%B9%8B%E5%90%8E%EF%BC%8C%E2%BD%B9%E7%BB%9C%E4%B8%AD%E9%83%BD%E4%BC%9A%E5%8F%91%E2%BD%A3%E7%94%9F%EF%A7%BD%E4%B9%88%EF%BC%9F"><span class="nav-number">3.4.</span> <span class="nav-text">当向浏览器的地址栏中输⼊一个 url 按回车之后，⽹络中都会发⽣生什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-number">3.5.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.6.</span> <span class="nav-text">五层网络模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E5%8D%8F%E8%AE%AE-%E4%B8%A4%E4%B8%AA%E9%83%A8%E5%88%86"><span class="nav-number">3.7.</span> <span class="nav-text">HTTP 协议-两个部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-%E5%92%8C-POST-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.8.</span> <span class="nav-text">GET 和 POST 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-%E5%92%8C-Sesstion-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.9.</span> <span class="nav-text">Cookie 和 Sesstion 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.10.</span> <span class="nav-text">跨域详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87"><span class="nav-number">4.</span> <span class="nav-text">网络面试必备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax"><span class="nav-number">4.1.</span> <span class="nav-text">ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">4.2.</span> <span class="nav-text">网络的基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">4.3.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%92%8C-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%88%E5%8F%91%E7%94%9F%E5%9C%A8%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">三次握手 和 四次挥手（发生在传输层）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">请求方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-POST-%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-number">4.6.</span> <span class="nav-text">GET POST 区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81%EF%BC%9A"><span class="nav-number">4.7.</span> <span class="nav-text">状态码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-%E5%92%8C-https-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.8.</span> <span class="nav-text">http 和 https 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F"><span class="nav-number">4.9.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8F%91%E5%87%BA%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.10.</span> <span class="nav-text">HTTP 请求的发出经历了什么？</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="黑砸是只猫"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">黑砸是只猫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cat-heiza" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cat-heiza" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1778911090@qq.com" title="E-Mail → mailto:1778911090@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/01/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="黑砸是只猫">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Duの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络基础知识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-01 16:26:50 / 修改时间：18:01:57" itemprop="dateCreated datePublished" datetime="2020-10-01T16:26:50+08:00">2020-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="互联网"><a href="#互联网" class="headerlink" title="互联网"></a>互联网</h1><p>互联网——Internet（音译：因特网、英特网），学名：网际网路</p>
+<h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>1989 年，欧洲粒子物理实验所——协议（格式）<br>WWW (World Wide Web)</p>
+<a id="more"></a>
+
+<h1 id="必会基础"><a href="#必会基础" class="headerlink" title="必会基础"></a>必会基础</h1><p>计算机包含电脑。不是相等关系<br>台式机、笔记本——&gt;计算机<br>手机、平板、智能手表、智能音箱..——&gt;冯诺依曼式计算机<br>小知识：图灵是计算机科学之父（理论）</p>
+<h2 id="冯诺依曼式计算机五大组成部分"><a href="#冯诺依曼式计算机五大组成部分" class="headerlink" title="冯诺依曼式计算机五大组成部分"></a>冯诺依曼式计算机五大组成部分</h2><ul>
+<li>冯诺依曼式计算机——冯诺依曼（计算机之父）</li>
+<li>运算器:<br>CPU（中央处理器）：主要用来做逻辑运算，整数运算。<br>GPU（显卡）：做浮点数运算，精确运算。</li>
+<li>存储器：<br>内存（断电数据清空, 读写速度快）， 硬盘（辅存）：（数据可以持久化，读写速度，相对较慢）</li>
+<li>控制器：主板上的⼀一些器器件</li>
+<li>输⼊设备：键盘，鼠标，⻨克风，⽹网⼝</li>
+<li>输出设备：显示器，耳机，⽹口</li>
+</ul>
+<h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><p><strong>IP 地址的格式</strong>：<br>IP 地址分为四个段：<br>xxx.xxx.xxx.xxx，每个段 0~255，每个段，都是由 8 个 0、1 组成的。<br><strong>IP 地址的分类</strong>：<br>一个 IP 地址分为两个部分：⽹络 ID，主机 ID</p>
+<p>A 类：0.0.0.0 ~ 127.255.255.255（⼀一个⽹网络能有 1600+万台）<br>B 类：128.0.0.0 ~ 191.255.255.255（172.16.0.0 ~ 172.31.255.255）<br>C 类：192.0.0.0 ~ 223.255.255.255（192.168.xxx.xxx）<br>D 类：（多播地址）<br>E 类：</p>
+<h2 id="域名与-DNS-解析"><a href="#域名与-DNS-解析" class="headerlink" title="域名与 DNS 解析"></a>域名与 DNS 解析</h2><p><a target="_blank" rel="noopener" href="http://www.baidu.com-&gt;域名/">www.baidu.com-&gt;域名</a><br>问：能通过域名直接访问到⼀台机器吗？<br>答：不可以的。只能访问一个 ip 地址，而不是某台机器</p>
+<p>域名和 IP 形成对应关系。</p>
+<p>首先，计算机是不不知道域名对应的 IP 的。 问路由器，如果路由器认识这个域名，就返回⼀个 IP，然后计算机访问这个 IP。</p>
+<p>如果路由器不认识，他就问上⼀层路由器。 如果问到了城市这个级别的路由器还没有，就会问城市级 DNS 服务器。</p>
+<p>如果 DNS 服务器不认识这个域名，继续向上级 DNS 服务器查找。 互联网建立的时候，13 台总的 DNS 服务器。</p>
+<h2 id="当向浏览器的地址栏中输⼊一个-url-按回车之后，⽹络中都会发⽣生什么？"><a href="#当向浏览器的地址栏中输⼊一个-url-按回车之后，⽹络中都会发⽣生什么？" class="headerlink" title="当向浏览器的地址栏中输⼊一个 url 按回车之后，⽹络中都会发⽣生什么？"></a>当向浏览器的地址栏中输⼊一个 url 按回车之后，⽹络中都会发⽣生什么？</h2><p>如果输⼊的是域名：123.xyz<br>则会先去域名所映射的 ip 地址。</p>
+<p>看浏览器器的缓存。没有继续往下找<br>本机 host。 C:windows/system32/drivers/etc/host<br>127.0.0.1 localhost （代表本机 ip）<br>0.0.0.0（代表不知道域名，然后默认访问本机 ip）<br>家里路由器 上级路由、城市的 LDNS 服务器 +<br>继续向上级的 DNS 服务器找。<br>gDNS 服务器。</p>
+<p>找到映射后返回浏览器，然后再重新访问这个 ip 地址</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p><strong>三次握手：（建立连接的过程）</strong>：为了确定客户端和服务器端均有接收和发送信息的能力 1. 我要给你写情书了 你能收到吗 （确定客户端有发送信息的能力） 2. 我知道你要给我写情书了 我能收到 （确定服务器端有接收和发送信息的能力） 3. 我知道你能收到信息了 我也能收到信息 那我现在开始发给你我的心意<br><strong>四次挥手： （断开连接）</strong> 1. 客户端向服务器端发出 我这边的情书已经发完了 我要断开了 2. 服务器端向客户端发出 我知道你已经发完了 但是我这边还没有接收完 也没有给你写完回信 3. 服务器端向客户端发出 我这边已经写完回信并发完了 可以断开了 4. 客户端向服务器端发出 我知道你已经发送完了 我断开了</p>
+<h2 id="五层网络模型"><a href="#五层网络模型" class="headerlink" title="五层网络模型"></a>五层网络模型</h2><p><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1%20(2).png" alt="五层网络模型"></p>
+<h2 id="HTTP-协议-两个部分"><a href="#HTTP-协议-两个部分" class="headerlink" title="HTTP 协议-两个部分"></a>HTTP 协议-两个部分</h2><p><strong>请求</strong>：Request<br><strong>响应</strong>：Response</p>
+<p>请求：请求头+数据体<br>http 请求源码：请求方式 路径 协议版本<br>请求方式：get，post…</p>
+<p><strong>发送一个请求</strong>:<br>TCP/IP 协议（对方的 IP，自己的 IP，对方的端口）HTTP 协议（请求头）hello<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/2%20(2).png" alt="五层网络模型"></p>
+<p><strong>响应：</strong> 响应头+数据体<br>协议版本 状态码 message</p>
+<h2 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a>GET 和 POST 的区别</h2><ol>
+<li>是基于什么前提的?如果什么前提都没有，不使用任何规范，只考虑语法和理论上的 HTTP 协议。</li>
+</ol>
+<ul>
+<li>GET 和 POST 几乎没有什么区别，只有名字不一样。</li>
+</ul>
+<ol start="2">
+<li>如果是基于 RFC 规范的。</li>
+</ol>
+<ul>
+<li>理论上的(Specification) : GET 和 POST 具有相同语法的，但是有不同的语义。get 是用来获取数据的，post 是用来发送数据的，其他方面没有区别。;</li>
+<li>实现上的(Implementation) :各种浏览器，就是这个规范的实现者。</li>
+</ul>
+<ol start="3">
+<li>常见的那些不同:</li>
+</ol>
+<ul>
+<li>GET 的数据在 URL 是可见的。POST 请求不显示在 URL 中。2) GET 对长度是有限制的，POST 长度是无限的。</li>
+<li>GET 请求的数据可以收藏为书签，post 请求 到的数据不可收藏为书签。</li>
+<li>GET 请求后，按后退按钮、刷新按钮无影响，post 数据会被重新提交。</li>
+<li>GET 编码类型: aplication/x-ww-form-url, post 的编码类型: 有很多种。encodeapplication/x-www-form-urlencoded、multipart/form-data</li>
+<li>GET 历史参数会被保留在浏览器里，psot 不会保存在浏览器中的。</li>
+<li>GET 只允许 ASCII.post 没有编码限制，允许发二进制的。</li>
+<li>GET 与 POST 相比，GET 安全性较差，因为所发的数据是 URL 的部分。</li>
+</ul>
+<h2 id="Cookie-和-Sesstion-的区别"><a href="#Cookie-和-Sesstion-的区别" class="headerlink" title="Cookie 和 Sesstion 的区别"></a>Cookie 和 Sesstion 的区别</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><ol>
+<li>如果我们用 JS 的变量来存数据，那么在页面关闭的时候，数据就消失了。</li>
+<li>保持登录状态是怎么做到的呢?</li>
+</ol>
+<ul>
+<li>按照正常的 HTTP 协议来说，是做不到的。因为 HTTP 协议，上下文无关协议。</li>
+</ul>
+<ol start="3">
+<li>所以说前端页面上，有可以持久化存储数据的东西。一旦登录成功，我就记载在这个里面。</li>
+</ol>
+<p><strong>Cookie 是有限制的。</strong></p>
+<p>Cookie 是存在浏览器里的，不是存在某个页面上的。是可以长期存储的。Cookie 即使是保存在浏览器里，也是存放在不同的域名下的。</p>
+<ol>
+<li><p>初始状态:没有登录</p>
+</li>
+<li><p>访问百度的登录，输入用户名，密码。</p>
+</li>
+<li><p>如果用户名和密码是正确的。百度的后端会向这个域名下，设置一个 Cookie。写入用户的基本信息! (加密的) .</p>
+</li>
+<li><p>以后每一次向百度发送请求，浏览器都会自动带上这些 Cookie,</p>
+</li>
+<li><p>服务端(后端)看到了带有 ID 的 cookie,就可以解析这个加密的 ID,来获取到这个用户本身的 ID，</p>
+</li>
+<li><p>如果能获取到本身的 ID,那么就证明这个用户已经登录过了。所以后端可以继续保留用户的信息。</p>
+</li>
+</ol>
+<p>缺点:如果某个坏人，复制了我浏览器里的 cookie,他就可以在他的电脑上登录我的账号了。</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>和 cookie 的区别：登录信息存在服务器端。</p>
+<p>缺点：如果用户量非常大，上亿的用户，在用户量很大的时候，服务器端会很耗资源。</p>
+<p>原因：因为后端可能不止一台服务器，用户的登录信息，一般只存在一台服务器上，因为用户的登录操作，在哪台机器上执行的，就一般存在那台机器上，需要通过反向代理。（轮询，IP 哈希等）</p>
+<h3 id="B-S-结构-C-S-结构"><a href="#B-S-结构-C-S-结构" class="headerlink" title="B/S 结构 C/S 结构"></a>B/S 结构 C/S 结构</h3><p>B/S 结构指：web 页面和服务器。</p>
+<p>C/S 结构指：app 和服务器</p>
+<h3 id="发送网络请求几种方式"><a href="#发送网络请求几种方式" class="headerlink" title="发送网络请求几种方式"></a>发送网络请求几种方式</h3><ol>
+<li>在浏览器中直接输入网址（无法用代码控制）</li>
+<li>location.href=”url”,可以发出网络请求，但是页面会发生跳转。(页面会跳转)</li>
+<li>带有 src 属性的标签。请求是可以发出的，服务端是可以处理的也是可以返回的。但是返回之后，能否被应用，还要看浏览器。(页面无法处理返回结果)</li>
+<li>带有 href 属性的标签。请求是可以发出的，服务端是可以处理的也是可以返回的。但是返回之后，能否被应用，还要看浏览器。（页面无法处理返回结果）</li>
+<li>带有 action 属性的标签。例如 form 表单，也可以向后端发出请求// 希望有一种方式，可以用代码控制，页面不会跳转，服务端返回的结果我可以用 js 继续处理。</li>
+<li>ajax（页面不跳转，可以用代码控制，但是不支持跨域，上面都支持跨域）</li>
+</ol>
+<h3 id="跨越"><a href="#跨越" class="headerlink" title="跨越"></a>跨越</h3><p><strong>定义：协议、域名、端口号，有一个不同就算跨域。</strong></p>
+<p><strong>允许跨域的资源：</strong>.js .css .jpg 等。src 属性的资源都是可以被跨域请求的。href 属性的资源大部分都是可以被跨域请求的。</p>
+<p><strong>不被允许跨域的资源：</strong></p>
+<ol>
+<li>后端接口的数据。</li>
+<li>其他域的 cookie。</li>
+<li>其他域的缓存。</li>
+</ol>
+<p><strong>跨域这个行为，发生在哪里?</strong></p>
+<ol>
+<li>即使跨域了(协议，域名，端口号有不一-样的)，请求也可以发出</li>
+<li>务器端也是可以接收的。</li>
+<li>服务器端也是可以正常处理的。</li>
+<li>服务器端也是可以正常返回据。</li>
+<li>浏览器也能接收到这些数据。</li>
+<li>接收到之后，发现当前页面的域和请求的域不同，所以判定为域。</li>
+<li>我们的代码在这等着结果呢，但是因为浏览器判定跨域了，不会结传递给我们的代码。</li>
+</ol>
+<p><strong>虽然跨域了,但是我们依然需要这个数据，怎么解决?</strong></p>
+<ol>
+<li>后端(别人家的)配合我们进行跨域。<br>pan.baidu.com ——&gt; zhidao.baidu.com</li>
+</ol>
+<ul>
+<li>JSONP （正常的情况，返回的数据都是 JSON 格式。JSONP 是一种特殊的格式。）</li>
+<li>后端设置 Access-Control-Allow-Origin 属性支持域。</li>
+</ul>
+<ol start="2">
+<li>后端不配合我们进行跨域。</li>
+</ol>
+<ul>
+<li>iframe (只能显示，不能控制)</li>
+<li>通过后端代理(自己的后端)</li>
+</ul>
+<h3 id="原生-js-发送-ajax"><a href="#原生-js-发送-ajax" class="headerlink" title="原生 js 发送 ajax"></a>原生 js 发送 ajax</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       &#x2F;&#x2F;前提：后端设置Access-Control-Allow-Origin属性以支持跨域</span><br><span class="line">       var xhr &#x3D; null;</span><br><span class="line">       if (window.XMLHttpRequest) &#123;</span><br><span class="line">           xhr &#x3D; new XMLHttpRequest();</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           xhr &#x3D; new ActiveXObject(&#39;Microsoft.XMLHttp&#39;);</span><br><span class="line">       &#125;</span><br><span class="line">       console.log(xhr.readyState); &#x2F;&#x2F;未请求时状态为0,代表请求的状态码。</span><br><span class="line">       xhr.open(&quot;get&quot;, &quot;http:&#x2F;&#x2F;developer.duyiedu.com&#x2F;edu&#x2F;testAjaxCrossOrigin&quot;); &#x2F;&#x2F;初始化一个请求,第三个参数代表是否异步，默认为true</span><br><span class="line">       console.log(xhr.readyState); &#x2F;&#x2F;请求后状态变为1</span><br><span class="line">       &#x2F;&#x2F; 当状态变化时触发</span><br><span class="line">       xhr.onreadystatechange &#x3D; function() &#123;</span><br><span class="line">           &#x2F;&#x2F;readyState &#x3D;&#x3D; 4表示请求完成，已经接收到数据。</span><br><span class="line">           &#x2F;&#x2F;status &#x3D;&#x3D; 200  网络请求，结果都会有一个状态码。来表示这个请求是否正常</span><br><span class="line">           &#x2F;&#x2F;200表示请求成功</span><br><span class="line">           &#x2F;&#x2F; http状态码</span><br><span class="line">           &#x2F;&#x2F;2**表示成功</span><br><span class="line">           &#x2F;&#x2F;3**表示重定向</span><br><span class="line">           &#x2F;&#x2F;4**表示客户端错误,404页面没找到。</span><br><span class="line">           &#x2F;&#x2F;5**表示服务端错误</span><br><span class="line">           if (xhr.readyState &#x3D;&#x3D; 4 &amp;&amp; xhr.status &#x3D;&#x3D; 200) &#123;</span><br><span class="line">               var data &#x3D; JSON.parse(xhr.responseText); &#x2F;&#x2F;请求的响应</span><br><span class="line">               console.log(data);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       xhr.send(); &#x2F;&#x2F;发送http请求</span><br><span class="line">   &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSONP-的使用和原理"><a href="#JSONP-的使用和原理" class="headerlink" title="JSONP 的使用和原理"></a>JSONP 的使用和原理</h3><ul>
+<li>jsonp 跨域，只能使用 get 方法，如果我们设置的是 post 方法，jquery 会自动转为 get 方法。</li>
+<li>是不是在 jsonp 里面我只能使用 get 方法？是不是我设置的 post 方法都会转为 get 方法？不是。</li>
+<li>jquery 会先判断是否同源，如果同源，那么设置的是 get 就是 get，设置的 post 就是 post。如果不是同源，无论设置的什么，都改为 get。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;jsonp格式哪里特殊？</span><br><span class="line">    &#x2F;&#x2F;发送的时候，会带上一个参数callback</span><br><span class="line">    &#x2F;&#x2F;返回的结果不是json</span><br><span class="line">    &#x2F;&#x2F;callback的名 + ( + json + );</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: &quot;http:&#x2F;&#x2F;developer.duyiedu.com&#x2F;edu&#x2F;testJsonp&quot;,</span><br><span class="line">        type: &quot;post&quot;,</span><br><span class="line">        dataType: &quot;jsonp&quot;,</span><br><span class="line">        success: function (data) &#123;</span><br><span class="line">            console.log(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>原理：</strong></p>
+<ol>
+<li>script 标签，有 src 属性，所以可以发出网络请求</li>
+<li>script 标签，虽然可以引用其他域的资源，浏览器不限制。</li>
+<li>但是，浏览器会将返回的内容，作为 js 代码执行。</li>
+<li>fn({“status”:”ok”,”msg”:”Hello! There is DuYi education!”})相当于调用了 fn 函数，传入了一个 json 对象作为参数。</li>
+</ol>
+<p><strong>JSONP 过程：</strong></p>
+<ol>
+<li>判断请求与当前页面的域，是否同源，如果同源则发送正常的 ajax，就没有跨域的事情了。</li>
+<li>如果不同源，生成一个 script 标签</li>
+<li>生成一个随机的 callback 名字，还得创建一个名为这个的方法。</li>
+<li>设置 script 标签的 src，设置为要请求的接口。</li>
+<li>将 callback 作为参数拼接在后面。</li>
+</ol>
+<p>以上是前端部分</p>
+<ol start="6">
+<li>后端接收到请求后，开始准备要返回的数据</li>
+<li>后端拼接数据，将要返回的数据用 callback 的值和括号包裹起来<br>例如：callback=asd123456，要返回的数据为{“a “b”:2},<br>就要拼接为：asd123456({“a”:1, “b”:2});</li>
+<li>将内容返回。</li>
+</ol>
+<p>以上是后端部分</p>
+<ol start="9">
+<li>浏览器接收到内容，会当做 js 代码来执行。</li>
+<li>从而执行名为 asd123456 的方法。这样我们就接收到了后端返回给我们的对象。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> $ = &#123;</span><br><span class="line">            ajax: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> url = options.url;</span><br><span class="line">                <span class="keyword">var</span> type = options.type;</span><br><span class="line">                <span class="keyword">var</span> dataType = options.dataType;</span><br><span class="line">                <span class="comment">//判断是否同源（协议，域名，端口号）</span></span><br><span class="line">                <span class="comment">//获取目标url的域</span></span><br><span class="line">                <span class="keyword">var</span> targetProtocol = <span class="string">&quot;&quot;</span>; <span class="comment">//目标接口的协议</span></span><br><span class="line">                <span class="keyword">var</span> targetHost = <span class="string">&quot;&quot;</span>; <span class="comment">//目标接口的host，host是包涵域名和端口的</span></span><br><span class="line">                <span class="comment">//如果url不带http，那么访问的一定是相对路径，相对路径一定是同源的。</span></span><br><span class="line">              <span class="keyword">if</span> (url.indexOf(<span class="string">&quot;http://&quot;</span>) == <span class="number">0</span> || url.indexOf(<span class="string">&quot;https://&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">var</span> targetUrl = <span class="keyword">new</span> URL(url);</span><br><span class="line">                    targetProtocol = targetUrl.protocol;</span><br><span class="line">                    targetHost = targetUrl.host;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    targetProtocol = location.protocol;</span><br><span class="line">                    targetHost = location.host;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//首先判断是否为jsonp，因为不是jsonp不用做其他的判断，直接发送ajax</span></span><br><span class="line">                <span class="keyword">if</span> (dataType == <span class="string">&quot;jsonp&quot;</span>) &#123;</span><br><span class="line">                    <span class="comment">//要看是否同源</span></span><br><span class="line">                    <span class="keyword">if</span> (location.protocol == targetProtocol &amp;&amp; location.host == targetHost) &#123; <span class="comment">//表示同源</span></span><br><span class="line">                        <span class="comment">//此处省略。因为同源，jsonp会当做普通的ajax做请求</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123; <span class="comment">//不同源，跨域</span></span><br><span class="line">                        <span class="comment">//随机生成一个callback</span></span><br><span class="line">                        <span class="keyword">var</span> callback = <span class="string">&quot;cb&quot;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">1000000</span>);</span><br><span class="line">                        <span class="comment">//给window上添加一个方法</span></span><br><span class="line">                        <span class="built_in">window</span>[callback] = options.success;</span><br><span class="line">                        <span class="comment">//生成script标签。</span></span><br><span class="line">                        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">                        <span class="keyword">if</span> (url.indexOf(<span class="string">&quot;?&quot;</span>) &gt; <span class="number">0</span>) &#123; <span class="comment">//表示已经有参数了</span></span><br><span class="line">                            script.src = url + <span class="string">&quot;&amp;callback=&quot;</span> + callback;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123; <span class="comment">//表示没有参数</span></span><br><span class="line">                            script.src = url + <span class="string">&quot;?callback=&quot;</span> + callback;</span><br><span class="line">                        &#125;</span><br><span class="line">                        script.id = callback;</span><br><span class="line">                        <span class="built_in">document</span>.head.appendChild(script);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// function cb(res)&#123;console.log(res)&#125;</span></span><br><span class="line">        <span class="comment">//http://developer.duyiedu.com/edu/testJsonp?callback=cb</span></span><br><span class="line"></span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">&quot;http://developer.duyiedu.com/edu/testJsonp&quot;</span>,</span><br><span class="line">            type: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">            dataType: <span class="string">&quot;jsonp&quot;</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="json-和-jsonp-的区别？"><a href="#json-和-jsonp-的区别？" class="headerlink" title="json 和 jsonp 的区别？"></a>json 和 jsonp 的区别？</h3><p>简单的说 JSON 是一种数据交换格式，而 JSONP 是一种非官方跨域数据交互协议。 JSON 是“暗号”，而 JSONP 则是接头方式。 一个是描述信息的格式，一个是信息传递双方约定的方法。</p>
+<h2 id="跨域详解"><a href="#跨域详解" class="headerlink" title="跨域详解"></a>跨域详解</h2><p>产生原因：浏览器的同源策略</p>
+<p>同源策略：协议域名端口号均相同才能进行正常的数据交互</p>
+<p>ajax 会受到同源策略的限制</p>
+<p><strong>客户端和服务器端的跨域：</strong></p>
+<ol>
+<li>JSONP</li>
+</ol>
+<ul>
+<li>用 script 标签来获取数据<code>&lt;script src=&quot;http://……&quot;&gt;&lt;/script&gt;</code>。</li>
+<li>script 标签的 src 属性，引入外部文件时，不管访问的文件是什么后缀名，都当作 js 的文件来执行。</li>
+<li>应用条件：需要后台配合，设置好回调函数与返回的对象进行对应</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function aa(res)&#123;……&#125;</span><br><span class="line">src&#x3D;&quot;http:&#x2F;&#x2F;……?callback&#x3D;aa&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>服务器端代理</li>
+</ol>
+<ul>
+<li>简述：客户端发送给同源的服务器，服务器去请求不同源的服务器，在通过同源服务器返回给客户端</li>
+<li>服务器代理：ngix webpack&gt;devServer</li>
+</ul>
+<ol start="3">
+<li>CORS 跨域：cross origin resource sharing 跨域资源共享</li>
+</ol>
+<ul>
+<li>简述：本身是跨域资源，但可以通过服务器给指定客户端通道</li>
+<li>简单请求：<ol>
+<li>请求方式只能是 get，post，head</li>
+<li>请求头字段只能设置：<ul>
+<li>Access</li>
+<li>Access-Language</li>
+<li>Content-Type:的值只能是：<ol>
+<li>application/x-www-form-urlencoded</li>
+<li>mutipart/form-data</li>
+<li>text/plain</li>
+</ol>
+</li>
+<li>服务器端只关心第一个设置</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>非简单请求<ul>
+<li>不满足简单请求就是非简单请求</li>
+</ul>
+</li>
+<li>服务器端设置<ul>
+<li>Access-Control-Allow-Origin:”<a href="http://127.0.0.1:5500&quot;，允许前端xxx进行跨域请求（如果让所有域都可以访问改为*）">http://127.0.0.1:5500&quot;，允许前端xxx进行跨域请求（如果让所有域都可以访问改为*）</a></li>
+<li>Access-Control-Allow-Headers:”Content-Type”,允许前端发送 Content-Type 的请求头</li>
+<li>Access-Control-Allow-Methods:”PUT”，允许前端进行 PUT 请求方式</li>
+</ul>
+</li>
+</ul>
+<p><strong>客户端和客户端的跨域（iframe 之间的跨域）：</strong></p>
+<p>父窗口获取子窗口数据（过时了）：</p>
+<ol>
+<li>在一个窗口中，设置了 window.name 属性后，切换页面，name 属性还会存在</li>
+<li>子窗口将数据设置在 window.name 上</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;子窗口</span><br><span class="line">let obj&#x3D;&#123;……&#125;</span><br><span class="line">window.name &#x3D; JSON.stringify(obj)&#x2F;&#x2F;转成字符串</span><br><span class="line">&#x2F;&#x2F;父窗口</span><br><span class="line">&lt;iframe src&#x3D;&quot;跨域子窗口链接&quot; frameborder&#x3D;&quot;0&quot; id&#x3D;&quot;oIfr&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let oIfr &#x3D; document.getElementById(&#39;oIfr&#39;);</span><br><span class="line">    let allowOrigin &#x3D; false;&#x2F;&#x2F;是否同源</span><br><span class="line">    oIfr.onload &#x3D; function()&#123;</span><br><span class="line">        if(!allowOrigin)&#123;</span><br><span class="line">            oIfr.src &#x3D; &#39;.&#x2F;demo.html&#39;;&#x2F;&#x2F;改为同源路径,demo.html不重要</span><br><span class="line">            allowOrigin &#x3D; true;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.log(oIfr.contentWindow.name)&#x2F;&#x2F;打印子窗口的window.name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>子窗口获取父窗口数据（过时了）：</p>
+<ul>
+<li>同源：使用 window.parent.xxx 就可以获取数据了</li>
+<li>不同源：<ol>
+<li>父窗口将数据拼接到 oIfr.src 属性上</li>
+<li>子窗口通过 window.location.hash 就可以获取到了</li>
+</ol>
+</li>
+</ul>
+<p><strong>postMessage（常用）：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">父窗口获取子窗口数据：</span><br><span class="line">父窗口：</span><br><span class="line">let oIfr &#x3D; doucment.getElementById(&#39;oIfr&#39;);</span><br><span class="line">window.onmessage &#x3D; function(e)&#123;</span><br><span class="line">    console.log(e.data);&#x2F;&#x2F;打印获取的数据</span><br><span class="line">&#125;</span><br><span class="line">子窗口：</span><br><span class="line">window.parent.postMessage(obj, &quot;父窗口协议域名端口号&quot;);&#x2F;&#x2F;用父窗口上的postMessage方法（数据，允许访问这个数据的域）</span><br><span class="line"></span><br><span class="line">子窗口获取父窗口数据：</span><br><span class="line">父窗口：</span><br><span class="line">oIfr.onload &#x3D; function()&#123;</span><br><span class="line">    &#x2F;&#x2F;等到子窗口加载完成后才能传送数据</span><br><span class="line">    oIfr.contentWindow.postMessage(obj,&quot;子窗口协议域名端口号&quot;);&#x2F;&#x2F;调用子窗口上的postMessage方法</span><br><span class="line">&#125;</span><br><span class="line">子窗口：</span><br><span class="line">window.onmessage &#x3D; function(e)&#123;</span><br><span class="line">    console.log(e.data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="网络面试必备"><a href="#网络面试必备" class="headerlink" title="网络面试必备"></a>网络面试必备</h1><h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><p>封装 ajax 函数 ajax 用来请求资源 可以使页面局部刷新</p>
+<h2 id="网络的基础知识"><a href="#网络的基础知识" class="headerlink" title="网络的基础知识"></a>网络的基础知识</h2><ul>
+<li><p>五层网络模型： 物理层 —》 数据链路层 —-》网络层—》 传输层—》 应用层</p>
+</li>
+<li><p>七层网络模型：</p>
+<ul>
+<li>应用层: 网络服务与最终用户的一个接口。协议有：HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</li>
+<li>表示层: 数据的表示、安全、压缩。（在五层模型里面已经合并到了应用层）格式有，JPEG、ASCll、DECOIC、加密格式等</li>
+<li>会话层: 建立、管理、终止会话。（在五层模型里面已经合并到了应用层） 对应主机进程，指本地主机与远程主机正在进行的会话</li>
+</ul>
+</li>
+</ul>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><ul>
+<li>浏览器提出的安全机制 规定 协议域名端口号均相同的资源 可以相互之间通信</li>
+<li>如果在不同源的位置去交互的话需要认证</li>
+<li>源： 协议+域名+端口号</li>
+</ul>
+<h2 id="三次握手-和-四次挥手（发生在传输层）"><a href="#三次握手-和-四次挥手（发生在传输层）" class="headerlink" title="三次握手 和 四次挥手（发生在传输层）"></a>三次握手 和 四次挥手（发生在传输层）</h2><ul>
+<li>三次握手： 为了确认双方可以正常的沟通 建立连接</li>
+<li>四次挥手： 为了确认双方都已经发送完信息了 并且都有回应了 双方都可以断开连接</li>
+</ul>
+<h2 id="请求方式："><a href="#请求方式：" class="headerlink" title="请求方式："></a>请求方式：</h2><ul>
+<li>GET(获取数据的时候会用到)</li>
+<li>POST（新建数据保存的时候用到）</li>
+<li>HEAD PUT（修改数据的时候会用到）</li>
+<li>DELETE（删除数据的时候会用到）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.GET	请求指定的页面信息，并返回实体主体。</span><br><span class="line">2.HEAD	类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</span><br><span class="line">3.POST	向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和&#x2F;或已有资源的修改。</span><br><span class="line">4.PUT	从客户端向服务器传送的数据取代指定的文档的内容。</span><br><span class="line">5.DELETE	请求服务器删除指定的页面。</span><br><span class="line">6.CONNECT	HTTP&#x2F;1.1 协议中预留给能够将连接改为管道方式的代理服务器。</span><br><span class="line">7.OPTIONS	允许客户端查看服务器的性能。</span><br><span class="line">8.TRACE	回显服务器收到的请求，主要用于测试或诊断。</span><br><span class="line">9.PATCH	是对 PUT 方法的补充，用来对已知资源进行局部更新 。</span><br></pre></td></tr></table></figure>
+
+<h2 id="GET-POST-区别："><a href="#GET-POST-区别：" class="headerlink" title="GET POST 区别："></a>GET POST 区别：</h2><ul>
+<li>get 请求把参数拼接在了地址上， post 请求放在了请求体里</li>
+<li>get 请求方式传递数据量较少， post 请求传递数据量较大</li>
+<li>post 相对于 get 而言较安全</li>
+</ul>
+<h2 id="状态码："><a href="#状态码：" class="headerlink" title="状态码："></a>状态码：</h2><ul>
+<li>2xx 请求成功返回</li>
+<li>3xx 重定向 301 永久性重定向 302 临时性重定向 304 资源未修改</li>
+<li>4xx 客户端错误 404 没有找到（检查地址） 403 没有权限 400 错误的请求（参数有错误）</li>
+<li>5xx 服务器端错误 500 服务器内部错误</li>
+</ul>
+<h2 id="http-和-https-的区别"><a href="#http-和-https-的区别" class="headerlink" title="http 和 https 的区别"></a>http 和 https 的区别</h2><ul>
+<li>https 是在 http 的基础上运用了 ssl 加密 运用的加密算法 rsa 默认端口号 443</li>
+<li>http: 超文本传输协议 端口号 80</li>
+</ul>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>不是 w3c 标准里的，原理： script 标签身上的 src 属性是不受同源策略的限制的</p>
+<h3 id="服务器代理"><a href="#服务器代理" class="headerlink" title="服务器代理"></a>服务器代理</h3><h3 id="iframe："><a href="#iframe：" class="headerlink" title="iframe："></a>iframe：</h3><ul>
+<li>iframe + window.name —》 父页面请求子页面的数据 儿子给父亲数据</li>
+<li>iframe + location.hash —-》 子页面请求父页面的数据 父亲给儿子数据</li>
+<li>iframe + window.postMessage —》 双向请求</li>
+</ul>
+<h3 id="CORS-cross-origin-resource-sharing-跨域资源共享"><a href="#CORS-cross-origin-resource-sharing-跨域资源共享" class="headerlink" title="CORS(cross-origin resource sharing) 跨域资源共享"></a>CORS(cross-origin resource sharing) 跨域资源共享</h3><ol>
+<li>后端来设置一个响应头 access-control-allow-origin: ‘<a target="_blank" rel="noopener" href="http://www.duyiedu.com&/#39;">http://www.duyiedu.com&#39;</a></li>
+<li>浏览器先发出请求到服务器 返回的过程中 判断是否是同源的</li>
+<li>如果不是同源的会去看响应报文的响应头是否有 access-control-allow-origin: * / 当前页面的域名</li>
+</ol>
+<p><strong>浏览器将 CORS 请求分成两类：简单请求和非简单请求</strong></p>
+<p>简单请求：只需要设置 Allow-Control-Access-Origin 相应头就可以</p>
+<p>非简单请求：</p>
+<ul>
+<li>非简单请求指的是对服务器有特殊要求，比如请求方法为 PUT 或 DELETE，或者 Content-Type 字段的类型是 application/json。</li>
+<li>非简单请求的 CORS 请求会在通信之前，增减一次 HTTP 查询的请求，成为 “预检”。</li>
+<li>浏览器会先询问服务器，当前网页所在的域名是否在服务器许可的名单之中，以及可以使用哪些 HTTP 请求和头部字段。如果通过服务器的校验，才会发起正式的 XMLHttpRequest 请求，否则就报错</li>
+</ul>
+<p><strong>非简单请求的响应头里面必须含有以下字段：</strong></p>
+<ul>
+<li>Allow-Control-Access-Origin 必需，表示可以请求的源。</li>
+<li>Access-Control-Allow-Methods 必需，表示支持的所有方法，以逗号分隔</li>
+<li>Access-Control-Allow-Headers 如果浏览器请求包括 Access-Control-Req 方法，以逗号分隔</li>
+<li>Access-Control-Allow-Headers 如果浏览器请求包括 Access-Control-Request-Headers 字段，则 Access-Control-Allow-Headers 字段是必需的。它也是一个逗号分隔的字符串，表明服务器支持的所有头信息字段。</li>
+</ul>
+<h3 id="document-domain-—》-基础域名相同的页面-可以跨域"><a href="#document-domain-—》-基础域名相同的页面-可以跨域" class="headerlink" title="document.domain —》 基础域名相同的页面 可以跨域"></a>document.domain —》 基础域名相同的页面 可以跨域</h3><h2 id="HTTP-请求的发出经历了什么？"><a href="#HTTP-请求的发出经历了什么？" class="headerlink" title="HTTP 请求的发出经历了什么？"></a>HTTP 请求的发出经历了什么？</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/01/HTML5%E8%AF%A6%E8%A7%A3/" rel="prev" title="HTML5详解">
+                  <i class="fa fa-chevron-left"></i> HTML5详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/01/jquery%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="next" title="jquery常用方法">
+                  jquery常用方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑砸是只猫</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">301k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:33</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+</body>
+</html>

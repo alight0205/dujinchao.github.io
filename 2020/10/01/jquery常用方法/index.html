@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="全局核心函数$(jQuery) jQuery.fn&#x3D;jQuery.prototype 创建元素$(‘&lt;div&gt;&lt;&#x2F;div&gt;‘);创建 jq 对象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery常用方法">
+<meta property="og:url" content="http://example.com/2020/10/01/jquery%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Mr.Duの博客">
+<meta property="og:description" content="全局核心函数$(jQuery) jQuery.fn&#x3D;jQuery.prototype 创建元素$(‘&lt;div&gt;&lt;&#x2F;div&gt;‘);创建 jq 对象。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1.jpg">
+<meta property="article:published_time" content="2020-10-01T09:53:16.000Z">
+<meta property="article:modified_time" content="2020-10-01T10:01:23.597Z">
+<meta property="article:author" content="黑砸是只猫">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1.jpg">
+
+
+<link rel="canonical" href="http://example.com/2020/10/01/jquery%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>jquery常用方法 | Mr.Duの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+ <a target="_blank" rel="noopener" href="https://github.com/cat-heiza" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mr.Duの博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半山腰总是最拥挤的，你得去山顶看看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">全局核心函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">创建元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">选择元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%A7%84%E5%88%99"><span class="nav-number">1.3.</span> <span class="nav-text">参数规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-%E8%A7%84%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">css 规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jqurey-%E7%89%B9%E6%9C%89%E8%A7%84%E5%88%99"><span class="nav-number">1.5.</span> <span class="nav-text">jqurey 特有规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BC%A0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">还可以传的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jqurey-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-DOM-%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">jqurey 实例方法-DOM 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">选择元素相关方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E8%B5%8B%E5%80%BC%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">取赋值相关方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-%E3%80%81prop-%E3%80%81attr-%E4%B8%89%E8%80%85%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">data()、prop()、attr() 三者区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-jQuery-%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">基于 jQuery 对象增删改查相关方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.5.</span> <span class="nav-text">事件操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="nav-number">3.</span> <span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">兼容事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%9A%E9%98%BB%E6%AD%A2%E9%BB%98%E8%AE%A4%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">小知识：阻止默认事件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%9AjQuery-%E5%AF%B9%E8%B1%A1%E9%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%EF%BC%8CprevObject"><span class="nav-number">4.2.</span> <span class="nav-text">小知识：jQuery 对象都有一个属性，prevObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB"><span class="nav-number">4.3.</span> <span class="nav-text">动画</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E6%96%B9%E6%B3%95%EF%BC%8C%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA"><span class="nav-number">5.</span> <span class="nav-text">队列方法，先进先出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2"><span class="nav-number">5.1.</span> <span class="nav-text">位置图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">jQuery 工具方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95%EF%BC%88%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">插件扩展（工具方法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E5%8C%BA%E5%88%AB"><span class="nav-number">5.4.</span> <span class="nav-text">两者区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="nav-number">5.5.</span> <span class="nav-text">插件扩展实战经验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95-%E9%AB%98%E7%BA%A7%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">jQuery 工具方法-高级方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax"><span class="nav-number">6.1.</span> <span class="nav-text">$.ajax();</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E8%AF%B7%E6%B1%82"><span class="nav-number">7.</span> <span class="nav-text">同源请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82-jsonp"><span class="nav-number">8.</span> <span class="nav-text">跨域请求 jsonp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Callbacks-%E5%9B%9E%E8%B0%83%E7%AE%A1%E7%90%86%E8%80%85%EF%BC%8C%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%A6%BB%E4%B8%8D%E5%BC%80%E5%9B%9E%E8%B0%83%E6%9C%BA%E5%88%B6%E3%80%82"><span class="nav-number">8.1.</span> <span class="nav-text">$.&#x3D;&#x3D;Callbacks&#x3D;&#x3D;()回调管理者，异步编程离不开回调机制。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%A4%9A%E9%87%8D-ajax-%E5%B5%8C%E5%A5%97%E4%BC%9A%E5%AF%BC%E8%87%B4%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1%EF%BC%8C%E5%8D%B1%E5%AE%B3%E5%A4%9A%E5%A4%9A%E3%80%82%E4%BD%BF%E7%94%A8-Deferred-%E8%A7%A3%E5%86%B3%E3%80%82"><span class="nav-number">9.</span> <span class="nav-text">小知识：使用多重$.ajax()嵌套会导致回调地狱，危害多多。使用$.Deferred()解决。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deferred-%E6%9C%89%E7%8A%B6%E6%80%81%E7%9A%84%E5%9B%9E%E8%B0%83%E3%80%82%E4%B9%9F%E5%8F%AB%E5%BB%B6%E8%BF%9F%E5%AF%B9%E8%B1%A1%E3%80%82"><span class="nav-number">9.1.</span> <span class="nav-text">$.Deferred();有状态的回调。也叫延迟对象。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deferred-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95-then-%EF%BC%88%E6%B3%A8%EF%BC%9Athen-%E7%BF%BB%E8%AF%91%E8%BF%87%E6%9D%A5%E5%B0%B1%E6%98%AF%E7%84%B6%E5%90%8E%EF%BC%89"><span class="nav-number">9.2.</span> <span class="nav-text">$.Deferred()的核心方法.&#x3D;&#x3D;then&#x3D;&#x3D;();（注：then 翻译过来就是然后）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when"><span class="nav-number">9.3.</span> <span class="nav-text">$.when()</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="黑砸是只猫"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">黑砸是只猫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cat-heiza" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cat-heiza" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1778911090@qq.com" title="E-Mail → mailto:1778911090@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/01/jquery%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="黑砸是只猫">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Duの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jquery常用方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-01 17:53:16 / 修改时间：18:01:23" itemprop="dateCreated datePublished" datetime="2020-10-01T17:53:16+08:00">2020-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="全局核心函数"><a href="#全局核心函数" class="headerlink" title="全局核心函数"></a>全局核心函数</h1><p>$(jQuery)</p>
+<p>jQuery.fn=jQuery.prototype</p>
+<h2 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h2><p>$(‘<code>&lt;div&gt;&lt;/div&gt;</code>‘);创建 jq 对象。</p>
+<a id="more"></a>
+
+<h2 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h2><p>$();此函数可以传递多种参数，返回值是对象（jq 对象）</p>
+<h2 id="参数规则"><a href="#参数规则" class="headerlink" title="参数规则"></a>参数规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      css selector、 jquery unique selector</span><br><span class="line">null、undefined、dom</span><br><span class="line"></span><br><span class="line">$(function()&#123;&#125;)&#x3D;&#x3D;$(document).ready(function())&#x2F;&#x2F;解析完成后执行</span><br><span class="line"></span><br><span class="line">css selector和context</span><br></pre></td></tr></table></figure>
+
+<h2 id="css-规则"><a href="#css-规则" class="headerlink" title="css 规则"></a>css 规则</h2><ul>
+<li>$(‘div span’); 可以直接用 css 属性获取到</li>
+<li>$(‘div span’).css({width:100,height:100}); 可以直接传 css 属性</li>
+</ul>
+<h2 id="jqurey-特有规则"><a href="#jqurey-特有规则" class="headerlink" title="jqurey 特有规则"></a>jqurey 特有规则</h2><ul>
+<li>$(‘span:first’);//代表所选 span 中的第一个 span</li>
+<li>$(‘span:odd’);//奇数个的 span</li>
+<li>$(‘span:even’);//偶数个的 span</li>
+<li>$(‘span:eq(3)’);//索引为 3 的 span</li>
+<li>$(‘span[title]’);//含有 title 属性的 span 元素</li>
+<li>$(‘span[data=”duyi”]’);//元素为 span 并且属性 data=duyi 的 span 元素</li>
+<li>$(‘span[data!=”Duyi”]’);//属性不为 data=duyi 的 span 元素</li>
+<li>$(‘span[data$=”Duyi”]’);//结尾属性为 data=duyi 的 span 元素</li>
+<li>$(‘span[data^=”Duyi”]’);//开头属性为 data=duyi 的 span 元素</li>
+<li>$(‘span[data*=”Duyi”]’);//属性 data 包含 duyi 的 span 元素</li>
+<li>$(“span:contains(is)”);//内容包含”is”字符串的 span 元素</li>
+<li>$(‘span:parent’);//子元素包含 span 标签的元素</li>
+<li>$(‘span:visible’);//所有可见的 span 元素</li>
+<li>$(‘span:hidden’);//所有隐藏的 span 元素</li>
+</ul>
+<h2 id="还可以传的参数"><a href="#还可以传的参数" class="headerlink" title="还可以传的参数"></a>还可以传的参数</h2><ul>
+<li>null undefined ‘’ 有容错机制</li>
+<li>$(dom)：把元素 dom 包装成 jqurey 对象（不然不能用人家方法啊）</li>
+<li>$(function(){})</li>
+<li><strong>==$(‘li’,’ul’)：上下文，前面是确定的元素，后面是上下文==</strong></li>
+</ul>
+<h1 id="jqurey-实例方法-DOM-操作"><a href="#jqurey-实例方法-DOM-操作" class="headerlink" title="jqurey 实例方法-DOM 操作"></a>jqurey 实例方法-DOM 操作</h1><h2 id="选择元素相关方法"><a href="#选择元素相关方法" class="headerlink" title="选择元素相关方法"></a>选择元素相关方法</h2><ul>
+<li>.==get==();把 jqurey 对象变为原生 dom（注：get()里面可以加索引）</li>
+<li>.==eq==();返回 jqurey 的索引对象。（注：eq()里面可以加索引，默认 0，灵活应用：$(‘p’).css().eq(0).css()，先给全部 css，然后还能再给索引位 css）</li>
+<li>.==find==();在原有基础上查找任意子元素（注：==非常常用==。如：$(‘div’).find(‘p’).find(‘span’)）</li>
+<li>.children();直接子元素集</li>
+<li>.==filter==();过滤，只能在前面元素中查找。（注：是在前面 jq 对象中筛选，不能找子元素）<ul>
+<li>可以放 function,返回 true 此元素通过，反之此元素不获取。</li>
+</ul>
+</li>
+<li>.not();反选，不是。。。</li>
+<li>.has();过滤，判断它的下面是否有某元素。（注：$(‘p’).has(‘span’)：找到下面有 span 的 p 元素，是一个类数组，若找不到，返回一个 length 为 0 的类数组）</li>
+<li>.is();判断是否有交集。（注：可以判断 if($(e.target).is(‘li’))，或者$(‘.demo’).is(‘li’)）</li>
+<li>.==add==();绑定多个 jq 对象。（注：如$(‘p’).add(‘a’).css()，绑定多个元素进行操作）</li>
+<li>.end();回退。回到元素最开始位置。</li>
+</ul>
+<h2 id="取赋值相关方法"><a href="#取赋值相关方法" class="headerlink" title="取赋值相关方法"></a>取赋值相关方法</h2><ul>
+<li>.html();相当于.innerHTML() （注：取值取第一个元素，赋值赋全部元素，可以放 function(index,ele)处理）</li>
+<li>.text();相当于.innerText()(注：取赋值都会给全部元素，不可以建标签，可以放 function(index,ele)处理)</li>
+<li>.size();相当于.length,既然用 jq，就尽量一致吧。</li>
+<li>.addClass();给元素加 class。（注：可以加 function）</li>
+<li>.removeClass();给元素删除 class。（注：若为空，就全部删除，若为多个，贪婪匹配。可传 function(index,ele){return xx}进行灵活应用）</li>
+<li>.hasClass();判断前面的对象有没有()里面的属性。</li>
+<li>.css();可以读写 css 属性。（注：可以写单个属性，也可以传多个属性。可以操作数值,如 +=100px）</li>
+<li>.attr();基于 setAttbute 和 getAttbute，读写元素自定义属性。（注：像 class、chacked、selected、disablad 这种属性推荐用 prop）<ul>
+<li>可以操作任何属性，设置属性值会映射到 dom 行间样式</li>
+</ul>
+</li>
+<li>.prop();用于读写元素的特性属性。(注：()里面填属性值，第二个参数可修改属性，如.prop(‘checked’,true);）<ul>
+<li>只可以操作特性，设置特性值会映射到 dom 行间样式</li>
+</ul>
+</li>
+<li>.==data()==<ul>
+<li>可以往 jQuery 对象中存取信息，会与 dom 信息形成映射（即给某个元素设置 data 属性后，就可以通过这个元素获取到这个属性）</li>
+<li>可以获取到 dom 元素行间样式上以<code>data-</code>开头的数据</li>
+<li>==设置的数据会与 dom 信息形成映射，但是不会映射到 dom 的行间样式上（即信息会形成映射，但不会操作 dom）==</li>
+<li>如果设置特性，如 class，只会形成一个为 data 属性的 class，并不会改变 dom 元素的 class</li>
+<li>clone()也会克隆到 data 的属性值</li>
+</ul>
+</li>
+<li>.val();读取表单元素的 value 值。（注：input 使用，可用 function(index,oldValue){}）</li>
+</ul>
+<h2 id="data-、prop-、attr-三者区别"><a href="#data-、prop-、attr-三者区别" class="headerlink" title="data()、prop()、attr() 三者区别"></a>data()、prop()、attr() 三者区别</h2><ul>
+<li>prop()是读取元素的特性（原来的 dom.特性 不可使用），映射到行间样式</li>
+<li>attr()读取元素属性（包括特性），映射到行间样式</li>
+<li>data()读取自定义属性<ul>
+<li>读取元素上以<code>data-</code>开头的属性</li>
+<li>读取自定义的 data 属性</li>
+<li>不会映射到行间，但与 dom 信息形成映射</li>
+</ul>
+</li>
+</ul>
+<h2 id="基于-jQuery-对象增删改查相关方法"><a href="#基于-jQuery-对象增删改查相关方法" class="headerlink" title="基于 jQuery 对象增删改查相关方法"></a>基于 jQuery 对象增删改查相关方法</h2><ul>
+<li>==$(selector).load(URL,data,callback)==;<ul>
+<li>load() 方法从服务器加载数据，并把返回的数据放入被选元素中。</li>
+<li>如果是本地 url，路径是 index.html 为起始的路径</li>
+</ul>
+</li>
+<li>.==next==();//下一个兄弟元素（注：可以加限定条件。如：.next(‘p’)。若不符合则无效果。若使用.next()的元素是一个，则 next 选中一个，若使用元素多个，则选中多个）</li>
+<li>.prev();//上一个兄弟元素（注：同上）</li>
+<li>.nextAll();//下一群兄弟节点（注：可通过传参过滤。如：input[type=”checkbox”]）</li>
+<li>.prevAll();//上一群兄弟节点（注：同上）</li>
+<li>.==nextUntil==();//下一群兄弟节点，到什么为止。（注：从当前元素开始，第一个参数是到哪个元素为止，第二个参数，只找范围内的哪种元素。如：.nextUntil(‘p’,’a’);找到当前元素到 p 元素中间的所有 a 元素。）</li>
+<li>.prevUntil();//上一群兄弟节点。（注：同上）</li>
+<li>.siblings();所有兄弟节点。(注：可以传参数过滤,弱不符合无效果)</li>
+<li>.parent();//上一级父级元素。(注：可以传参数过滤,弱不符合无效果)</li>
+<li>.parents();//多层父级元素。（注：默认获取所有父级，可传参进行精准过滤）</li>
+<li>.closest();//找到距离元素最近的符合条件的父级元素。（注：必须传参，从自己开始往上找）</li>
+<li>.offsetParent();//找到距离元素最近的有定位的父级元素。</li>
+<li>.slice();//截取。（注：左闭右开）</li>
+<li>.insertBefore();插入插入到 xx 前面。$(‘a’).insertBefore(‘b’)。(注：把 a 插入到 b 元素前面，继续操作 a)</li>
+<li>.before();插入到 xx 前面。$(‘a’).before($(‘b’))。（注：把 b 插入到 a 元素之前,继续操作 a）</li>
+<li>.insertAfter();插入到 xx 后面（注：把 a 插入到 b 后）</li>
+<li>.after();插入到 xx 后面（注：把 b 插入到 a 后）</li>
+<li>.append();在尾部添加元素，相当于 appendChild。$(‘.div’).append($(‘.p’));(注：父元素在前)</li>
+<li>.appendTo();元素添加到 xx 尾部，相当于 appendChild。$(‘.p’).append($(‘.div’));(注：子元素在前)</li>
+<li>.prepend();在头部添加元素（注：同上）</li>
+<li>.prependTo();元素添加到 xx 头部（注：同上）</li>
+<li>.remove();删除自己这个元素。（注：$(‘p’).remove().appendTo($(‘body’)),这样就相当于删除然后加入，页面无变化，但是绑定的事件会消失）</li>
+<li>.datach();删除自己这个元素。（注：删除然后加入，页面无变化，绑定的事件不会消失）</li>
+<li>.empty();清空所有子元素，没有参数。</li>
+<li>$(‘<code>&lt;div&gt;&lt;/div&gt;</code>‘);创建 jq 对象。（注：写法如$(‘<code>&lt;div/&gt;</code>‘),可以写的更复杂）</li>
+<li>.wrap();//加一个包装层，$(‘p’).wrap(‘<code>&lt;div&gt;&lt;/div&gt;</code>‘)（注：可以原生，也可以 jq 对象，如果是已有元素，则会复制。也可以用 function(index){return xx}）</li>
+<li>.wrapInner();//给内部元素加一个父级(也就是中间层),（注：使用方法同上）</li>
+<li>.wrapAll();//给所有匹配到的 jq 对象加一个统一的父级。（注：给第一个匹配到的元素加父级，然后后面再匹配到的都 push 到这个父级里面，如果匹配元素不在一个层级，会出现改变结构的情况）</li>
+<li>.unwrap();//干掉一层父级。（注：到 body 干不动了）</li>
+<li>.clone();//克隆，$(‘.demo’).clone().appendTo(‘body’);（注：可以传参数 true,若传参数，可克隆事件，反之只克隆元素。）</li>
+</ul>
+<h2 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h2><p>事件绑定</p>
+<ul>
+<li>.on();//可传参数 1.==type== 2.selector 3.data 4.==handle==。（注：多次绑定多次执行）<ul>
+<li>绑定多个事件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).on(&#123;click:function()&#123;&#125;,mouseenter:function()&#123;&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>第二个参数是事件委托对象</li>
+<li>第三个参数是可传入的数据，是对象形式，可在 e.data 中找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).on(&#39;click&#39;,&#123;name:&quot;du&quot;&#125;,function(e)&#123;</span><br><span class="line">    console.log(e.data);&#x2F;&#x2F;&#123;name:&quot;du&quot;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>.one();//只执行一次的绑定事件，使用一次后失效。最后加 return false;</li>
+<li>.off();//解除绑定事件。（注：默认解除全部事件，传参解除某项事件，第二个参数可传事件方法，指定某种事件类型的某个方法。）</li>
+<li>.trigger();//触发自定义事件方法。（注：第二个参数可传函数参数，为数组形式）</li>
+<li>.hover();//移入移出事件。$(‘div’).hover(function(){移入事件},function(){移出事件});</li>
+<li>.click/keydown/mouseenter/mousewheel(滚轮事件)…</li>
+</ul>
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>,<span class="string">&#x27;li&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;alert($(e.target).text());</span><br></pre></td></tr></table></figure>
+
+<h1 id="兼容事件对象"><a href="#兼容事件对象" class="headerlink" title="兼容事件对象"></a>兼容事件对象</h1><ul>
+<li>e.pageX、e.clienX、e.which、e.button</li>
+<li>e.parventDefault()</li>
+<li>e.stopPropagation();</li>
+</ul>
+<h2 id="小知识：阻止默认事件："><a href="#小知识：阻止默认事件：" class="headerlink" title="小知识：阻止默认事件："></a>小知识：阻止默认事件：</h2><p>直接 return false;或者 e.preventDefault();</p>
+<h2 id="小知识：jQuery-对象都有一个属性，prevObject"><a href="#小知识：jQuery-对象都有一个属性，prevObject" class="headerlink" title="小知识：jQuery 对象都有一个属性，prevObject"></a>小知识：jQuery 对象都有一个属性，prevObject</h2><p>进行这一步操作的前一个 jQuery 对象。（注：最高指向 document）</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><ul>
+<li>.show();显示隐藏的元素。改变宽高和透明度（注：可以加毫秒数，决定显示的速度，第二个参数可以填运动速度，如’swing’）</li>
+<li>.hide();隐藏元素。改变宽高和透明度（注：可以加毫秒数，决定显示的速度，第二个参数可以填运动速度，如’swing’）</li>
+<li>.toggle();隐藏时显示，显示时隐藏。改变宽高和透明度（注：同上）</li>
+<li>.fadeIn/fadeOut/fadeToggle 作用同上（注：只改变透明度，透明度为 0 时隐藏。其他属性同上）</li>
+<li>.fadeTo(1000,0.6,’swing’,function(){});（注：只有 to 可以有这第二个参数，到什么时候指向）</li>
+<li>.slideDown()、slideUp()、slideToggle();上下卷入卷出，用法同上。<br>重点来了</li>
+<li>.==animate==(target,duration,easing,callback);动画({width:100},100,’swing(速率)’,function(){})(注：有内置队列，可以叠加.animate(),不是必须用回调）</li>
+<li>.is(‘:animated’);判断是否在执行动画</li>
+<li>.stop();让元素运动停止。(注：默认阻止当前运动，若有多个运动，则执行下一个运动。传 true，所有运动停止。传 true,true，停止运动，并直接跳到当前运动的目标点)</li>
+<li>.finish();直接跳到最终目标点</li>
+<li>==delay==(1000);延迟 xx 毫秒</li>
+<li>jQuery.fx.off=true;所有运动的开关（小知识）<br></li>
+</ul>
+<h1 id="队列方法，先进先出"><a href="#队列方法，先进先出" class="headerlink" title="队列方法，先进先出"></a>队列方法，先进先出</h1><ul>
+<li>.queue(‘chain’,function(){});入队方法。（注：function 可以传 next 参数并在函数最后调用 next() ，这样就会执行完当前函数时再去执行下一个队列里的函数。</li>
+<li>.dequeue(‘chain’);出队方法,执行并出队;</li>
+<li>.clearQueue();清空队列方法。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var FUNC&#x3D;[</span><br><span class="line">    function() &#123;$(&quot;#block1&quot;).animate(&#123;left:&quot;+&#x3D;100&quot;&#125;,aniCB);&#125;,</span><br><span class="line">    function() &#123;$(&quot;#block2&quot;).animate(&#123;left:&quot;+&#x3D;100&quot;&#125;,aniCB);&#125;,</span><br><span class="line">    function() &#123;$(&quot;#block1&quot;).animate(&#123;left:&quot;+&#x3D;100&quot;&#125;,aniCB);&#125;,</span><br><span class="line">    function() &#123;$(&quot;#block2&quot;).animate(&#123;left:&quot;+&#x3D;100&quot;&#125;,aniCB);&#125;,</span><br><span class="line">    function() &#123;$(&quot;#block1&quot;).animate(&#123;left:&quot;+&#x3D;100&quot;&#125;,aniCB);&#125;,</span><br><span class="line">    function()&#123;alert(&quot;动画结束&quot;)&#125;</span><br><span class="line">];</span><br><span class="line">var aniCB&#x3D;function() &#123;</span><br><span class="line">    $(document).dequeue(&quot;myAnimation&quot;);</span><br><span class="line">&#125;</span><br><span class="line">$(document).queue(&quot;myAnimation&quot;,FUNC);</span><br><span class="line">aniCB();</span><br><span class="line">1，我首先建议建立了一个函数数组，里边是一些列需要依次执行的动画</span><br><span class="line">2，然后我定义了一个回调函数，用dequeue方法用来执行队列中的下一个函数</span><br><span class="line">3，接着把这个函数数组放到document上的myAnimation的队列中（可以选择任何元素，我只是为了方便而把这个队列放在document上）</span><br><span class="line">4，最后我开始执行队列中的第一个函数</span><br><span class="line">5，小知识点：$(document).clearQueue();清空栈也可以通过将函数数组换成[]来实现。</span><br></pre></td></tr></table></figure>
+
+<h2 id="位置图形"><a href="#位置图形" class="headerlink" title="位置图形"></a>位置图形</h2><ul>
+<li>.offset();到文档边框的距离。{left:10,top:10}（注：可以取赋值，都是对象赋值{…};</li>
+<li>.position();到有定位父级边框的距离。（注：不可赋值）</li>
+<li>.scrollTop() .scrollLeft() 滚动条距离。（注：可以取赋值）</li>
+<li>.width() .height();获取元素 content 区域宽高（注：数值）</li>
+<li>.innerWidth() .innerHeight(); content + padding</li>
+<li>.outerWidth() .outerHeight(); content + padding + border + margin (全部宽高)</li>
+<li>.==each==(function(index,ele));把选中的一堆元素放到函数里面去执行。 (注：ele 为原生元素，效率非常高)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;li&#39;).each(function(index,ele)&#123;</span><br><span class="line">    $(ele).text(index).add(&#39;demo&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>.index();获取在兄弟元素间的索引值。（注：加参数可进行过滤，加元素直接返回所在索引）</li>
+</ul>
+<h2 id="jQuery-工具方法"><a href="#jQuery-工具方法" class="headerlink" title="jQuery 工具方法"></a>jQuery 工具方法</h2><ul>
+<li>$.==type==(); 返回元素类型。（注：可以判断 null,数组，date 等类型）</li>
+<li>$.isArray()/isFunction/isWindow;判断是否是数组/function/window</li>
+<li>$.trim();去掉前后的空格。</li>
+<li>$.proxy();改变 this 指向，类似 bind。<ul>
+<li>var newFn=$.proxy(fn,obj);不改变原来函数的 this 指向，复制一个新的函数，this 指向改变成 obj.</li>
+<li>简单来说就是用别人的方法，改成自己的 this，供自己来使用。</li>
+</ul>
+</li>
+<li>$.noConflict();防止冲突，防止变量命名冲突($)。var $c=$.onConflict();从此$c就变成了$，可以当作$使用。</li>
+<li>$.each(arr,function(index,ele){}); 和 forEach 作用相同。</li>
+<li>$.map(arr,function(index,ele){return ele*index});不改变原数组，返回新的数组。</li>
+<li>$.parseJSON();和原生 JSON.parse()相同。</li>
+<li>$.==makeArray==(obj);可以类数组转数组。(注：第一个参数传数据，第二个参数为类数组，则将前面数据添加到类数组，若第二个参数为数组，则将前面数据添加到数组)</li>
+</ul>
+<h2 id="插件扩展（工具方法）"><a href="#插件扩展（工具方法）" class="headerlink" title="插件扩展（工具方法）"></a>插件扩展（工具方法）</h2><ul>
+<li>$.extend({xx:function(){},xx:function(){});<ul>
+<li>用法 1：往 jQuery 工具方法里面加功能函数。调用$.xxx();</li>
+<li>用法 2：$.extend(obj1,obj2,..);把从第二个参数往后的属性全部放电管 obj1 里面，注意是浅层克隆，引用值都是一个。</li>
+<li>用法 3：$.extend(true,obj1,obj2);用法同上，深度克隆，引用值都克隆过来。</li>
+</ul>
+</li>
+<li>$.fn.extend();用法同上，往jQuery实例方法里面加功能函数。调用$(‘.demo’).drag();<br></li>
+</ul>
+<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><p>$.extend相当于给jQuery对象加属性和方法。所以调用方法为：jQuery.func()<br>$.fn.extend：相当于在 jQuery 原型链上加方法。<br>$.fn==jquery.prototype，所以调用方法为$(‘demo’).func()</p>
+<h2 id="插件扩展实战经验"><a href="#插件扩展实战经验" class="headerlink" title="插件扩展实战经验"></a>插件扩展实战经验</h2><ul>
+<li>封装插件</li>
+</ul>
+<ol>
+<li>封装插件一般用立即执行函数，节省资源。</li>
+<li>在立即执行函数里面给$.fn 加函数，形成闭包。外界依然可以调用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function($)&#123;</span><br><span class="line">    $.fn.extend(&#123;</span><br><span class="line">        &quot;tool&quot;:function()&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;(jQuery))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$(function(){})的意义。</li>
+</ul>
+<ol>
+<li>$(function(){})==$(document).ready(function(){})</li>
+<li>意思是在 document 页面解析完成后执行，比 load 快。</li>
+</ol>
+<h1 id="jQuery-工具方法-高级方法"><a href="#jQuery-工具方法-高级方法" class="headerlink" title="jQuery 工具方法-高级方法"></a>jQuery 工具方法-高级方法</h1><h2 id="ajax"><a href="#ajax" class="headerlink" title="$.ajax();"></a>$.ajax();</h2><p>属性：</p>
+<ul>
+<li>url:’https://…’</li>
+<li>type:请求方式</li>
+<li>data:{}参数信息</li>
+<li>dataType:’json’ 想要得到的数据格式（默认字符串）<ul>
+<li>‘jsonp’ 跨域，如果是 jsonp 格式，则用不到下面的回调，会用在外部设置的回调</li>
+</ul>
+</li>
+<li>contentType:’’ 数据在传递的过程当中数据的编码格式<ul>
+<li>‘application/x-www-form-urlencoded’（默认，key=value&amp;key1=value1）</li>
+<li>‘application/json’ （格式为 json 格式字符串）</li>
+</ul>
+</li>
+<li>async:true/false 是否异步</li>
+<li>beforeSend:function(xhr,data){} 数据发出之前的拦截器，return true/ false;校验所传数据（传递对象，传递数据）</li>
+<li>success:function(){}请求成功后的处理函数。</li>
+<li>error:function(e){} 请求失败后的处理函数<ul>
+<li>e.status 状态码</li>
+<li>e.statusText 错误提示 （注：后面不太常用）</li>
+</ul>
+</li>
+<li>complete:function(){} 请求完成的处理函数 最后执行。</li>
+<li>context:$(‘.wrapper’) 改变函数上下文</li>
+<li>timeout:800 超过 800 毫秒就不请求了。</li>
+</ul>
+<p>==注意：==<br>不起服务直接用 ajax 请求本地文件也会出现跨域问题</p>
+<p>因为直接打开域名为空，浏览器认为两个空域名是不想等的，也就不是同源地址</p>
+<h1 id="同源请求"><a href="#同源请求" class="headerlink" title="同源请求"></a>同源请求</h1><p>ajax 使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:<span class="string">&#x27;https://......&#x27;</span>,</span><br><span class="line">    type:<span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    dataType:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        $.each(res.data,<span class="function"><span class="keyword">function</span>(<span class="params">index,ele</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(ele);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    error:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(e.status,e.statusText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">返回数据</span><br><span class="line"><span class="built_in">Object</span></span><br><span class="line">code:<span class="number">0</span></span><br><span class="line">data:[&#123;...&#125;,&#123;...&#125;]</span><br><span class="line">msg:<span class="string">&#x27;OK&#x27;</span></span><br><span class="line">__proto__:<span class="built_in">Object</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="跨域请求-jsonp"><a href="#跨域请求-jsonp" class="headerlink" title="跨域请求 jsonp"></a>跨域请求 jsonp</h1><p>jsonp 全称 ：json and padding 数据和包裹层<br>跨域请求原理：</p>
+<p>在做 ajax 请求的时候，浏览器会有个安全机制，叫同源策略。</p>
+<p>同源策略：只有同源地址，数据才可以进行交互，如果不是同源地址就，就会出现跨域的问题。</p>
+<p>jq 中出现了一种叫 jsonp 的跨域解决方案。</p>
+<p>jsonp 这种方式不是通过 ajax 去请求数据，而是通过动态的去一个 script 标签去请求数据。</p>
+<p>script 标签的请求不会受到同源策略的限制</p>
+<p>所以 jsonp 就是把数据放在 script 标签里面，但是直接放在 script 标签中是获取不到数据的</p>
+<p>所以后台需要将数据包裹在一个对象中，然后前端需要创建一个函数来接收这个对象</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var oScript &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">oScript.src&#x3D;&quot;.&#x2F;text.txt?callback&#x3D;aa&quot;</span><br></pre></td></tr></table></figure></code></pre>
+<p>这个函数名作为一个请求参数传递给后台，后台拿到这个函数名后进行一个拼接，把数据对象拼接都函数里面：函数名({……})</p>
+<p>这个时候 script 标签中就有了数据</p>
+<p>将 script 标签插入到页面中，就可以拿到数据了。</p>
+<p>一定要有所传递的函数，来接收数据，并且此函数放在全局。</p>
+<p>jq 跨域请求使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">        url: <span class="string">&#x27;https://suggest.taobao.com/sug&#x27;</span>,</span><br><span class="line">        <span class="comment">// https://suggest.taobao.com/sug?code=utf-8&amp;q=x&amp;callback=jsonp533&amp;k=1&amp;area=c2c&amp;bucketid=18</span></span><br><span class="line">        data: &#123; <span class="comment">//jq中？后面的请求数据可以放在data中</span></span><br><span class="line">            callback: <span class="string">&#x27;aa&#x27;</span> <span class="comment">//属性名是由后台决定的，值是前端的回调函数</span></span><br><span class="line">        &#125;,</span><br><span class="line">        dataType: <span class="string">&#x27;jsonp&#x27;</span></span><br><span class="line">        <span class="comment">//另一种callback的写法，两种都可以</span></span><br><span class="line">        jsonp:<span class="string">&#x27;callback&#x27;</span>,</span><br><span class="line">        jsonpCallback:<span class="string">&#x27;aa&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//处理返回的数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">searchDataList</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Callbacks-回调管理者，异步编程离不开回调机制。"><a href="#Callbacks-回调管理者，异步编程离不开回调机制。" class="headerlink" title="$.==Callbacks==()回调管理者，异步编程离不开回调机制。"></a>$.==Callbacks==()回调管理者，异步编程离不开回调机制。</h2><p>作用：Callbacks 的作用就是把回调函数放在一起，当满足某种条件时，去调用 fire(),就会执行里面的回调函数。</p>
+<ul>
+<li>传参数’once’,回调只执行一次，执行完了就没有了。</li>
+<li>传参数’memory’,具有记忆功能，如果没有这个参数，fire 时只执行 fire 前面 add 的回函数，加上这个属性后，在 fire 后面加的回调函数也会跟着一起执行。</li>
+<li>传参数’unique’,去重</li>
+<li>传参数’stopOnFalse’,遇到 return false;就不往下执行了。<br><img src="http://47.97.6.61/%E6%9C%89%E9%81%93%E4%BA%91%E5%9B%BE%E7%89%87/1.jpg" alt="回调机制"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; callbacks</span><br><span class="line"> var cb &#x3D; $.Callbacks();</span><br><span class="line"></span><br><span class="line"> function a(x, y) &#123;</span><br><span class="line">     console.log(&#39;a&#39;, x, y);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> function b(x, y) &#123;</span><br><span class="line">     console.log(&#39;b&#39;, x, y);</span><br><span class="line"> &#125;</span><br><span class="line"> cb.add(a, b);</span><br><span class="line"></span><br><span class="line"> cb.fire(&#39;10&#39;, &#39;20&#39;);&#x2F;&#x2F; a 10 20  b 10 20</span><br></pre></td></tr></table></figure>
+
+<pre><code>回调机制很好用——&gt;
+js单线程-&gt;异步编程优化体验 防止阻塞页面-&gt;回调函数
+运动函数  animate 当你满足某个状态 接下来要去做另外一件事。</code></pre>
+<h1 id="小知识：使用多重-ajax-嵌套会导致回调地狱，危害多多。使用-Deferred-解决。"><a href="#小知识：使用多重-ajax-嵌套会导致回调地狱，危害多多。使用-Deferred-解决。" class="headerlink" title="小知识：使用多重$.ajax()嵌套会导致回调地狱，危害多多。使用$.Deferred()解决。"></a>小知识：使用多重$.ajax()嵌套会导致回调地狱，危害多多。使用$.Deferred()解决。</h1><h2 id="Deferred-有状态的回调。也叫延迟对象。"><a href="#Deferred-有状态的回调。也叫延迟对象。" class="headerlink" title="$.Deferred();有状态的回调。也叫延迟对象。"></a>$.Deferred();有状态的回调。也叫延迟对象。</h2><p>作用：回调成功了或者失败了或者未完成，都可以进行回调。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">延迟对象</span><br><span class="line">var df &#x3D; $.Deferred(); 返回一个延迟对象</span><br><span class="line">三种状态的回调函数，比如注册成功了，就会执行done的回调函数。</span><br><span class="line">               df.done() 成功 df.fail()失败 df.progress() 正在进行</span><br><span class="line">三种触发函数    df.resolve()   df.reject()   df.notify()</span><br><span class="line">注意：当成功或者失败的时候都会立即回调，正在执行时会回调然后继续执行异步的函数。</span><br><span class="line">df.promise();阉割版的延迟对象，只有状态没有触发，也就是说触发的函数只能在内部触发。</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F; 做一件异步的事情</span><br><span class="line">       function createScore() &#123;</span><br><span class="line">           var df &#x3D; $.Deferred();&#x2F;&#x2F;创建一个延迟对象</span><br><span class="line">           setInterval(function() &#123;</span><br><span class="line">               var score &#x3D; Math.random() * 100;</span><br><span class="line">               if (score &gt; 60) &#123;</span><br><span class="line">                   df.resolve(&#39;成功&#39;);</span><br><span class="line">               &#125; else if (score &lt; 40) &#123;</span><br><span class="line">                   df.reject(&#39;失败&#39;);</span><br><span class="line">               &#125; else &#123;</span><br><span class="line">                   df.notify(&#39;执行中&#39;);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;, 2000);</span><br><span class="line"></span><br><span class="line">           return df.promise();&#x2F;&#x2F; 返回阉割版延迟对象</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       var df &#x3D; createScore();</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F;延迟对象的回调函数</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F; 注册成功的回调函数</span><br><span class="line">       df.done(function(msg) &#123;</span><br><span class="line">               console.log(&#39; yes&#39; + msg)</span><br><span class="line">           &#125;)</span><br><span class="line">           &#x2F;&#x2F; 注册失败的回调函数</span><br><span class="line">       df.fail(function(msg) &#123;</span><br><span class="line">               console.log(&#39;no&#39; + msg)</span><br><span class="line">           &#125;)</span><br><span class="line">           &#x2F;&#x2F; 注册正在进行的回调函数</span><br><span class="line">       df.progress(function(msg) &#123;</span><br><span class="line">           console.log(&#39;emm..&#39; + msg)</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Deferred-的核心方法-then-（注：then-翻译过来就是然后）"><a href="#Deferred-的核心方法-then-（注：then-翻译过来就是然后）" class="headerlink" title="$.Deferred()的核心方法.==then==();（注：then 翻译过来就是然后）"></a>$.Deferred()的核心方法.==then==();（注：then 翻译过来就是然后）</h2><p>.then()默认的三个参数就是 done,fail,progress，<br>可就是说<code>df.then(function()&#123;&#125;,function()&#123;&#125;,function()&#123;&#125;)</code>依次是上面三个。<br>作用：</p>
+<ol>
+<li>可以简化 回调函数的注册。</li>
+<li>也可以做普通函数的传递。</li>
+<li>可以把 ajax 的每一步行动都拆分出来，一件事一件事的处理。</li>
+</ol>
+<p>注意：如果回调函数中还有回调函数，需要新创建一个延迟对象并返回这个对象的阉割版，才能在后面继续.then。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F; 简化注册回调的写法</span><br><span class="line">       df.then(function() &#123;</span><br><span class="line">           console.log(&#39;done1&#39;);</span><br><span class="line">       &#125;, function() &#123;</span><br><span class="line">           console.log(&#39;fail1&#39;);</span><br><span class="line">       &#125;, function() &#123;</span><br><span class="line">           console.log(&#39;progress1&#39;);</span><br><span class="line">       &#125;)</span><br><span class="line">-------------------------------------------------</span><br><span class="line">&#x2F;&#x2F; 做一件异步的事情</span><br><span class="line">       function createScore() &#123;</span><br><span class="line">           var df &#x3D; $.Deferred();</span><br><span class="line">           setInterval(function() &#123;</span><br><span class="line">               var score &#x3D; Math.random() * 100;</span><br><span class="line">               if (score &gt; 60) &#123;</span><br><span class="line">                   df.resolve(&#39;恭喜你成功了&#39;);</span><br><span class="line">               &#125; else if (score &lt; 40) &#123;</span><br><span class="line">                   df.reject(&#39;很遗憾失败了\n&#39;);</span><br><span class="line">               &#125; else &#123;</span><br><span class="line">                   df.notify(&#39;淡定不要慌\n&#39;);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;, 2000);</span><br><span class="line">           &#x2F;&#x2F; done 成功 fail失败 progress 正在执行</span><br><span class="line">           &#x2F;&#x2F; promise()是一个阉割版的对象，只有注册，没有触发。</span><br><span class="line">           return df.promise();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       var df &#x3D; createScore();&#x2F;&#x2F;创建一个异步对象</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F;then简化注册回调函数，可以传</span><br><span class="line">       df.then(function(ms) &#123; &#x2F;&#x2F;请求成功执行这个</span><br><span class="line">           console.log(&#39;胜利&#39; + ms);</span><br><span class="line">           return &#39;ok&#39;;</span><br><span class="line">       &#125;, function(ms) &#123;</span><br><span class="line">           console.log(&#39;失败\n&#39; + ms);</span><br><span class="line">           return &#39;no\n&#39;</span><br><span class="line">       &#125;, function(ms) &#123;</span><br><span class="line">           console.log(&#39;没完事\n&#39; + ms);</span><br><span class="line">           return &#39;go on&#39;</span><br><span class="line">       &#125;)</span><br><span class="line">       .then(function(param) &#123; &#x2F;&#x2F;done,fail,progress</span><br><span class="line">           console.log(&#39;我胜利了&#39; + param);</span><br><span class="line">       &#125;, function(param) &#123;</span><br><span class="line">           console.log(&#39;我失败了&#39; + param);</span><br><span class="line">       &#125;, function(param) &#123;</span><br><span class="line">           console.log(&#39;我还不知道成绩&#39; + param);</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="when"><a href="#when" class="headerlink" title="$.when()"></a>$.when()</h2><p>（翻译：当）$.when(df1,df2,df3).then(function(){},function(){});</p>
+<ol>
+<li>可以传一到多个延迟对象。</li>
+<li>返回值是 promise 对象。</li>
+<li>然后就可以.then(){function(){}…};</li>
+</ol>
+<p>怎么用：<br>当 when 里面的延迟对象全部成功时触发 done(第一个)回调函数,有一个失败就会触发 fail（第二个）<br>什么时候使用呢，比如请求多个 Ajax 请求，统一处理数据时可以用到。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/01/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="网络基础知识">
+                  <i class="fa fa-chevron-left"></i> 网络基础知识
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/01/bootstrap%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3/" rel="next" title="bootstrap整理文档">
+                  bootstrap整理文档 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑砸是只猫</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">301k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:33</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+</body>
+</html>
