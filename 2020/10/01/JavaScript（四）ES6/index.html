@@ -344,6 +344,8 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
+  
+  
       </div>
       <div class="post-meta">
     <span class="post-meta-item" title="本文字数">
@@ -1690,6 +1692,17 @@
 
   
 
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"4TCRErDsLDic56Pp6IuOMJ59-gzGzoHsz","appKey":"9Q7Ht42kK3V3KK77ckyfGWIe","serverURLs":null,"placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/2020/10/01/JavaScript%EF%BC%88%E5%9B%9B%EF%BC%89ES6/",
+      serverURLs: "https://4tcrerds.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
 
 
   <script async src="/js/cursor/fireworks.js"></script>
