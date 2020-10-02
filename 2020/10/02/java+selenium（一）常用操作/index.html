@@ -22,22 +22,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="前提新建 maven 项目，添加 selenium+java 的 jar 包 确定谷歌浏览器位置1System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe&quot;);">
+  <meta name="description" content="前提新建 maven 项目，添加 selenium+java 的 jar 包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="selenium+java常用操作">
-<meta property="og:url" content="http://example.com/2020/10/02/selenium-java%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="java+selenium（一）常用操作">
+<meta property="og:url" content="http://example.com/2020/10/02/java+selenium%EF%BC%88%E4%B8%80%EF%BC%89%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Mr.Duの博客">
-<meta property="og:description" content="前提新建 maven 项目，添加 selenium+java 的 jar 包 确定谷歌浏览器位置1System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe&quot;);">
+<meta property="og:description" content="前提新建 maven 项目，添加 selenium+java 的 jar 包">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-01T16:37:01.000Z">
-<meta property="article:modified_time" content="2020-10-01T16:44:23.419Z">
+<meta property="article:published_time" content="2020-10-02T04:20:01.000Z">
+<meta property="article:modified_time" content="2020-10-01T17:12:33.146Z">
 <meta property="article:author" content="黑砸是只猫">
 <meta property="article:tag" content="selenium">
 <meta property="article:tag" content="java">
+<meta property="article:tag" content="自动化测试">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2020/10/02/selenium-java%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="http://example.com/2020/10/02/java+selenium%EF%BC%88%E4%B8%80%EF%BC%89%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
 
 
 <script class="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>selenium+java常用操作 | Mr.Duの博客</title>
+  <title>java+selenium（一）常用操作 | Mr.Duの博客</title>
   
 
 
@@ -211,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">确定谷歌浏览器位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">新建一个页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">打开网页的两种方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E6%A1%86%E5%B9%B6%E8%BE%93%E5%85%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">获取文本框并输入的两种常用写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">点击按钮的两种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%B8%8B%E6%8B%89%E6%A1%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">选择下拉框的两种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-input-%E8%BE%93%E5%85%A5%E6%A1%86%E4%B8%AD%E7%9A%84%E5%80%BC%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">获取 input 输入框中的值的两种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%91%E7%9C%A0"><span class="nav-number">9.</span> <span class="nav-text">休眠</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95-BY"><span class="nav-number">10.</span> <span class="nav-text">获取控件的方法 BY.</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">设置驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%AC%AC%E4%B8%89%E6%96%B9%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">获取第三方浏览器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5"><span class="nav-number">5.</span> <span class="nav-text">打开网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">获取控件方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%A1%86%E8%BE%93%E5%85%A5"><span class="nav-number">7.</span> <span class="nav-text">文本框输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE"><span class="nav-number">8.</span> <span class="nav-text">点击按钮</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%B8%8B%E6%8B%89%E6%A1%86"><span class="nav-number">9.</span> <span class="nav-text">选择下拉框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6%E6%96%87%E6%9C%AC"><span class="nav-number">10.</span> <span class="nav-text">获取控件文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="nav-number">11.</span> <span class="nav-text">键盘操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%91%E7%9C%A0"><span class="nav-number">12.</span> <span class="nav-text">休眠</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">窗口最大化</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -227,20 +228,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -288,7 +289,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/02/selenium-java%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/02/java+selenium%EF%BC%88%E4%B8%80%EF%BC%89%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -301,7 +302,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          selenium+java常用操作
+          java+selenium（一）常用操作
         </h1>
 
         <div class="post-meta-container">
@@ -313,7 +314,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-10-02 00:37:01 / 修改时间：00:44:23" itemprop="dateCreated datePublished" datetime="2020-10-02T00:37:01+08:00">2020-10-02</time>
+      <time title="创建时间：2020-10-02 12:20:01 / 修改时间：01:12:33" itemprop="dateCreated datePublished" datetime="2020-10-02T12:20:01+08:00">2020-10-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,7 +322,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/selenium/" itemprop="url" rel="index"><span itemprop="name">selenium"</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">软件测试</span></a>
         </span>
     </span>
 
@@ -340,7 +341,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -359,32 +360,31 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>新建 maven 项目，添加 selenium+java 的 jar 包</p>
-<h1 id="确定谷歌浏览器位置"><a href="#确定谷歌浏览器位置" class="headerlink" title="确定谷歌浏览器位置"></a>确定谷歌浏览器位置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe&quot;);</span><br></pre></td></tr></table></figure>
-
 <a id="more"></a>
 
-<h1 id="新建一个页面"><a href="#新建一个页面" class="headerlink" title="新建一个页面"></a>新建一个页面</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebDriver driver&#x3D;new ChromeDriver();</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;ectest.nisco.cn&quot;);</span><br></pre></td></tr></table></figure>
+<h1 id="设置驱动"><a href="#设置驱动" class="headerlink" title="设置驱动"></a>设置驱动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe&quot;);</span><br></pre></td></tr></table></figure>
 
-<h1 id="打开网页的两种方法"><a href="#打开网页的两种方法" class="headerlink" title="打开网页的两种方法"></a>打开网页的两种方法</h1><p><strong>get 方法：</strong> driver.get(url);<br><strong>navigate().to()方法</strong> driver.navigate().to(url);</p>
-<h1 id="获取文本框并输入的两种常用写法"><a href="#获取文本框并输入的两种常用写法" class="headerlink" title="获取文本框并输入的两种常用写法"></a>获取文本框并输入的两种常用写法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WebElement user&#x3D;driver.findElement(By.id(&quot;username_1&quot;));</span><br><span class="line">user.sendKeys(&quot;QTEST168&quot;);&#x2F;&#x2F;获取用户名，输入用户名</span><br><span class="line"></span><br><span class="line">driver.findElement(By.className(&quot;note-editable&quot;)).sendKeys(&quot;测试&quot;);</span><br></pre></td></tr></table></figure>
+<h1 id="获取第三方浏览器"><a href="#获取第三方浏览器" class="headerlink" title="获取第三方浏览器"></a>获取第三方浏览器</h1><p>ChromeOptions option=new ChromeOptions();<br>option.setBinary(“D:……\QQBrowser.exe”);<br>WebDriver driver=new ChromeDriver(option);//加载浏览器</p>
+<h1 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebDriver driver&#x3D;new ChromeDriver();</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;ectest.nisco.cn&quot;);</span><br></pre></td></tr></table></figure>
 
-<h1 id="点击按钮的两种方式"><a href="#点击按钮的两种方式" class="headerlink" title="点击按钮的两种方式"></a>点击按钮的两种方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">WebElement loginBtn &#x3D; driver.findElement(By.id(&quot;submit_btn&quot;));</span><br><span class="line">loginBtn.click();&#x2F;&#x2F;获取登录按钮，点击登录按钮</span><br><span class="line"></span><br><span class="line">WebElement queding &#x3D; driver.findElement(By.xpath(&quot;&#x2F;&#x2F;\*[@id&#x3D;\&quot;form\&quot;]&#x2F;div[2]&#x2F;div&#x2F;button&quot;));</span><br><span class="line">queding.sendKeys(Keys.ENTER);&#x2F;&#x2F;用回车的方式点击</span><br></pre></td></tr></table></figure>
+<h1 id="打开网页"><a href="#打开网页" class="headerlink" title="打开网页"></a>打开网页</h1><p><strong>get 方法：</strong> driver.get(url);<br><strong>navigate().to()方法</strong> driver.navigate().to(url);</p>
+<h1 id="获取控件方法"><a href="#获取控件方法" class="headerlink" title="获取控件方法"></a>获取控件方法</h1><p>BY.id/linktext/className/xpath</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebElement user &#x3D; driver.findElement(By.id(&quot;User&quot;))</span><br></pre></td></tr></table></figure>
 
-<h1 id="选择下拉框的两种方式"><a href="#选择下拉框的两种方式" class="headerlink" title="选择下拉框的两种方式"></a>选择下拉框的两种方式</h1><p>方法一：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select mySelect &#x3D;new Select(driver.findElement(By.id(&quot;User_user_type&quot;)));</span><br><span class="line"> mySelect .selectByVisibleText(&quot;电子数码&quot;);&#x2F;&#x2F;根据文本</span><br><span class="line">mySelect.selectByValue(&quot;10&quot;);&#x2F;&#x2F;根据值</span><br></pre></td></tr></table></figure>
+<h1 id="文本框输入"><a href="#文本框输入" class="headerlink" title="文本框输入"></a>文本框输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文本框.sendKeys(&quot;文本框内容&quot;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="点击按钮"><a href="#点击按钮" class="headerlink" title="点击按钮"></a>点击按钮</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按钮.click();</span><br><span class="line"></span><br><span class="line">按钮.sendKeys(Keys.ENTER);&#x2F;&#x2F;用回车的方式点击</span><br></pre></td></tr></table></figure>
+
+<h1 id="选择下拉框"><a href="#选择下拉框" class="headerlink" title="选择下拉框"></a>选择下拉框</h1><p>方法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">下拉框.selectByVisibleText(&quot;下拉框文本内容&quot;);&#x2F;&#x2F;根据文本</span><br><span class="line">下拉框.selectByValue(&quot;10&quot;);&#x2F;&#x2F;根据顺序值</span><br></pre></td></tr></table></figure>
 
 <p>方法二：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebElement mySelect&#x3D;driver.findElement(By.cssSelector(&quot;#User_user_type option[value&#x3D;&#39;2&#39;]&quot;));</span><br><span class="line"> mySelect.click();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebElement mySelect&#x3D;driver.findElement(By.cssSelector(&quot;#User_user_type option[value&#x3D;&#39;2&#39;]&quot;));</span><br><span class="line">mySelect.click();</span><br></pre></td></tr></table></figure>
 
-<h1 id="获取-input-输入框中的值的两种方式"><a href="#获取-input-输入框中的值的两种方式" class="headerlink" title="获取 input 输入框中的值的两种方式"></a>获取 input 输入框中的值的两种方式</h1><p>方法一：获取 input 的文本值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.findElement( By.id(&quot;txtName&quot;) ).getText();</span><br></pre></td></tr></table></figure>
-
-<p>方法二：获取 input 中 value 的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.findElement(By.id(&quot;txtName&quot;) ).getAttribute(&quot;value&quot;) ;</span><br></pre></td></tr></table></figure>
-
+<h1 id="获取控件文本"><a href="#获取控件文本" class="headerlink" title="获取控件文本"></a>获取控件文本</h1><p>控件.getText();<br>控件.getAttribute(“value”);</p>
+<h1 id="键盘操作"><a href="#键盘操作" class="headerlink" title="键盘操作"></a>键盘操作</h1><p>文本框.sendKeys(Keys.CONTROL,”a”); //单次键盘操作<br>文本框.sendKeys(Keys.CONTROL,”a”,”c”,”v”);//多次键盘操作<br>文本框.sendKeys(Keys.chord(Keys.CONTROL,”a”),Keys.DELETE,”123”);//组合操作</p>
 <h1 id="休眠"><a href="#休眠" class="headerlink" title="休眠"></a>休眠</h1><p>Thread.sleep(1000);</p>
-<h1 id="获取控件的方法-BY"><a href="#获取控件的方法-BY" class="headerlink" title="获取控件的方法 BY."></a>获取控件的方法 BY.</h1><p>1.id<br>2.linktext<br>3.className<br>4.xpath—–&gt;检查-&gt;Copy XPath</p>
-<p>注意：点击后需要休眠一下</p>
+<h1 id="窗口最大化"><a href="#窗口最大化" class="headerlink" title="窗口最大化"></a>窗口最大化</h1><p>driver.manage().window().maximize();</p>
 
     </div>
 
@@ -396,6 +396,7 @@
           <div class="post-tags">
               <a href="/tags/selenium/" rel="tag"># selenium</a>
               <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" rel="tag"># 自动化测试</a>
           </div>
 
         
@@ -407,6 +408,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2020/10/02/java+selenium%EF%BC%88%E4%BA%8C%EF%BC%89%E5%BB%BA%E7%AB%8B%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/" rel="next" title="java+selenium（二）建立项目流程">
+                  java+selenium（二）建立项目流程 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -465,13 +469,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">218k</span>
+    <span title="站点总字数">220k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:18</span>
+    <span title="站点阅读时长">3:20</span>
   </span>
 </div>
 <div class="busuanzi-count">
