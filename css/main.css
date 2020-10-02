@@ -2847,7 +2847,7 @@ body {
 .main-inner .post-header {
   margin: 0;
 }
-.main-inner .post-footer {
+.main-inner .post-footer .post-eof {
   display: none;
 }
 .pagination {
