@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="知识点补充可微&#x3D;可导 函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高数一精简笔记">
+<meta property="og:url" content="http://example.com/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Mr.Duの博客">
+<meta property="og:description" content="知识点补充可微&#x3D;可导 函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%891.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%AE%9A%E4%B9%89.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%AE%9A%E4%B9%89%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%B7%A6%E5%AF%BC%E6%95%B0%E3%80%81%E5%8F%B3%E5%AF%BC%E6%95%B0.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%B7%A6%E5%8F%B3%E5%AF%BC%E6%95%B0%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B3.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B6.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%B9%E6%95%B0%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%B9%E6%95%B0%E6%B1%82%E5%AF%BC%E6%B3%95%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B3.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B4.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B5.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B7.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B3-1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B3-2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E5%AE%9A%E4%B9%89.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E7%9A%84%E8%BF%91%E4%BC%BC%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E7%9A%84%E8%BF%91%E4%BC%BC%E8%AE%A1%E7%AE%97%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%BD%97%E5%B0%94%E5%AE%9A%E7%90%86%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AE%9A%E7%90%86%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AE%9A%E7%90%86%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B3.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%B9%E5%87%B8%E6%80%A7%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%90%E7%82%B9%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%90%E7%82%B9%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-3.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%AC%AC%E4%BA%8C%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%AC%AC%E4%BA%8C%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B3-1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B3-2.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B0%B4%E5%B9%B3%E6%B8%90%E8%BF%91%E7%BA%BF.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B0%B4%E5%B9%B3%E6%B8%90%E8%BF%91%E7%BA%BF%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%9E%82%E7%9B%B4%E6%B8%90%E8%BF%91%E7%BA%BF.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%9E%82%E7%9B%B4%E6%B8%90%E8%BF%91%E7%BA%BF%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8E%9F%E5%87%BD%E6%95%B0%E4%BE%8B1.png">
+<meta property="og:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E6%80%A7%E8%B4%A8.png">
+<meta property="article:published_time" content="2020-10-03T10:00:52.000Z">
+<meta property="article:modified_time" content="2020-10-05T17:56:02.396Z">
+<meta property="article:author" content="黑砸是只猫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%891.png">
+
+
+<link rel="canonical" href="http://example.com/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>高数一精简笔记 | Mr.Duの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+ <a target="_blank" rel="noopener" href="https://github.com/cat-heiza" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mr.Duの博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半山腰总是最拥挤的，你得去山顶看看</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text">知识点补充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">反函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E9%99%90"><span class="nav-number">4.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%A4%A7%E5%A4%B4%E7%9A%84%E6%B1%82%E6%9E%81%E9%99%90%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">抓大头的求极限方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E5%85%AC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">等价无穷小公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">4.3.</span> <span class="nav-text">极限四则运算法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E6%9E%81%E9%99%90"><span class="nav-number">4.4.</span> <span class="nav-text">两个重要极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">4.5.</span> <span class="nav-text">间断点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B"><span class="nav-number">5.1.</span> <span class="nav-text">导数第一定律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%AE%9A%E4%B9%89"><span class="nav-number">5.2.</span> <span class="nav-text">导数第二定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E5%AF%BC%E6%95%B0%E3%80%81%E5%8F%B3%E5%AF%BC%E6%95%B0"><span class="nav-number">5.3.</span> <span class="nav-text">左导数、右导数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">5.4.</span> <span class="nav-text">导数几何意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%92%8C%E5%8F%AF%E5%AF%BC"><span class="nav-number">5.5.</span> <span class="nav-text">连续和可导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC-16-%E4%B8%AA%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">5.6.</span> <span class="nav-text">初等函数求导(16 个求导公式)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E6%B1%82%E5%AF%BC"><span class="nav-number">5.7.</span> <span class="nav-text">四则运算求导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC"><span class="nav-number">5.8.</span> <span class="nav-text">复合函数求导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC"><span class="nav-number">5.9.</span> <span class="nav-text">隐函数求导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E6%B1%82%E5%AF%BC%E6%B3%95"><span class="nav-number">5.10.</span> <span class="nav-text">对数求导法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#n-%E9%98%B6%E5%AF%BC%E6%95%B0%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95"><span class="nav-number">5.11.</span> <span class="nav-text">n 阶导数求导方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC"><span class="nav-number">5.12.</span> <span class="nav-text">参数方程求导</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86"><span class="nav-number">6.</span> <span class="nav-text">微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E7%9A%84%E8%BF%91%E4%BC%BC%E8%AE%A1%E7%AE%97"><span class="nav-number">6.1.</span> <span class="nav-text">微分的近似计算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">导数的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">7.1.</span> <span class="nav-text">微分中值定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99"><span class="nav-number">7.2.</span> <span class="nav-text">洛必达法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E6%80%A7%E3%80%81%E5%87%B9%E5%87%B8%E6%80%A7%E3%80%81%E6%8B%90%E7%82%B9"><span class="nav-number">7.3.</span> <span class="nav-text">单调性、凹凸性、拐点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E5%80%BC"><span class="nav-number">7.4.</span> <span class="nav-text">函数的极值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC"><span class="nav-number">7.5.</span> <span class="nav-text">函数的最值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-number">7.6.</span> <span class="nav-text">渐近线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">8.</span> <span class="nav-text">不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E6%A6%82%E5%BF%B5"><span class="nav-number">8.1.</span> <span class="nav-text">不定积分概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">8.2.</span> <span class="nav-text">不定积分的性质</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="黑砸是只猫"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">黑砸是只猫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cat-heiza" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cat-heiza" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1778911090@qq.com" title="E-Mail → mailto:1778911090@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="黑砸是只猫">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Duの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高数一精简笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-03 18:00:52" itemprop="dateCreated datePublished" datetime="2020-10-03T18:00:52+08:00">2020-10-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-06 01:56:02" itemprop="dateModified" datetime="2020-10-06T01:56:02+08:00">2020-10-06</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="知识点补充"><a href="#知识点补充" class="headerlink" title="知识点补充"></a>知识点补充</h1><p><strong>可微=可导</strong></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><a id="more"></a>
+
+<p>==<strong>待定系数法：</strong>==</p>
+<ul>
+<li>==如果各项系数和为 0，则必含有因式（x-1)==</li>
+<li>==如果奇次项系数和与偶次项系数和相等，则必含有因式（x+1）==</li>
+<li>==一元二次函数直接带入(x+a)(x+b)==</li>
+<li>十字相乘法是特殊的待定系数法</li>
+</ul>
+<p>==$a^b\times a^{-b} = 1$==</p>
+<p>==$lna^b=b·lna$==</p>
+<p>==$ln1=0,ln e=1$==</p>
+<p>==$f(x)=e^{lnf(x)}$==</p>
+<p>==$a^2-b^2 = (a+b)(a-b)$(有理化)==</p>
+<p>==$a^3 \pm b^3$ = $(a\pm b)(a^2 \mp ab + b^2)$(有理化)==</p>
+<p>==$1+2+…+n = \frac{n(n+1)}{2}$==</p>
+<p>==$sin2x=2sinxcosx$==</p>
+<p>正切函数：==$tan\frac{\pi}{4}=1$== 反正切函数：==$arctan1=\frac{\pi}{4}$==</p>
+<h1 id="反函数"><a href="#反函数" class="headerlink" title="反函数"></a>反函数</h1><p>==$e^x和lnx互为反函数$==，例：$y-1=ln(x+2)$ &gt;&gt; $e^{y-1}=x+2$</p>
+<p>==sinx 和 arcsinx 互为反函数…==</p>
+<h1 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h1><p>==$lim_{x\to 0^-}e^{\frac{1}{x}}=0$ <strong>e 的负无穷次幂无限趋近于 0</strong>==</p>
+<p>==$lim_{n \to \infty}\frac{(-1)^n}{n}=0$==</p>
+<h2 id="抓大头的求极限方法"><a href="#抓大头的求极限方法" class="headerlink" title="抓大头的求极限方法"></a>抓大头的求极限方法</h2><ul>
+<li>==前提：x 趋向于无穷大，必须是分子比分母==</li>
+<li>==次幂相同取系数，分子大最后趋向无穷大，分母大最后趋向于 0==</li>
+</ul>
+<hr>
+
+<h2 id="等价无穷小公式"><a href="#等价无穷小公式" class="headerlink" title="等价无穷小公式"></a>等价无穷小公式</h2><p>==$lim\frac{\beta(x)}{a(x)}=1$== ，则称$\beta(x)$与$a(x)$==等阶无穷小==，记作 ==$\beta(x)$~$a(x)$==</p>
+<ul>
+<li>==前提：x 趋向于 0==</li>
+<li>==x ~ sinx ~ tanx ~ arctanx ~ $e^x-1$ ~ ln(1+x)==</li>
+<li>==1 - cosx ~ $\frac{1}{2}x^2$==</li>
+<li>==$(1+x)^a-1$ ~ ax==</li>
+<li>==$a^x-1$ ~ xlna(a&gt;0,a$\neq$1)==</li>
+</ul>
+<hr>
+
+<h2 id="极限四则运算法则"><a href="#极限四则运算法则" class="headerlink" title="极限四则运算法则"></a>极限四则运算法则</h2><p>设$limf(x)=A,limg(x)=B$，则</p>
+<ul>
+<li>==$lim|f(x)\pm g(x)|=limf(x)\pm limg(x)$==：加的极限=极限的加，减的极限=极限的减</li>
+<li>==$limf(x)g(x)=limf(x)\cdot limg(x)$==：积的极限=极限的积</li>
+<li>==$lim\frac{f(x)}{g(x)}=\frac{limf(x)}{limg(x)}$==：商的极限=极限的商，其中，$lim g(x)$&ne;0</li>
+</ul>
+<hr>
+
+<h2 id="两个重要极限"><a href="#两个重要极限" class="headerlink" title="两个重要极限"></a>两个重要极限</h2><p>==$lim_{x\to 0}\frac{sinx}{x}=1$(两个重要极限)==</p>
+<p>==$lim_{x\to \infty}(1+\frac{1}{x})^x=e$(两个重要极限)==</p>
+<h2 id="间断点"><a href="#间断点" class="headerlink" title="间断点"></a>间断点</h2><p>==左右极限相等就是 <strong>可去间断点</strong>（第一类间断点）==</p>
+<p>==左右极限不相等就是 <strong>跳跃间断点</strong>（第一类间断点）==</p>
+<p>==不是第一类间断点的任何间断点，都是 <strong>第二类间断点</strong> 如下：==</p>
+<p>==左右极限有一个不存在（第二类间断点）==</p>
+<p>==当$x\to x_0时，函数f(x)\to \infty,则称x=x_0为函数f(x)的$ <strong>无穷间断点</strong>==</p>
+<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="导数第一定律"><a href="#导数第一定律" class="headerlink" title="导数第一定律"></a>导数第一定律</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%891.png" alt="导数的定义1"></p>
+<p>==<strong>快速解法：分子上两个括号内容相减，再除以分母，得到的结果就是几倍的$f(x_0)$</strong>==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E4%BE%8B2.png" alt="导数的定义例2"></p>
+<h2 id="导数第二定义"><a href="#导数第二定义" class="headerlink" title="导数第二定义"></a>导数第二定义</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%AE%9A%E4%B9%89.png" alt="导数第二定义"></p>
+<p>==<strong>注意：分段函数在分段点的导数经常需要用导数的第二定义求解</strong>==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%AE%9A%E4%B9%89%E4%BE%8B1.png" alt="导数第二定义例1"></p>
+<h2 id="左导数、右导数"><a href="#左导数、右导数" class="headerlink" title="左导数、右导数"></a>左导数、右导数</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%B7%A6%E5%AF%BC%E6%95%B0%E3%80%81%E5%8F%B3%E5%AF%BC%E6%95%B0.png" alt="左导数、右导数"></p>
+<p>==<strong>导数本质上是一种极限。当且仅当左极限、右极限相等的时候，在这点的导数才存在</strong>==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%B7%A6%E5%8F%B3%E5%AF%BC%E6%95%B0%E4%BE%8B2.png" alt="左右导数例2"><br>注释：如果左右导数不相等，则得出的结论为：此导数不存在</p>
+<h2 id="导数几何意义"><a href="#导数几何意义" class="headerlink" title="导数几何意义"></a>导数几何意义</h2><p>==点斜率：$y - y_0 = k (x - x_0)$==</p>
+<p>==<strong>导数的几何意义代表切线斜率。</strong>==</p>
+<p>==<strong>导数切线方程：k 就是$f’(x_0)$</strong>==</p>
+<p>==<strong>法线方程：$法线方程k \times 切线方程k = 1$</strong>==</p>
+<h2 id="连续和可导"><a href="#连续和可导" class="headerlink" title="连续和可导"></a>连续和可导</h2><p>==<strong>可导一定连续，连续不一定可导</strong>==</p>
+<h2 id="初等函数求导-16-个求导公式"><a href="#初等函数求导-16-个求导公式" class="headerlink" title="初等函数求导(16 个求导公式)"></a>初等函数求导(16 个求导公式)</h2><ul>
+<li>基本函数组成：<ul>
+<li>常量函数</li>
+<li>幂函数</li>
+<li>指数函数</li>
+<li>对数函数</li>
+<li>三角函数</li>
+<li>反三角函数</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F1.png" alt="求导公式1"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F2.png" alt="求导公式2"><br>注释：小技巧：发 cao 的三角函数都为负的，没有则都为正的</p>
+<h2 id="四则运算求导"><a href="#四则运算求导" class="headerlink" title="四则运算求导"></a>四则运算求导</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97.png" alt="导数四则运算"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%BC%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E4%BE%8B1.png" alt="导数四则运算例1"><br>不管几个函数乘积求导，都同上规律一样</p>
+<h2 id="复合函数求导"><a href="#复合函数求导" class="headerlink" title="复合函数求导"></a>复合函数求导</h2><p>==$y’=f(u)’ \times u’$==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png" alt="复合函数求导公式"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B1.png" alt="复合函数求导例1"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B3.png" alt="复合函数求导例3"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%90%88%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E4%BE%8B6.png" alt="复合函数求导例6"></p>
+<h2 id="隐函数求导"><a href="#隐函数求导" class="headerlink" title="隐函数求导"></a>隐函数求导</h2><p>==<strong>在隐函数求导过程中，如果遇到关于 y 的复合函数，则把 y 当成中间变量 u 看待，使用复合函数求导方法。</strong>==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95.png" alt="隐函数求导方法"></p>
+<h2 id="对数求导法"><a href="#对数求导法" class="headerlink" title="对数求导法"></a>对数求导法</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%B9%E6%95%B0%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png" alt="对数求导公式"></p>
+<p><strong>当函数是由乘积、商、乘方构成的时候，就可以考虑使用对数求导法</strong></p>
+<p>常用方法：<br>第一步：等式两边同时取对数<br>第二步：等式两边同时求导</p>
+<blockquote>
+<p>幂指函数求导一般情况下使用对数求导法<br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AF%B9%E6%95%B0%E6%B1%82%E5%AF%BC%E6%B3%95%E4%BE%8B1.png" alt="对数求导法例1"></p>
+</blockquote>
+<h2 id="n-阶导数求导方法"><a href="#n-阶导数求导方法" class="headerlink" title="n 阶导数求导方法"></a>n 阶导数求导方法</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95.png" alt="高阶函数表示方法"></p>
+<h3 id="多项式-n-阶导数"><a href="#多项式-n-阶导数" class="headerlink" title="多项式 n 阶导数"></a>多项式 n 阶导数</h3><p>==$y=x^n$ $y^{(n)}=n!$==</p>
+<p>==$y=x^n$ $y^{(n+1)}=0$==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B2.png" alt="高阶函数例2"></p>
+<h3 id="指数函数-n-阶导数"><a href="#指数函数-n-阶导数" class="headerlink" title="指数函数 n 阶导数"></a>指数函数 n 阶导数</h3><p>==$y^{(n)}=a^x(ln a)^{n}$==<br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B3.png" alt="高阶函数例2"></p>
+<h3 id="sinx-和-cosx-的-n-阶导数"><a href="#sinx-和-cosx-的-n-阶导数" class="headerlink" title="sinx 和 cosx 的 n 阶导数"></a>sinx 和 cosx 的 n 阶导数</h3><p>==$(sinx)^{(n)}=sin(x+\frac{\pi}{2}n)$==<br>==$(cosx)^{(n)}=sin(x+\frac{\pi}{2}n)$==</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B4.png" alt="高阶函数例4"></p>
+<h3 id="lnx-的-n-阶导数"><a href="#lnx-的-n-阶导数" class="headerlink" title="lnx 的 n 阶导数"></a>lnx 的 n 阶导数</h3><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B5.png" alt="高阶函数例5"></p>
+<h3 id="已知-n-阶导数求-n-1-阶导数"><a href="#已知-n-阶导数求-n-1-阶导数" class="headerlink" title="已知 n 阶导数求 n+1 阶导数"></a>已知 n 阶导数求 n+1 阶导数</h3><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BE%8B7.png" alt="高阶函数例7"></p>
+<h2 id="参数方程求导"><a href="#参数方程求导" class="headerlink" title="参数方程求导"></a>参数方程求导</h2><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC.png" alt="参数方程求导"><br>带公式就 ok</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B1.png" alt="参数方程求导例1"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B2.png" alt="参数方程求导例2"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B3-1.png"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC%E4%BE%8B3-2.png" alt="参数方程求导例3"></p>
+<h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E5%AE%9A%E4%B9%89.png" alt="微分定义"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E4%BE%8B1.png" alt="微分例1"></p>
+<h2 id="微分的近似计算"><a href="#微分的近似计算" class="headerlink" title="微分的近似计算"></a>微分的近似计算</h2><p>$当\Delta x非常小时：$<br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E7%9A%84%E8%BF%91%E4%BC%BC%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="微分的近似计算公式"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%BE%AE%E5%88%86%E7%9A%84%E8%BF%91%E4%BC%BC%E8%AE%A1%E7%AE%97%E4%BE%8B1.png" alt="微分的近似计算例1"></p>
+<h1 id="导数的应用"><a href="#导数的应用" class="headerlink" title="导数的应用"></a>导数的应用</h1><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h3 id="罗尔中值定理"><a href="#罗尔中值定理" class="headerlink" title="罗尔中值定理"></a>罗尔中值定理</h3><p>设函数$f(x)$满足以下条件：</p>
+<ol>
+<li>在[a, b]上连续</li>
+<li>在(a, b)内可导</li>
+<li>$f(a) = f(b)$</li>
+</ol>
+<p><strong>结论：则至少存在一点$\xi \in(a, b)$，使$f’(\xi)=0$</strong></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%BD%97%E5%B0%94%E5%AE%9A%E7%90%86%E4%BE%8B1.png" alt="罗尔定理例1"></p>
+<h3 id="拉格朗日中值定理"><a href="#拉格朗日中值定理" class="headerlink" title="拉格朗日中值定理"></a>拉格朗日中值定理</h3><p>设函数$f(x)$满足以下条件：</p>
+<ol>
+<li>在[a, b]上连续</li>
+<li>在(a, b)内可导</li>
+</ol>
+<p><strong>结论：则至少存在一点$\xi \in(a, b)$，使$f’(\xi)=\frac{f(b)-f(a)}{b-a}$</strong></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AE%9A%E7%90%86%E4%BE%8B1.png" alt="拉格朗日定理例1"></p>
+<p><strong>推论：若函数$f(x)$在区间$I$上的导数恒等于 0，则$f(x)$在区间$I$上恒为一个常数。</strong></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AE%9A%E7%90%86%E4%BE%8B2.png" alt="拉格朗日定理例2"></p>
+<h3 id="柯西中值定理"><a href="#柯西中值定理" class="headerlink" title="柯西中值定理"></a>柯西中值定理</h3><p>设函数$f(x)、g(x)$满足以下条件：</p>
+<ol>
+<li>在[a, b]上连续</li>
+<li>在(a, b)内可导，且$g’(x)\neq 0$</li>
+</ol>
+<p>结论：则存在$\xi \in (a,b)$，使得$\frac{f’(\xi)}{g’(\xi)}=\frac{f(b)-f(a)}{g(b)-g(a)}$</p>
+<h2 id="洛必达法则"><a href="#洛必达法则" class="headerlink" title="洛必达法则"></a>洛必达法则</h2><p><strong>分子分母都趋向 0，则分子分母同时求导。</strong><br><strong>分子分母都趋向 $\infty$，则分子分母同时求导。</strong></p>
+<blockquote>
+<p>做题时，先考虑等价无穷小代换，再考虑洛必达法则</p>
+</blockquote>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B1.png" alt="洛必达法则例1"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B2.png" alt="洛必达法则例2"></p>
+<blockquote>
+<p>幂指函数求极限，利用公式 $f(x)=e^{lnf(x)}$ 和洛必达法则<br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E4%BE%8B3.png" alt="洛必达法则例3"></p>
+</blockquote>
+<h2 id="单调性、凹凸性、拐点"><a href="#单调性、凹凸性、拐点" class="headerlink" title="单调性、凹凸性、拐点"></a>单调性、凹凸性、拐点</h2><p><strong>拐点类题目的做题步骤：</strong></p>
+<ol>
+<li>先把二阶导数求出来</li>
+<li>找两种点：二阶导数为零、二阶导数不存在</li>
+<li>找到后列出表格</li>
+</ol>
+<h3 id="函数单调性的判断"><a href="#函数单调性的判断" class="headerlink" title="函数单调性的判断"></a>函数单调性的判断</h3><p>$设函数f(x)在(a,b)内可导，则$</p>
+<ol>
+<li>$若在(a,b)内f’(x)&gt;0，则f(x)在(a,b)内单调增加。$</li>
+<li>$若在(a,b)内f’(x)&lt;0，则f(x)在(a,b)内单调减少。$</li>
+</ol>
+<h3 id="凹凸性"><a href="#凹凸性" class="headerlink" title="凹凸性"></a>凹凸性</h3><p>凹函数：$f’’(x)&gt;0$<br>凸函数：$f’’(x)&lt;0$</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%B9%E5%87%B8%E6%80%A7%E4%BE%8B1.png" alt="凹凸性例1"></p>
+<h3 id="拐点"><a href="#拐点" class="headerlink" title="拐点"></a>拐点</h3><p>连续曲线的凹凸分界点称为拐点（注：拐点是坐标）</p>
+<p>拐点可能的点右两种：</p>
+<ol>
+<li>$f’’(x)=0$</li>
+<li>$f’’(x)不存在$</li>
+</ol>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%90%E7%82%B9%E4%BE%8B1.png" alt="拐点例1"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%90%E7%82%B9%E4%BE%8B2.png" alt="拐点例2"></p>
+<h2 id="函数的极值"><a href="#函数的极值" class="headerlink" title="函数的极值"></a>函数的极值</h2><p>$波峰顶点的f(x_0)为极大值，x_0为极大值点。$</p>
+<p>$波谷谷底的f(x_0)为极小值，x_0为极小值点。$</p>
+<h3 id="极值的求法"><a href="#极值的求法" class="headerlink" title="极值的求法"></a>极值的求法</h3><p>可以取得极值的点：$f’(x)=0$ 或 $f’(x)$不存在的点<br>(注：使$f’(x)=0的点$x_0 称为驻点，使$f’(x)不存在的点$x_0 称为不可导点)</p>
+<p>定理：设函数$f(x)$在点$x_0$处可导，且$x_0$为极值点，则$f’(x_0)=0$</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E4%BE%8B1.png" alt="极值例1"></p>
+<h3 id="极值的定理"><a href="#极值的定理" class="headerlink" title="极值的定理"></a>极值的定理</h3><p><strong>求极值的步骤：</strong></p>
+<ol>
+<li>要先知道函数定义域</li>
+<li>取得极值嫌疑的点：驻点、不可导点</li>
+<li>列表进行判断</li>
+</ol>
+<p><strong>第一判定定理：</strong><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-1.png" alt="极值判定定理1-1"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-2.png" alt="极值判定定理1-2"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%861-3.png" alt="极值判定定理1-3"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%9E%81%E5%80%BC%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B1.png" alt="极值判定定理例1"></p>
+<p><strong>第二判定定理：</strong><br>当$x_0$为驻点时</p>
+<ol>
+<li>若$f’’(x_0)&gt;0，则$f(x_0)为极小值</li>
+<li>若$f’’(x_0)&lt;0，则$f(x_0)为极大值</li>
+</ol>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%AC%AC%E4%BA%8C%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B1.png" alt="第二判定定理例1"><br><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E7%AC%AC%E4%BA%8C%E5%88%A4%E5%AE%9A%E5%AE%9A%E7%90%86%E4%BE%8B2.png" alt="第二判定定理例2"></p>
+<h2 id="函数的最值"><a href="#函数的最值" class="headerlink" title="函数的最值"></a>函数的最值</h2><h3 id="闭区间上的最值"><a href="#闭区间上的最值" class="headerlink" title="闭区间上的最值"></a>闭区间上的最值</h3><p>有可能取得最值的部位：</p>
+<ol>
+<li>驻点</li>
+<li>不可导点</li>
+<li>区间端点</li>
+</ol>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B1.png" alt="函数的最值例1"></p>
+<h3 id="开区间上的最值"><a href="#开区间上的最值" class="headerlink" title="开区间上的最值"></a>开区间上的最值</h3><p><strong>唯一的极值就是最值</strong></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B2.png" alt="函数的最值例2"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B3-1.png" alt="函数的最值例3-1"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%80%E5%80%BC%E4%BE%8B3-2.png" alt="函数的最值例3-2"></p>
+<h2 id="渐近线"><a href="#渐近线" class="headerlink" title="渐近线"></a>渐近线</h2><h3 id="水平渐近线"><a href="#水平渐近线" class="headerlink" title="水平渐近线"></a>水平渐近线</h3><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B0%B4%E5%B9%B3%E6%B8%90%E8%BF%91%E7%BA%BF.png" alt="水平渐近线"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%B0%B4%E5%B9%B3%E6%B8%90%E8%BF%91%E7%BA%BF%E4%BE%8B1.png" alt="水平渐近线例1"></p>
+<h3 id="垂直渐近线"><a href="#垂直渐近线" class="headerlink" title="垂直渐近线"></a>垂直渐近线</h3><p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%9E%82%E7%9B%B4%E6%B8%90%E8%BF%91%E7%BA%BF.png" alt="垂直渐近线"></p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%9E%82%E7%9B%B4%E6%B8%90%E8%BF%91%E7%BA%BF%E4%BE%8B1.png" alt="垂直渐近线例1"></p>
+<h1 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h1><h2 id="不定积分概念"><a href="#不定积分概念" class="headerlink" title="不定积分概念"></a>不定积分概念</h2><h3 id="原函数"><a href="#原函数" class="headerlink" title="原函数"></a>原函数</h3><p><strong>若$F’(x)=f(x)$，则$F(x)$称为 f(x)的一个原函数</strong></p>
+<p><strong>同一个函数，不同的原函数之间只相差一个常数</strong></p>
+<p>$(x^2)’=2x$<br>$(x^2+1)’=2x$<br>$(x^2+x)’=2x$</p>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%8E%9F%E5%87%BD%E6%95%B0%E4%BE%8B1.png" alt="原函数例1"></p>
+<h3 id="不定积分-1"><a href="#不定积分-1" class="headerlink" title="不定积分"></a>不定积分</h3><p><strong>$f(x)$所有原函数$F(x)+c$ 称为$f(x)$的不定积分，记为$\int f(x)dx=F(x)+c$</strong></p>
+<h3 id="原函数存在定理"><a href="#原函数存在定理" class="headerlink" title="原函数存在定理"></a>原函数存在定理</h3><p><strong>函数$f(x)$在某区间内连续，则 f(x)在该区间内的原函数一定存在</strong></p>
+<h2 id="不定积分的性质"><a href="#不定积分的性质" class="headerlink" title="不定积分的性质"></a>不定积分的性质</h2><ol>
+<li>$\int [f(x)\pm g(x)]dx=\int f(x)dx \pm \int g(x)dx$</li>
+<li>$\int kf(x)dx = k \int f(x)dx$</li>
+<li>求导与不定积分互为逆运算</li>
+</ol>
+<p><img src="http://47.97.6.61/%E5%8D%87%E6%9C%AC%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E6%80%A7%E8%B4%A8.png" alt="不定积分性质"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="黑砸是只猫 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/02/java+selenium%EF%BC%88%E4%B8%89%EF%BC%89%E6%93%8D%E4%BD%9CExcel/" rel="prev" title="java+selenium（三）操作Excel">
+                  <i class="fa fa-chevron-left"></i> java+selenium（三）操作Excel
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/06/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="服务器启动外网无法访问的问题">
+                  服务器启动外网无法访问的问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑砸是只猫</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">224k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"4TCRErDsLDic56Pp6IuOMJ59-gzGzoHsz","appKey":"9Q7Ht42kK3V3KK77ckyfGWIe","serverURLs":null,"placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/2020/10/03/%E9%AB%98%E6%95%B0%E4%B8%80%E7%B2%BE%E7%AE%80%E7%AC%94%E8%AE%B0/",
+      serverURLs: "https://4tcrerds.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+</body>
+</html>
